@@ -187,8 +187,8 @@ function animate() {
     const distortion = Math.sqrt(ringVx * ringVx + ringVy * ringVy);
     ctx.beginPath();
     ctx.ellipse(ring.x, ring.y, ringSize + distortion * 0.5, ringSize - distortion * 0.2, Math.atan2(ringVy, ringVx), 0, Math.PI * 2);
-    ctx.strokeStyle = isHovering ? 'rgba(6,182,212, 0.8)' : 'rgba(21,101,240, 0.5)';
-    ctx.lineWidth = isHovering ? 2.5 : 1.5;
+    ctx.strokeStyle = isHovering ? 'rgba(59, 130, 246, 1)' : 'rgba(21, 101, 240, 0.7)';
+    ctx.lineWidth = isHovering ? 4 : 2;
     ctx.stroke();
 
     // Orbiting dots on hover
