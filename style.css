@@ -34,8 +34,12 @@ body {
   color: var(--text);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  cursor: none;
+  cursor: none !important;
   line-height: 1.6;
+}
+
+* {
+  cursor: none !important;
 }
 
 /* ===== ANTI-GRAVITY CURSOR ===== */
@@ -586,13 +590,39 @@ h2 {
 .svc-card {
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  padding: 3rem 2rem;
   position: relative;
   overflow: hidden;
   transition: var(--transition);
   height: 100%;
+  z-index: 1;
 }
+
+.svc-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+  transform: scale(1.1);
+}
+
+.svc-card:hover::before {
+  opacity: 0.15;
+  transform: scale(1);
+}
+
+/* Service specific background images (subtle) */
+.svc-card:nth-child(1)::before { background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800'); }
+.svc-card:nth-child(2)::before { background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800'); }
+.svc-card:nth-child(3)::before { background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800'); }
+.svc-card:nth-child(4)::before { background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=800'); }
+.svc-card:nth-child(5)::before { background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800'); }
+.svc-card:nth-child(6)::before { background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800'); }
 
 .svc-card:hover {
   border-color: var(--blue-light);
@@ -601,28 +631,38 @@ h2 {
 }
 
 .svc-icon {
-  width: 54px;
-  height: 54px;
-  background: linear-gradient(135deg, rgba(21, 101, 240, 0.1), rgba(6, 182, 212, 0.08));
-  border-radius: 14px;
+  width: 60px;
+  height: 60px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.svc-card:hover .svc-icon {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+  transform: rotate(5deg) scale(1.1);
 }
 
 .svc-card h3 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
   color: var(--dark);
 }
 
 .svc-card p {
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.8;
 }
 
 .svc-num {
@@ -651,54 +691,68 @@ h2 {
 }
 
 .proj-card {
-  background: var(--light);
-  border: 1px solid var(--border);
-  border-radius: 20px;
+  background: var(--dark);
+  border: none;
+  border-radius: 24px;
   overflow: hidden;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  position: relative;
+  height: 400px;
 }
 
 .proj-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(21, 101, 240, 0.25);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(13, 27, 62, 0.3);
 }
 
 .proj-top {
-  height: 240px;
-  overflow: hidden;
-  position: relative;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.proj-top::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 27, 62, 0.95) 10%, rgba(13, 27, 62, 0.4) 50%, rgba(13, 27, 62, 0.1) 100%);
+  z-index: 2;
 }
 
 .proj-top img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
 .proj-card:hover .proj-top img {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .proj-body {
-  padding: 2rem;
-  flex-grow: 1;
+  position: relative;
+  z-index: 3;
+  padding: 2.5rem;
+  margin-top: auto;
+  pointer-events: none;
 }
 
 .proj-body h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  margin-bottom: 0.6rem;
-  color: var(--dark);
+  margin-bottom: 0.8rem;
+  color: #fff;
 }
 
 .proj-body p {
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
