@@ -290,10 +290,7 @@ nav {
 
 .hero-name .line2 {
   display: block;
-  background: var(--grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--navy);
 }
 
 .hero-sub {
