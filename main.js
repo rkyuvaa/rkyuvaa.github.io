@@ -136,7 +136,7 @@ const revealObserver = new IntersectionObserver(function(entries, observer) {
         entry.target.classList.add('active');
         
         // If it's a stats container, trigger counter
-        if (entry.target.classList.contains('count-up')) {
+        if (entry.target.classList.contains('count')) {
             const target = +entry.target.getAttribute('data-target');
             animateCount(entry.target, target);
         }
@@ -145,7 +145,7 @@ const revealObserver = new IntersectionObserver(function(entries, observer) {
     });
 }, revealOptions);
 
-document.querySelectorAll('.animate-on-scroll, .stagger-item, .bento-box').forEach(el => {
+document.querySelectorAll('.animate-on-scroll, .stagger-item, .bento-box, .reveal, .count').forEach(el => {
     revealObserver.observe(el);
 });
 
