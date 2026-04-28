@@ -122,38 +122,57 @@ document.addEventListener('mousedown', () => {
 document.addEventListener('mouseup', () => (isClicking = false));
 
 const updateInteractions = () => {
-  const interactives = document.querySelectorAll('a, button, .svc-card, .proj-card');
+  const interactives = document.querySelectorAll('a, button, .svc-card, .proj-card, .contact-link');
   interactives.forEach((el) => {
     el.addEventListener('mouseenter', () => (isHovering = true));
     el.addEventListener('mouseleave', () => (isHovering = false));
   });
 };
 
+// Initial calls
+resizeCanvas();
+updateInteractions();
+
+// Re-check interactions periodically for any dynamic elements
+setInterval(updateInteractions, 2000);
+
+// Handle cursor visibility when leaving/entering window
+document.addEventListener('mouseleave', () => {
+  mouse.x = -100;
+  mouse.y = -100;
+});
+
 function animate() {
+  if (!ctx) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   frame++;
-
-  // Draw Trail
-  for (let i = trailPoints.length - 1; i >= 0; i--) {
-    const p = trailPoints[i];
-    p.age++;
-    const alpha = (1 - i / trailPoints.length) * 0.2 * (1 - p.age / 25);
-    const size = (1 - i / trailPoints.length) * (isHovering ? 12 : 8);
-    if (alpha > 0 && size > 0) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
-      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, size);
-      grad.addColorStop(0, `rgba(21,101,240, ${alpha})`);
-      grad.addColorStop(1, `rgba(6,182,212, 0)`);
-      ctx.fillStyle = grad;
-      ctx.fill();
+  
+  // Only draw if mouse is on screen
+  if (mouse.x > 0 && mouse.y > 0) {
+    // Draw Trail
+    for (let i = trailPoints.length - 1; i >= 0; i--) {
+      const p = trailPoints[i];
+      p.age++;
+      const alpha = (1 - i / trailPoints.length) * 0.2 * (1 - p.age / 25);
+      const size = (1 - i / trailPoints.length) * (isHovering ? 12 : 8);
+      if (alpha > 0 && size > 0) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, size);
+        grad.addColorStop(0, `rgba(21,101,240, ${alpha})`);
+        grad.addColorStop(1, `rgba(6,182,212, 0)`);
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
     }
   }
   trailPoints = trailPoints.filter((p) => p.age < 25);
 
   // Ring Physics
-  const dx = mouse.x - ring.x;
-  const dy = mouse.y - ring.y;
+  const targetX = mouse.x < 0 ? ring.x : mouse.x;
+  const targetY = mouse.y < 0 ? ring.y : mouse.y;
+  const dx = targetX - ring.x;
+  const dy = targetY - ring.y;
   ringVx += dx * SPRING;
   ringVy += dy * SPRING;
   ringVx *= DAMPING;
@@ -161,58 +180,63 @@ function animate() {
   ring.x += ringVx;
   ring.y += ringVy;
 
-  // Draw Ring
-  const ringSize = isHovering ? 42 : 28;
-  const distortion = Math.sqrt(ringVx * ringVx + ringVy * ringVy);
-  ctx.beginPath();
-  ctx.ellipse(ring.x, ring.y, ringSize + distortion * 0.5, ringSize - distortion * 0.2, Math.atan2(ringVy, ringVx), 0, Math.PI * 2);
-  ctx.strokeStyle = isHovering ? 'rgba(6,182,212, 0.8)' : 'rgba(21,101,240, 0.5)';
-  ctx.lineWidth = isHovering ? 2.5 : 1.5;
-  ctx.stroke();
+  // Only draw ring if it's not off-screen
+  if (ring.x > -50 && ring.x < canvas.width + 50) {
+    // Draw Ring
+    const ringSize = isHovering ? 42 : 28;
+    const distortion = Math.sqrt(ringVx * ringVx + ringVy * ringVy);
+    ctx.beginPath();
+    ctx.ellipse(ring.x, ring.y, ringSize + distortion * 0.5, ringSize - distortion * 0.2, Math.atan2(ringVy, ringVx), 0, Math.PI * 2);
+    ctx.strokeStyle = isHovering ? 'rgba(6,182,212, 0.8)' : 'rgba(21,101,240, 0.5)';
+    ctx.lineWidth = isHovering ? 2.5 : 1.5;
+    ctx.stroke();
 
-  // Orbiting dots on hover
-  if (isHovering) {
-    for (let i = 0; i < 3; i++) {
-      const angle = frame * 0.07 + (i * Math.PI * 2) / 3;
-      const ox = ring.x + Math.cos(angle) * (ringSize + 10);
-      const oy = ring.y + Math.sin(angle) * (ringSize + 10);
-      ctx.beginPath();
-      ctx.arc(ox, oy, 3, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(6,182,212, ${0.7 + Math.sin(frame * 0.1 + i) * 0.3})`;
-      ctx.fill();
+    // Orbiting dots on hover
+    if (isHovering) {
+      for (let i = 0; i < 3; i++) {
+        const angle = frame * 0.07 + (i * Math.PI * 2) / 3;
+        const ox = ring.x + Math.cos(angle) * (ringSize + 10);
+        const oy = ring.y + Math.sin(angle) * (ringSize + 10);
+        ctx.beginPath();
+        ctx.arc(ox, oy, 3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(6,182,212, ${0.7 + Math.sin(frame * 0.1 + i) * 0.3})`;
+        ctx.fill();
+      }
     }
   }
 
   // Main Cursor Dot
-  const dotSize = isClicking ? 4 : isHovering ? 8 : 6;
-  const glowGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, dotSize * 4);
-  glowGrad.addColorStop(0, 'rgba(21,101,240, 0.4)');
-  glowGrad.addColorStop(1, 'rgba(21,101,240, 0)');
-  ctx.beginPath();
-  ctx.arc(mouse.x, mouse.y, dotSize * 4, 0, Math.PI * 2);
-  ctx.fillStyle = glowGrad;
-  ctx.fill();
+  if (mouse.x > 0 && mouse.y > 0) {
+    const dotSize = isClicking ? 4 : isHovering ? 8 : 6;
+    const glowGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, dotSize * 4);
+    glowGrad.addColorStop(0, 'rgba(21,101,240, 0.4)');
+    glowGrad.addColorStop(1, 'rgba(21,101,240, 0)');
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, dotSize * 4, 0, Math.PI * 2);
+    ctx.fillStyle = glowGrad;
+    ctx.fill();
 
-  ctx.beginPath();
-  ctx.arc(mouse.x, mouse.y, dotSize, 0, Math.PI * 2);
-  const dotGrad = ctx.createRadialGradient(mouse.x - 1, mouse.y - 1, 0, mouse.x, mouse.y, dotSize);
-  dotGrad.addColorStop(0, '#06B6D4');
-  dotGrad.addColorStop(1, '#1565F0');
-  ctx.fillStyle = dotGrad;
-  ctx.fill();
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, dotSize, 0, Math.PI * 2);
+    const dotGrad = ctx.createRadialGradient(mouse.x - 1, mouse.y - 1, 0, mouse.x, mouse.y, dotSize);
+    dotGrad.addColorStop(0, '#06B6D4');
+    dotGrad.addColorStop(1, '#1565F0');
+    ctx.fillStyle = dotGrad;
+    ctx.fill();
 
-  // Cross-hairs on hover
-  if (isHovering) {
-    ctx.strokeStyle = 'rgba(21,101,240, 0.4)';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([4, 4]);
-    const offset = 25;
-    const len = 10;
-    ctx.beginPath(); ctx.moveTo(mouse.x - offset, mouse.y); ctx.lineTo(mouse.x - offset + len, mouse.y); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(mouse.x + offset, mouse.y); ctx.lineTo(mouse.x + offset - len, mouse.y); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(mouse.x, mouse.y - offset); ctx.lineTo(mouse.x, mouse.y - offset + len); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(mouse.x, mouse.y + offset); ctx.lineTo(mouse.x, mouse.y + offset - len); ctx.stroke();
-    ctx.setLineDash([]);
+    // Cross-hairs on hover
+    if (isHovering) {
+      ctx.strokeStyle = 'rgba(21,101,240, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
+      const offset = 25;
+      const len = 10;
+      ctx.beginPath(); ctx.moveTo(mouse.x - offset, mouse.y); ctx.lineTo(mouse.x - offset + len, mouse.y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(mouse.x + offset, mouse.y); ctx.lineTo(mouse.x + offset - len, mouse.y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(mouse.x, mouse.y - offset); ctx.lineTo(mouse.x, mouse.y - offset + len); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(mouse.x, mouse.y + offset); ctx.lineTo(mouse.x, mouse.y + offset - len); ctx.stroke();
+      ctx.setLineDash([]);
+    }
   }
 
   floatingParticles.forEach((p) => { p.update(); p.draw(); });
@@ -223,7 +247,6 @@ function animate() {
 }
 
 animate();
-updateInteractions();
 
 /* ============================================
    SCROLL & INTERSECTION ANIMATIONS
