@@ -89,47 +89,51 @@ nav.scrolled {
   text-decoration: none;
 }
 
-.arc-reactor {
+.hex-logo {
   position: relative;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   filter: drop-shadow(0 0 8px var(--cyan));
 }
 
-.ring {
+.hex {
   position: absolute;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  border-top-color: var(--cyan);
-  border-bottom-color: var(--cyan);
+  background: var(--cyan);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
-.ring.outer {
+.hex::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: rgba(2, 12, 7, 0.98); /* matches nav background */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hex.outer {
   width: 100%;
   height: 100%;
-  animation: rotateClockwise 3s linear infinite;
-  border: 2px solid rgba(0, 255, 0, 0.2);
-  border-top-color: var(--cyan);
+  background: var(--blue-light);
+  animation: pulseHex 3s ease-in-out infinite;
 }
 
-.ring.inner {
+.hex.inner {
   width: 65%;
   height: 65%;
-  animation: rotateCounterClockwise 2s linear infinite;
-  border: 1.5px solid rgba(0, 200, 83, 0.3);
-  border-bottom-color: var(--blue-light);
+  background: var(--cyan);
 }
 
-.core {
-  width: 30%;
-  height: 30%;
-  background: var(--white);
-  border-radius: 50%;
-  box-shadow: 0 0 15px 2px var(--cyan), 0 0 5px #fff;
-  animation: pulse 2s ease-in-out infinite;
+.hex-k {
+  position: relative;
+  z-index: 2;
+  color: var(--cyan);
+  font-weight: 900;
+  font-size: 1.1rem;
+  font-family: 'Outfit', sans-serif;
+  text-shadow: 0 0 5px var(--cyan);
 }
 
 .logo-text {
@@ -139,19 +143,9 @@ nav.scrolled {
   letter-spacing: 1px;
 }
 
-@keyframes rotateClockwise {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes rotateCounterClockwise {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.8; }
+@keyframes pulseHex {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
 }
 
 .nav-links {
