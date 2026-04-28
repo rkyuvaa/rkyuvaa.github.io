@@ -40,7 +40,7 @@ class FloatingParticle {
     this.alpha = Math.random() * 0.3 + 0.1;
     this.vx = 0;
     this.vy = 0;
-    this.color = Math.random() > 0.5 ? '21,101,240' : '6,182,212';
+    this.color = Math.random() > 0.5 ? '0,200,83' : '50,205,50';
   }
   update() {
     const dx = this.x - mouse.x;
@@ -85,7 +85,7 @@ class ClickParticle {
     this.size = Math.random() * 3 + 2;
     this.alpha = 1;
     this.decay = Math.random() * 0.03 + 0.02;
-    this.color = Math.random() > 0.5 ? '21,101,240' : '6,182,212';
+    this.color = Math.random() > 0.5 ? '0,200,83' : '50,205,50';
     this.gravity = 0.12;
   }
   update() {
@@ -159,8 +159,8 @@ function animate() {
         ctx.beginPath();
         ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
         const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, size);
-        grad.addColorStop(0, `rgba(21,101,240, ${alpha})`);
-        grad.addColorStop(1, `rgba(6,182,212, 0)`);
+        grad.addColorStop(0, `rgba(0,200,83, ${alpha})`);
+        grad.addColorStop(1, `rgba(50,205,50, 0)`);
         ctx.fillStyle = grad;
         ctx.fill();
       }
@@ -187,7 +187,7 @@ function animate() {
     const distortion = Math.sqrt(ringVx * ringVx + ringVy * ringVy);
     ctx.beginPath();
     ctx.ellipse(ring.x, ring.y, ringSize + distortion * 0.5, ringSize - distortion * 0.2, Math.atan2(ringVy, ringVx), 0, Math.PI * 2);
-    ctx.strokeStyle = isHovering ? 'rgba(59, 130, 246, 1)' : 'rgba(21, 101, 240, 0.7)';
+    ctx.strokeStyle = isHovering ? 'rgba(50, 205, 50, 1)' : 'rgba(0, 200, 83, 0.7)';
     ctx.lineWidth = isHovering ? 4 : 2;
     ctx.stroke();
 
@@ -199,7 +199,7 @@ function animate() {
         const oy = ring.y + Math.sin(angle) * (ringSize + 10);
         ctx.beginPath();
         ctx.arc(ox, oy, 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(6,182,212, ${0.7 + Math.sin(frame * 0.1 + i) * 0.3})`;
+        ctx.fillStyle = `rgba(50,205,50, ${0.7 + Math.sin(frame * 0.1 + i) * 0.3})`;
         ctx.fill();
       }
     }
@@ -209,8 +209,8 @@ function animate() {
   if (mouse.x > 0 && mouse.y > 0) {
     const dotSize = isClicking ? 4 : isHovering ? 8 : 6;
     const glowGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, dotSize * 4);
-    glowGrad.addColorStop(0, 'rgba(21,101,240, 0.4)');
-    glowGrad.addColorStop(1, 'rgba(21,101,240, 0)');
+    glowGrad.addColorStop(0, 'rgba(0,200,83, 0.4)');
+    glowGrad.addColorStop(1, 'rgba(0,200,83, 0)');
     ctx.beginPath();
     ctx.arc(mouse.x, mouse.y, dotSize * 4, 0, Math.PI * 2);
     ctx.fillStyle = glowGrad;
@@ -219,14 +219,14 @@ function animate() {
     ctx.beginPath();
     ctx.arc(mouse.x, mouse.y, dotSize, 0, Math.PI * 2);
     const dotGrad = ctx.createRadialGradient(mouse.x - 1, mouse.y - 1, 0, mouse.x, mouse.y, dotSize);
-    dotGrad.addColorStop(0, '#06B6D4');
-    dotGrad.addColorStop(1, '#1565F0');
+    dotGrad.addColorStop(0, '#00FF00');
+    dotGrad.addColorStop(1, '#00C853');
     ctx.fillStyle = dotGrad;
     ctx.fill();
 
     // Cross-hairs on hover
     if (isHovering) {
-      ctx.strokeStyle = 'rgba(21,101,240, 0.4)';
+      ctx.strokeStyle = 'rgba(0,200,83, 0.4)';
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 4]);
       const offset = 25;
