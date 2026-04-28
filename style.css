@@ -10,8 +10,10 @@
   --text: #0D1B3E;
   --muted: #5A6A8A;
   --border: #D4E2FF;
-  --grad: linear-gradient(90deg, #1565F0, #06B6D4);
-  --grad-hover: linear-gradient(90deg, #06B6D4, #1565F0);
+  --grad: linear-gradient(90deg, #1E293B, #334155);
+  --grad-hover: linear-gradient(90deg, #0F172A, #1E293B);
+  --navy: #0F172A;
+  --navy-light: #1E293B;
   --shadow-sm: 0 2px 8px rgba(21, 101, 240, 0.05);
   --shadow-md: 0 10px 30px rgba(21, 101, 240, 0.1);
   --shadow-lg: 0 16px 50px rgba(21, 101, 240, 0.15);
@@ -55,7 +57,7 @@ body {
 
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3, .logo {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 /* ===== NAVIGATION ===== */
@@ -126,13 +128,11 @@ nav {
 }
 
 .logo-text {
+  font-family: 'Outfit', sans-serif;
   font-weight: 800;
-  font-size: 1.1rem;
-  background: var(--grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 0.05em;
+  font-size: 1.2rem;
+  color: var(--navy);
+  letter-spacing: -0.01em;
 }
 
 @keyframes rotateClockwise {
@@ -284,7 +284,8 @@ nav {
 
 .hero-name .line1 {
   display: block;
-  color: var(--dark);
+  color: var(--navy);
+  font-weight: 900;
 }
 
 .hero-name .line2 {
