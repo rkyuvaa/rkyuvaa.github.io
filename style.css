@@ -10,10 +10,10 @@
   --text: #0D1B3E;
   --muted: #5A6A8A;
   --border: #D4E2FF;
-  --grad: linear-gradient(90deg, #1E293B, #334155);
-  --grad-hover: linear-gradient(90deg, #0F172A, #1E293B);
-  --navy: #0F172A;
-  --navy-light: #1E293B;
+  --grad: linear-gradient(90deg, #102A68, #2563EB);
+  --grad-hover: linear-gradient(90deg, #0A1E4D, #102A68);
+  --navy: #102A68;
+  --navy-light: #2563EB;
   --shadow-sm: 0 2px 8px rgba(21, 101, 240, 0.05);
   --shadow-md: 0 10px 30px rgba(21, 101, 240, 0.1);
   --shadow-lg: 0 16px 50px rgba(21, 101, 240, 0.15);
@@ -57,7 +57,7 @@ body {
 
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3, .logo {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 /* ===== NAVIGATION ===== */
@@ -128,8 +128,8 @@ nav {
 }
 
 .logo-text {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
   font-size: 1.2rem;
   color: var(--navy);
   letter-spacing: -0.01em;
@@ -285,7 +285,7 @@ nav {
 .hero-name .line1 {
   display: block;
   color: var(--navy);
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .hero-name .line2 {
