@@ -89,51 +89,47 @@ nav.scrolled {
   text-decoration: none;
 }
 
-.hex-logo {
+.arc-reactor {
   position: relative;
-  width: 36px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   filter: drop-shadow(0 0 8px var(--cyan));
 }
 
-.hex {
+.ring {
   position: absolute;
-  background: var(--cyan);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--cyan);
+  border-bottom-color: var(--cyan);
 }
 
-.hex::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  background: rgba(2, 12, 7, 0.98); /* matches nav background */
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-
-.hex.outer {
+.ring.outer {
   width: 100%;
   height: 100%;
-  background: var(--blue-light);
-  animation: pulseHex 3s ease-in-out infinite;
+  animation: rotateClockwise 3s linear infinite;
+  border: 2px solid rgba(0, 255, 0, 0.2);
+  border-top-color: var(--cyan);
 }
 
-.hex.inner {
+.ring.inner {
   width: 65%;
   height: 65%;
-  background: var(--cyan);
+  animation: rotateCounterClockwise 2s linear infinite;
+  border: 1.5px solid rgba(0, 200, 83, 0.3);
+  border-bottom-color: var(--blue-light);
 }
 
-.hex-k {
-  position: relative;
-  z-index: 2;
-  color: var(--cyan);
-  font-weight: 900;
-  font-size: 1.1rem;
-  font-family: 'Outfit', sans-serif;
-  text-shadow: 0 0 5px var(--cyan);
+.core {
+  width: 30%;
+  height: 30%;
+  background: var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 15px 2px var(--cyan), 0 0 5px #fff;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .logo-text {
@@ -143,9 +139,19 @@ nav.scrolled {
   letter-spacing: 1px;
 }
 
-@keyframes pulseHex {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.5); }
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
 }
 
 .nav-links {
