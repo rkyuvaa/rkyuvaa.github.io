@@ -246,6 +246,7 @@ nav.scrolled {
   position: relative;
   z-index: 2;
   max-width: 800px;
+  margin-top: 6rem;
 }
 
 .hero-tag {
