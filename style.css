@@ -1,5 +1,5 @@
 /* ============================================
-   KODDAK TECH SOLUTIONS - ENTERPRISE SAAS THEME
+   OrbX - ENTERPRISE SAAS THEME
 ============================================ */
 :root {
   --blue: #00C853;       /* Main Vibrant Green */
@@ -38,7 +38,8 @@ html {
 body {
   background: var(--dark);
   color: var(--text);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Comfortaa', 'Inter', sans-serif;
+  font-optical-sizing: auto;
   overflow-x: hidden;
   line-height: 1.6;
 }
@@ -57,7 +58,7 @@ body {
 
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3, .logo {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Comfortaa', 'Outfit', sans-serif;
 }
 
 /* ===== NAVIGATION ===== */
@@ -297,14 +298,8 @@ nav.scrolled {
   color: var(--white);
 }
 
-.hero-name .line2 {
-  display: block;
-  background: linear-gradient(90deg, #32CD32, #00A300);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 800;
-  margin-top: 0.5rem;
+.x-highlight {
+  color: var(--cyan);
 }
 
 .hero-sub {

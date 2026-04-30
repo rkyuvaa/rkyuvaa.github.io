@@ -1,6 +1,6 @@
 <svg width="100%" viewBox="0 0 690 390" role="img" style="" xmlns="http://www.w3.org/2000/svg">
-<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Koddak Tech Solutions - Green Logo</title>
-<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Koddak logo with Ben 10 inspired green color scheme and custom letterforms</desc>
+<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">OrbX Logo</title>
+<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">OrbX logo with green color scheme and custom letterforms</desc>
 <defs>
   <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
     <stop offset="0%" style="stop-color:#050F05"/>
@@ -149,7 +149,7 @@
 <rect x="235" y="242" width="345" height="1" rx="0.5" fill="#AFFFB0" opacity="0.5" style="fill:rgb(175, 255, 176);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
 <!-- ====== TAGLINE ====== -->
-<text x="408" y="268" font-family="'Courier New',monospace" font-size="11" fill="#1A5A1A" text-anchor="middle" letter-spacing="6" style="fill:rgb(26, 90, 26);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">TECH SOLUTIONS</text>
+<!-- Removed TECH SOLUTIONS -->
 
 <!-- Service pills - green theme -->
 <rect x="286" y="280" width="48" height="17" rx="8.5" fill="#39FF14" fill-opacity="0.1" stroke="#39FF14" stroke-width="0.8" stroke-opacity="0.5" style="fill:rgb(57, 255, 20);stroke:rgb(57, 255, 20);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
@@ -165,7 +165,7 @@
 <line x1="60" y1="318" x2="620" y2="318" stroke="#0A2A0A" stroke-width="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(10, 42, 10);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
 <text x="340" y="342" font-family="sans-serif" font-size="10" fill="#0F3A0F" text-anchor="middle" letter-spacing="3" style="fill:rgb(15, 58, 15);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">EMPOWERING BUSINESSES THROUGH TECHNOLOGY</text>
-<text x="340" y="362" font-family="'Courier New',monospace" font-size="10" fill="#00C41A" text-anchor="middle" fill-opacity="0.5" letter-spacing="1" style="fill:rgb(0, 196, 26);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">www.koddak.com</text>
+<!-- Removed URL -->
 
 <!-- Corner tech brackets -->
 <rect x="30" y="30" width="22" height="2.5" rx="1" fill="#39FF14" opacity="0.5" style="fill:rgb(57, 255, 20);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>

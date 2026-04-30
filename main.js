@@ -1,5 +1,5 @@
 /* ============================================
-   KODDAK TECH SOLUTIONS - ENTERPRISE ANIMATIONS
+   OrbX - ENTERPRISE ANIMATIONS
 ============================================ */
 
 /* --- BANNER CANVAS ANIMATION (Network / Tech Nodes) --- */
