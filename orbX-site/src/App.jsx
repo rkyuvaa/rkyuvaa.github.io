@@ -35,7 +35,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#003300] text-slate-300 font-body selection:bg-[#00cc00] selection:text-white scroll-smooth overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#012101] to-[#001100] text-slate-300 font-body selection:bg-[#00cc00] selection:text-white scroll-smooth overflow-x-hidden">
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Quicksand:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -46,7 +46,7 @@ export default function App() {
           /* Custom Deep Green Theme */
           :root {
             --brand-green: #00cc00;
-            --brand-bg: #003300;
+            --brand-bg: #012101;
           }
           .text-brand { color: var(--brand-green); }
           .bg-brand { background-color: var(--brand-green); }
