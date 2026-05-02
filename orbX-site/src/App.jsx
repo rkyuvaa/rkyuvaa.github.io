@@ -62,7 +62,7 @@ export default function App() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#0B1121]/80 backdrop-blur-xl border-b border-slate-800 shadow-2xl py-4' : 'bg-transparent py-6'}`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-16 flex justify-between items-center">
           <a href="#hero" className="flex items-center gap-3 group">
             <motion.div 
               whileHover={{ rotate: 180, scale: 1.1 }}
@@ -113,7 +113,7 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600 blur-[120px] rounded-full opacity-40"></div>
         </motion.div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div 
               variants={staggerContainer}
@@ -126,12 +126,12 @@ export default function App() {
                 Innovation & Excellence
               </motion.div>
               
-              <motion.h1 variants={fadeInUp} className="text-5xl lg:text-7xl font-bold font-heading text-white leading-[1.1]">
+              <motion.h1 variants={fadeInUp} className="text-5xl lg:text-8xl font-bold font-heading text-white leading-[1.1] tracking-tight">
                 Orb<span className="text-[#20bd5a]">X</span> <br/>
-                <span className="text-3xl lg:text-5xl text-slate-300 block mt-4 leading-tight">The Ultimate ERP & POS Solution for Retail</span>
+                <span className="text-3xl lg:text-6xl text-slate-300 block mt-4 leading-tight">The Ultimate ERP & POS Solution for Retail</span>
               </motion.h1>
               
-              <motion.div variants={fadeInUp} className="text-lg text-slate-400 leading-relaxed max-w-xl">
+              <motion.div variants={fadeInUp} className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl">
                 A powerful, offline-first system for billing, inventory, and point-of-sale. 
                 <span className="block mt-4 font-medium text-slate-300 border-l-2 border-[#20bd5a] pl-5 italic relative">
                   <div className="absolute -left-[2px] top-0 w-0.5 h-full bg-[#20bd5a] shadow-[0_0_10px_#20bd5a]"></div>
@@ -231,13 +231,13 @@ export default function App() {
 
       {/* Features Section */}
       <section id="features" className="py-32 border-b border-slate-800 bg-[#070b14]">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="text-center max-w-3xl mx-auto mb-20"
+            className="text-center max-w-5xl mx-auto mb-20"
           >
             <motion.h2 variants={fadeInUp} className="text-4xl md:text-6xl font-bold font-heading text-white mb-6">Powerful ERP Features</motion.h2>
             <motion.p variants={fadeInUp} className="text-slate-400 text-lg font-accent">Highlighting key capabilities designed specifically to scale retail and small businesses.</motion.p>
@@ -248,7 +248,7 @@ export default function App() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
           >
             {[
               { title: 'Billing System', desc: 'Fast, secure, and intuitive POS billing system for lightning-quick checkouts.' },
@@ -275,7 +275,7 @@ export default function App() {
       
       {/* Services Section */}
       <section id="services" className="py-32 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -349,13 +349,13 @@ export default function App() {
 
       {/* Demo Section */}
       <section id="demo" className="py-32 border-b border-slate-800 bg-[#070b14]">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="text-center max-w-3xl mx-auto mb-20"
+            className="text-center max-w-5xl mx-auto mb-20"
           >
             <motion.h2 variants={fadeInUp} className="text-4xl md:text-6xl font-bold text-white mb-6 font-heading">See It In Action</motion.h2>
             <motion.p variants={fadeInUp} className="text-slate-400 text-lg font-accent">A sneak peek into our intuitive interfaces designed to save you time and maximize conversions.</motion.p>
@@ -396,7 +396,7 @@ export default function App() {
 
       {/* About Section */}
       <section id="about" className="py-32 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
            <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div 
               initial="hidden"
@@ -481,7 +481,7 @@ export default function App() {
 
       {/* Projects Section */}
       <section id="projects" className="py-32 border-b border-slate-800 bg-[#070b14]">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -575,10 +575,10 @@ export default function App() {
         <motion.div 
           animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.15, 0.1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent blur-3xl pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-br from-[#20bd5a]/10 to-transparent blur-3xl pointer-events-none"
         ></motion.div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20 relative z-10 grid lg:grid-cols-2 gap-20 items-center">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -672,7 +672,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="bg-[#05080f] pt-20 pb-10 border-t border-slate-900">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
           <div className="mb-16">
             <h3 className="text-white font-bold mb-8 tracking-widest uppercase text-sm font-heading">Core Competencies</h3>
             <div className="flex flex-wrap gap-4">
