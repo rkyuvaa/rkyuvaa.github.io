@@ -76,14 +76,13 @@ export default function App() {
         className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#003300]/90 backdrop-blur-xl border-b border-[#00cc00]/30 shadow-2xl py-2' : 'bg-transparent py-4'}`}
       >
         <div className="max-w-[1600px] mx-auto px-4 lg:px-6 xl:px-8 flex justify-between items-center">
-          <a href="#hero" className="flex items-center gap-3 group">
-            <motion.div 
-              whileHover={{ rotate: 180, scale: 1.1 }}
-              transition={{ duration: 0.4 }}
-              className="w-10 h-10 rounded-xl bg-[#00cc00] flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg shadow-[#00cc00]/20"
-            >
-              X
-            </motion.div>
+          <a href="#hero" className="flex items-center gap-4 group">
+            <div className="relative w-10 h-10">
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <circle cx="35" cy="50" r="32" fill="none" stroke="white" stroke-width="6" />
+                <path d="M55 30 L85 70 M85 30 L55 70" stroke="#00cc00" stroke-width="12" stroke-linecap="butt" />
+              </svg>
+            </div>
             <span className="text-2xl font-heading font-bold text-white tracking-tight group-hover:tracking-widest transition-all duration-300">
               Orb<span className="text-[#00cc00]">X</span>
             </span>
