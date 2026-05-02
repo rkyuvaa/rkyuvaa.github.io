@@ -35,7 +35,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0B1121] text-slate-300 font-body selection:bg-[#20bd5a] selection:text-white scroll-smooth overflow-x-hidden">
+    <div className="min-h-screen bg-[#003300] text-slate-300 font-body selection:bg-[#00cc00] selection:text-white scroll-smooth overflow-x-hidden">
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Quicksand:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -43,15 +43,14 @@ export default function App() {
           .font-body { font-family: 'Plus Jakarta Sans', sans-serif; }
           .font-accent { font-family: 'Quicksand', sans-serif; }
           
-          /* Custom Vibrant Green Theme */
+          /* Custom Deep Green Theme */
           :root {
-            --brand-green: #20bd5a;
-            --brand-green-glow: rgba(32, 189, 90, 0.4);
+            --brand-green: #00cc00;
+            --brand-bg: #003300;
           }
           .text-brand { color: var(--brand-green); }
           .bg-brand { background-color: var(--brand-green); }
           .border-brand { border-color: var(--brand-green); }
-          .shadow-brand { shadow-color: var(--brand-green); }
         `}
       </style>
 
@@ -60,35 +59,35 @@ export default function App() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#0B1121]/80 backdrop-blur-xl border-b border-slate-800 shadow-2xl py-4' : 'bg-transparent py-6'}`}
+        className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#003300]/90 backdrop-blur-xl border-b border-[#00cc00]/30 shadow-2xl py-2' : 'bg-transparent py-4'}`}
       >
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12 xl:px-16 flex justify-between items-center">
+        <div className="max-w-[1600px] mx-auto px-4 lg:px-6 xl:px-8 flex justify-between items-center">
           <a href="#hero" className="flex items-center gap-3 group">
             <motion.div 
               whileHover={{ rotate: 180, scale: 1.1 }}
               transition={{ duration: 0.4 }}
-              className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-emerald-400 flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg shadow-emerald-500/20"
+              className="w-10 h-10 rounded-xl bg-[#00cc00] flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg shadow-[#00cc00]/20"
             >
               X
             </motion.div>
             <span className="text-2xl font-heading font-bold text-white tracking-tight group-hover:tracking-widest transition-all duration-300">
-              Orb<span className="text-[#20bd5a]">X</span>
+              Orb<span className="text-[#00cc00]">X</span>
             </span>
           </a>
           
           <div className="hidden md:flex items-center gap-8 text-sm font-medium font-body">
             {['Features', 'Services', 'About', 'Projects', 'Experience'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-emerald-400 transition-colors relative group">
+              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-[#00cc00] transition-colors relative group">
                 {item}
-                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-emerald-500 transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#00cc00] transition-all group-hover:w-full"></span>
               </a>
             ))}
-            <a href="#contact" className="hover:text-emerald-400 transition-colors mr-2">Contact</a>
+            <a href="#contact" className="hover:text-[#00cc00] transition-colors mr-2">Contact</a>
             <motion.a 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="#demo" 
-              className="bg-[#20bd5a] text-white px-6 py-2.5 rounded-lg hover:bg-[#1da850] transition-colors shadow-lg shadow-[#20bd5a]/20 font-bold"
+              className="bg-[#00cc00] text-white px-6 py-2.5 rounded-lg hover:bg-[#00b300] transition-colors shadow-lg shadow-[#00cc00]/20 font-bold"
             >
               Request a Demo
             </motion.a>
@@ -103,17 +102,17 @@ export default function App() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section id="hero" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-slate-800">
+      <section id="hero" className="relative pt-20 pb-8 lg:pt-24 lg:pb-16 overflow-hidden border-b border-[#00cc00]/10">
         {/* Animated Background Elements */}
         <motion.div 
           animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
           transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] pointer-events-none"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600 blur-[120px] rounded-full opacity-40"></div>
+          <div className="absolute inset-0 bg-[#00cc00]/10 blur-[120px] rounded-full opacity-40"></div>
         </motion.div>
         
-        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20 relative z-10">
+        <div className="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div 
               variants={staggerContainer}
@@ -121,13 +120,13 @@ export default function App() {
               animate="visible"
               className="space-y-8"
             >
-              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 backdrop-blur border border-slate-700 text-[#20bd5a] text-sm font-medium font-accent tracking-wide">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#20bd5a] shadow-[0_0_10px_#20bd5a] animate-pulse"></span>
+              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 backdrop-blur border border-slate-700 text-[#00cc00] text-sm font-medium font-accent tracking-wide">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#00cc00] shadow-[0_0_10px_#00cc00] animate-pulse"></span>
                 Innovation & Excellence
               </motion.div>
               
               <motion.h1 variants={fadeInUp} className="text-5xl lg:text-8xl font-bold font-heading text-white leading-[1.1] tracking-tight">
-                Orb<span className="text-[#20bd5a]">X</span> <br/>
+                Orb<span className="text-[#00cc00]">X</span> <br/>
                 <span className="text-3xl lg:text-6xl text-slate-300 block mt-4 leading-tight">The Ultimate ERP & POS Solution for Retail</span>
               </motion.h1>
               
@@ -141,10 +140,10 @@ export default function App() {
               
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 pt-4">
                 <motion.a 
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(32,189,90,0.4)" }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0,204,0,0.4)" }}
                   whileTap={{ scale: 0.95 }}
                   href="#demo" 
-                  className="bg-gradient-to-r from-[#20bd5a] to-[#00ff99] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_0_20px_rgba(32,189,90,0.2)] font-body"
+                  className="bg-[#00cc00] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_0_20px_rgba(0,204,0,0.2)] font-body"
                 >
                   View Demo
                 </motion.a>
@@ -173,7 +172,7 @@ export default function App() {
                   <div key={i}>
                     <div className="text-3xl lg:text-4xl font-bold font-heading text-white mb-2 tracking-tight">
                       {stat.num.replace(/[^0-9]/g, '')}
-                      <span className="text-[#20bd5a]">{stat.num.replace(/[0-9]/g, '')}</span>
+                      <span className="text-[#00cc00]">{stat.num.replace(/[0-9]/g, '')}</span>
                     </div>
                     <div className="text-xs text-slate-400 uppercase tracking-widest font-accent font-semibold">{stat.label}</div>
                   </div>
@@ -195,7 +194,7 @@ export default function App() {
               ></motion.div>
               <div className="bg-slate-800/40 backdrop-blur-2xl border border-slate-700/50 rounded-3xl p-10 relative shadow-2xl">
                 <div className="flex items-center gap-4 mb-10 pb-6 border-b border-slate-700/50">
-                  <div className="w-12 h-12 rounded-xl bg-[#20bd5a]/20 flex items-center justify-center text-[#20bd5a]">
+                  <div className="w-12 h-12 rounded-xl bg-[#00cc00]/20 flex items-center justify-center text-[#00cc00]">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                   </div>
                   <h3 className="text-2xl font-bold text-white font-heading">Expertise</h3>
@@ -213,7 +212,7 @@ export default function App() {
                       whileHover={{ x: 10 }}
                       className="flex items-center gap-5 group cursor-default"
                     >
-                      <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 group-hover:text-[#20bd5a] group-hover:border-[#20bd5a]/50 group-hover:bg-[#20bd5a]/10 transition-all duration-300">
+                      <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 group-hover:text-[#00cc00] group-hover:border-[#00cc00]/50 group-hover:bg-[#00cc00]/10 transition-all duration-300">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} /></svg>
                       </div>
                       <div>
@@ -260,9 +259,9 @@ export default function App() {
                 key={i} 
                 variants={fadeInUp}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-slate-800/40 backdrop-blur rounded-3xl p-8 border border-slate-700/50 hover:border-emerald-500/50 transition-colors shadow-xl"
+                className="bg-slate-800/40 backdrop-blur rounded-3xl p-8 border border-slate-700/50 hover:border-[#00cc00]/50 transition-colors shadow-xl"
               >
-                <div className="w-14 h-14 rounded-2xl bg-[#20bd5a]/10 text-[#20bd5a] flex items-center justify-center mb-8 border border-[#20bd5a]/20">
+                <div className="w-14 h-14 rounded-2xl bg-[#00cc00]/10 text-[#00cc00] flex items-center justify-center mb-8 border border-[#00cc00]/20">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 font-heading">{feat.title}</h3>
@@ -282,7 +281,7 @@ export default function App() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <div className="mb-4 text-[#20bd5a] font-bold tracking-widest uppercase text-sm font-accent">What I Do</div>
+            <div className="mb-4 text-[#00cc00] font-bold tracking-widest uppercase text-sm font-accent">What I Do</div>
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-20 font-heading leading-tight">Development & digital innovation<br />for modern business</h2>
           </motion.div>
 
@@ -305,7 +304,7 @@ export default function App() {
                 whileHover={{ scale: 1.03 }}
                 className="bg-gradient-to-br from-slate-800 to-slate-900 p-12 rounded-[2rem] border border-slate-700/50 relative overflow-hidden group shadow-2xl"
               >
-                <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:opacity-10 group-hover:text-[#20bd5a] transition-all duration-700 transform group-hover:rotate-12 group-hover:scale-125">
+                <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:opacity-10 group-hover:text-[#00cc00] transition-all duration-700 transform group-hover:rotate-12 group-hover:scale-125">
                    <svg className="w-64 h-64 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d={srv.path} /></svg>
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-6 relative z-10 font-heading">{srv.title}</h3>
@@ -337,7 +336,7 @@ export default function App() {
               >
                 <div className="flex justify-between items-start mb-8">
                   <motion.span whileHover={{ scale: 1.2, rotate: 10 }} className="text-5xl filter drop-shadow-lg inline-block cursor-default origin-bottom-left">{svc.icon}</motion.span>
-                  <span className="text-[#20bd5a]/40 font-mono text-lg font-bold">{svc.num}</span>
+                  <span className="text-[#00cc00]/40 font-mono text-lg font-bold">{svc.num}</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 font-heading">{svc.title}</h3>
                 <p className="text-slate-400 leading-relaxed font-accent">{svc.desc}</p>
@@ -368,10 +367,10 @@ export default function App() {
             variants={staggerContainer}
             className="grid md:grid-cols-2 gap-8"
           >
-            <motion.div variants={fadeInUp} whileHover={{ scale: 1.02 }} className="md:col-span-2 relative group rounded-[2rem] overflow-hidden border-2 border-slate-700/50 bg-slate-800 aspect-video md:aspect-[21/9] flex items-center justify-center hover:border-[#20bd5a]/50 transition-all duration-500 shadow-2xl">
+            <motion.div variants={fadeInUp} whileHover={{ scale: 1.02 }} className="md:col-span-2 relative group rounded-[2rem] overflow-hidden border-2 border-slate-700/50 bg-slate-800 aspect-video md:aspect-[21/9] flex items-center justify-center hover:border-[#00cc00]/50 transition-all duration-500 shadow-2xl">
               <div className="absolute inset-0 bg-slate-800/80 backdrop-blur-sm flex items-center justify-center text-slate-500">
                 <div className="text-center transform transition-transform duration-500 group-hover:scale-110">
-                  <svg className="w-20 h-20 mx-auto mb-6 text-[#20bd5a]/30 group-hover:text-[#20bd5a] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                  <svg className="w-20 h-20 mx-auto mb-6 text-[#00cc00]/30 group-hover:text-[#00cc00] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                   <span className="font-bold text-2xl text-slate-300 font-heading tracking-wide">POS Billing Screen Placeholder</span>
                 </div>
               </div>
@@ -381,10 +380,10 @@ export default function App() {
               { title: 'Inventory Dashboard Placeholder', path: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z' },
               { title: 'Mobile UI Placeholder', path: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z' }
             ].map((img, i) => (
-              <motion.div key={i} variants={fadeInUp} whileHover={{ scale: 1.03 }} className="relative group rounded-[2rem] overflow-hidden border-2 border-slate-700/50 bg-slate-800 aspect-video flex items-center justify-center hover:border-emerald-500/50 transition-all duration-500 shadow-2xl">
+              <motion.div key={i} variants={fadeInUp} whileHover={{ scale: 1.03 }} className="relative group rounded-[2rem] overflow-hidden border-2 border-slate-700/50 bg-slate-800 aspect-video flex items-center justify-center hover:border-[#00cc00]/50 transition-all duration-500 shadow-2xl">
                  <div className="absolute inset-0 bg-slate-800/80 backdrop-blur-sm flex items-center justify-center text-slate-500">
                   <div className="text-center transform transition-transform duration-500 group-hover:scale-110">
-                    <svg className="w-16 h-16 mx-auto mb-6 text-[#20bd5a]/30 group-hover:text-[#20bd5a] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={img.path} /></svg>
+                    <svg className="w-16 h-16 mx-auto mb-6 text-[#00cc00]/30 group-hover:text-[#00cc00] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={img.path} /></svg>
                     <span className="font-bold text-xl text-slate-300 font-heading tracking-wide">{img.title}</span>
                   </div>
                 </div>
@@ -419,7 +418,7 @@ export default function App() {
                     whileHover={{ x: 10 }}
                     className="flex gap-6 group cursor-default"
                   >
-                    <div className="mt-1 w-12 h-12 rounded-full bg-slate-800 text-[#20bd5a] flex items-center justify-center flex-shrink-0 border border-slate-700 group-hover:border-[#20bd5a] group-hover:bg-[#20bd5a]/20 transition-all duration-300 shadow-lg">
+                    <div className="mt-1 w-12 h-12 rounded-full bg-slate-800 text-[#00cc00] flex items-center justify-center flex-shrink-0 border border-slate-700 group-hover:border-[#00cc00] group-hover:bg-[#00cc00]/20 transition-all duration-300 shadow-lg">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
                     </div>
                     <div>
@@ -438,9 +437,9 @@ export default function App() {
               variants={slideInRight}
               className="bg-slate-800/60 backdrop-blur-xl rounded-[2.5rem] p-12 border border-slate-700 shadow-2xl relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#20bd5a]/10 rounded-full blur-3xl"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#00cc00]/10 rounded-full blur-3xl"></div>
               
-              <div className="mb-6 text-[#20bd5a] font-bold tracking-widest uppercase text-sm font-accent relative z-10">Who I Am</div>
+              <div className="mb-6 text-[#00cc00] font-bold tracking-widest uppercase text-sm font-accent relative z-10">Who I Am</div>
               <h3 className="text-3xl font-bold text-white mb-8 font-heading relative z-10">Bridging development with infrastructure</h3>
               <div className="space-y-6 text-slate-400 leading-relaxed font-accent relative z-10">
                 <p>Welcome to <strong className="text-white">OrbX</strong>, a premier technology firm specializing in enterprise digital transformation. We bridge the gap between complex infrastructure and seamless user experiences.</p>
@@ -466,7 +465,7 @@ export default function App() {
                         whileInView={{ width: skill.w }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.1 }}
-                        className="h-full bg-gradient-to-r from-[#20bd5a] to-[#00ff99] rounded-full relative"
+                        className="h-full bg-[#00cc00] rounded-full relative"
                       >
                         <div className="absolute inset-0 bg-white/20 w-1/2 rounded-full blur-sm"></div>
                       </motion.div>
@@ -488,7 +487,7 @@ export default function App() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <div className="mb-4 text-[#20bd5a] font-bold tracking-widest uppercase text-sm font-accent">Selected Work</div>
+            <div className="mb-4 text-[#00cc00] font-bold tracking-widest uppercase text-sm font-accent">Selected Work</div>
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-20 font-heading leading-tight">Solutions that drive<br />results</h2>
           </motion.div>
 
@@ -509,7 +508,7 @@ export default function App() {
                 key={i} 
                 variants={fadeInUp}
                 whileHover={{ y: -15, scale: 1.02 }}
-                className="bg-slate-800/50 border border-slate-700 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-[#20bd5a]/10 hover:border-[#20bd5a]/50 flex flex-col h-full"
+                className="bg-slate-800/50 border border-slate-700 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-[#00cc00]/10 hover:border-[#00cc00]/50 flex flex-col h-full"
               >
                 <div className="aspect-video bg-slate-900 rounded-2xl mb-8 overflow-hidden flex items-center justify-center border border-slate-800">
                   <svg className="w-12 h-12 text-slate-700" fill="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -518,7 +517,7 @@ export default function App() {
                 <p className="text-slate-400 mb-8 leading-relaxed font-accent flex-grow">{proj.desc}</p>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {proj.tags.map((tag, j) => (
-                    <span key={j} className="px-3 py-1.5 bg-slate-900 text-[#20bd5a] text-xs font-bold rounded-lg border border-slate-700 uppercase tracking-wider">{tag}</span>
+                    <span key={j} className="px-3 py-1.5 bg-slate-900 text-[#00cc00] text-xs font-bold rounded-lg border border-slate-700 uppercase tracking-wider">{tag}</span>
                   ))}
                 </div>
               </motion.div>
@@ -533,7 +532,7 @@ export default function App() {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <div className="mb-4 text-[#20bd5a] font-bold tracking-widest uppercase text-sm font-accent">Journey</div>
+              <div className="mb-4 text-[#00cc00] font-bold tracking-widest uppercase text-sm font-accent">Journey</div>
               <h2 className="text-4xl md:text-6xl font-bold text-white mb-20 font-heading leading-tight">11+ years of building<br />& managing tech</h2>
             </motion.div>
             
@@ -557,9 +556,9 @@ export default function App() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ type: "spring", delay: 0.3 + (i * 0.15) }}
-                    className="absolute w-5 h-5 bg-[#20bd5a] rounded-full -left-[10.5px] top-1.5 border-4 border-slate-900 shadow-[0_0_15px_rgba(32,189,90,0.8)]"
+                    className="absolute w-5 h-5 bg-[#00cc00] rounded-full -left-[10.5px] top-1.5 border-4 border-slate-900 shadow-[0_0_15px_rgba(0,204,0,0.8)]"
                   ></motion.div>
-                  <div className="inline-block px-3 py-1 bg-slate-800 rounded-md text-[#20bd5a] font-mono text-sm mb-4 border border-slate-700 font-bold">{item.year}</div>
+                  <div className="inline-block px-3 py-1 bg-slate-800 rounded-md text-[#00cc00] font-mono text-sm mb-4 border border-slate-700 font-bold">{item.year}</div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 font-heading tracking-wide">{item.title}</h3>
                   <div className="text-slate-300 font-bold text-lg mb-4 font-accent">{item.org}</div>
                   <p className="text-slate-400 max-w-3xl leading-relaxed text-lg font-accent">{item.desc}</p>
@@ -575,7 +574,7 @@ export default function App() {
         <motion.div 
           animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.15, 0.1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0 bg-gradient-to-br from-[#20bd5a]/10 to-transparent blur-3xl pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-br from-[#00cc00]/10 to-transparent blur-3xl pointer-events-none"
         ></motion.div>
         
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20 relative z-10 grid lg:grid-cols-2 gap-20 items-center">
@@ -585,7 +584,7 @@ export default function App() {
             viewport={{ once: true }}
             variants={slideInLeft}
           >
-            <div className="mb-4 text-[#20bd5a] font-bold tracking-widest uppercase text-sm font-accent">Get In Touch</div>
+            <div className="mb-4 text-[#00cc00] font-bold tracking-widest uppercase text-sm font-accent">Get In Touch</div>
             <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight font-heading">Let's build something<br />great together</h2>
             <p className="text-slate-300 text-xl mb-16 max-w-lg leading-relaxed font-accent">Whether you need a cutting-edge web platform, an intuitive mobile application, or comprehensive ERP support — we are ready to help.</p>
             
@@ -595,7 +594,7 @@ export default function App() {
                 <motion.a 
                   whileHover={{ x: 10 }}
                   href="mailto:rkyuvaa@hotmail.com" 
-                  className="inline-block text-[#20bd5a] hover:text-[#1da850] text-xl font-bold font-accent transition-colors"
+                  className="inline-block text-[#00cc00] hover:text-[#00b300] text-xl font-bold font-accent transition-colors"
                 >
                   rkyuvaa@hotmail.com
                 </motion.a>
@@ -628,28 +627,28 @@ export default function App() {
             variants={slideInRight}
             className="bg-slate-800/80 backdrop-blur-xl border border-slate-700 rounded-[2.5rem] p-10 lg:p-14 shadow-2xl relative"
           >
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#20bd5a]/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#00cc00]/20 rounded-full blur-3xl pointer-events-none"></div>
             
             <h3 className="text-3xl font-bold text-white mb-10 font-heading">Request a Demo</h3>
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div>
                 <label className="block text-sm font-bold text-slate-400 mb-2 uppercase tracking-wide">Name</label>
-                <input type="text" className="w-full bg-slate-900 border border-slate-700 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-[#20bd5a] focus:ring-1 focus:ring-[#20bd5a] transition-all placeholder:text-slate-600 font-accent text-lg" placeholder="John Doe" />
+                <input type="text" className="w-full bg-slate-900 border border-slate-700 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-[#00cc00] focus:ring-1 focus:ring-[#00cc00] transition-all placeholder:text-slate-600 font-accent text-lg" placeholder="John Doe" />
               </div>
               <div>
                 <label className="block text-sm font-bold text-slate-400 mb-2 uppercase tracking-wide">Phone Number</label>
-                <input type="tel" className="w-full bg-slate-900 border border-slate-700 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-[#20bd5a] focus:ring-1 focus:ring-[#20bd5a] transition-all placeholder:text-slate-600 font-accent text-lg" placeholder="+1 (555) 000-0000" />
+                <input type="tel" className="w-full bg-slate-900 border border-slate-700 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-[#00cc00] focus:ring-1 focus:ring-[#00cc00] transition-all placeholder:text-slate-600 font-accent text-lg" placeholder="+1 (555) 000-0000" />
               </div>
               <div>
                 <label className="block text-sm font-bold text-slate-400 mb-2 uppercase tracking-wide">Message</label>
-                <textarea rows="4" className="w-full bg-slate-900 border border-slate-700 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-[#20bd5a] focus:ring-1 focus:ring-[#20bd5a] transition-all placeholder:text-slate-600 resize-none font-accent text-lg" placeholder="Tell us about your business needs..."></textarea>
+                <textarea rows="4" className="w-full bg-slate-900 border border-slate-700 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-[#00cc00] focus:ring-1 focus:ring-[#00cc00] transition-all placeholder:text-slate-600 resize-none font-accent text-lg" placeholder="Tell us about your business needs..."></textarea>
               </div>
               <div className="pt-6 flex flex-col sm:flex-row gap-5">
                 <motion.button 
-                  whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(32,189,90,0.3)" }}
+                  whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(0,204,0,0.3)" }}
                   whileTap={{ scale: 0.98 }}
                   type="submit" 
-                  className="flex-1 bg-gradient-to-r from-[#20bd5a] to-[#00ff99] text-white font-bold py-5 rounded-xl transition-all shadow-lg font-heading text-lg"
+                  className="flex-1 bg-[#00cc00] text-white font-bold py-5 rounded-xl transition-all shadow-lg font-heading text-lg"
                 >
                   Submit Request
                 </motion.button>
@@ -679,7 +678,7 @@ export default function App() {
               {['IT Infrastructure', 'Web Platforms', 'Mobile Applications', 'Enterprise ERP Solutions', 'Cloud Infrastructure', 'Data Analytics', 'Enterprise Architecture', 'Networking', 'Cloud Security', 'AI Automation'].map((skill, i) => (
                 <motion.span 
                   key={i} 
-                  whileHover={{ y: -5, borderColor: "rgba(32,189,90,0.5)", color: "#20bd5a" }}
+                  whileHover={{ y: -5, borderColor: "rgba(0,204,0,0.5)", color: "#00cc00" }}
                   className="px-5 py-2.5 bg-slate-900/80 text-slate-400 rounded-xl text-sm border border-slate-800 transition-colors cursor-default font-bold font-accent shadow-lg"
                 >
                   {skill}
@@ -690,8 +689,8 @@ export default function App() {
           <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-slate-900/50 text-slate-500 text-sm font-accent font-bold">
             <p>© 2026 OrbX — ERP · MOBILE · WEB</p>
             <div className="mt-6 md:mt-0 space-x-8">
-              <a href="#" className="hover:text-[#20bd5a] transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-[#20bd5a] transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-[#00cc00] transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-[#00cc00] transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
