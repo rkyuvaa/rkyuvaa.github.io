@@ -109,7 +109,7 @@ export default function App() {
           transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] pointer-events-none"
         >
-          <div className="absolute inset-0 bg-[#00cc00]/10 blur-[120px] rounded-full opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00cc00]/20 via-[#012101]/40 to-[#004d00]/20 blur-[120px] rounded-full opacity-40"></div>
         </motion.div>
         
         <div className="max-w-screen-2xl mx-auto px-4 lg:px-6 xl:px-8 relative z-10">
@@ -120,7 +120,7 @@ export default function App() {
               animate="visible"
               className="space-y-8"
             >
-              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 backdrop-blur border border-slate-700 text-[#00cc00] text-sm font-medium font-accent tracking-wide">
+              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#001a00]/80 backdrop-blur border border-[#00cc00]/20 text-[#00cc00] text-sm font-medium font-accent tracking-wide">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#00cc00] shadow-[0_0_10px_#00cc00] animate-pulse"></span>
                 Innovation & Excellence
               </motion.div>
@@ -148,10 +148,10 @@ export default function App() {
                   View Demo
                 </motion.a>
                 <motion.a 
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(30,41,59,1)" }}
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(0,30,0,1)" }}
                   whileTap={{ scale: 0.95 }}
                   href="#contact" 
-                  className="bg-slate-800 text-white border border-slate-700 px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-sm"
+                  className="bg-[#001a00] text-white border border-[#00cc00]/30 px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-sm"
                 >
                   Contact Me
                 </motion.a>
@@ -162,7 +162,7 @@ export default function App() {
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-slate-800/80">
+              <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-[#00cc00]/10">
                 {[
                   { num: '11+', label: 'Years Exp.' },
                   { num: '50+', label: 'Web/IT Projects' },
@@ -190,10 +190,10 @@ export default function App() {
               <motion.div 
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-gradient-to-tr from-emerald-500/30 to-blue-500/10 rounded-3xl blur-3xl transform -rotate-3"
+                className="absolute inset-0 bg-gradient-to-tr from-[#00cc00]/20 to-[#012101]/10 rounded-3xl blur-3xl transform -rotate-3"
               ></motion.div>
-              <div className="bg-slate-800/40 backdrop-blur-2xl border border-slate-700/50 rounded-3xl p-10 relative shadow-2xl">
-                <div className="flex items-center gap-4 mb-10 pb-6 border-b border-slate-700/50">
+              <div className="bg-[#001a00]/60 backdrop-blur-2xl border border-[#00cc00]/20 rounded-3xl p-10 relative shadow-2xl">
+                <div className="flex items-center gap-4 mb-10 pb-6 border-b border-[#00cc00]/10">
                   <div className="w-12 h-12 rounded-xl bg-[#00cc00]/20 flex items-center justify-center text-[#00cc00]">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                   </div>
@@ -212,7 +212,7 @@ export default function App() {
                       whileHover={{ x: 10 }}
                       className="flex items-center gap-5 group cursor-default"
                     >
-                      <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 group-hover:text-[#00cc00] group-hover:border-[#00cc00]/50 group-hover:bg-[#00cc00]/10 transition-all duration-300">
+                      <div className="w-14 h-14 rounded-2xl bg-[#000d00] border border-[#00cc00]/20 flex items-center justify-center text-slate-400 group-hover:text-[#00cc00] group-hover:border-[#00cc00]/50 group-hover:bg-[#00cc00]/10 transition-all duration-300">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} /></svg>
                       </div>
                       <div>
@@ -229,7 +229,7 @@ export default function App() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-32 border-b border-slate-800 bg-[#070b14]">
+      <section id="features" className="py-32 border-b border-[#00cc00]/10 bg-[#000d00]">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
           <motion.div 
             initial="hidden"
@@ -259,7 +259,7 @@ export default function App() {
                 key={i} 
                 variants={fadeInUp}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-slate-800/40 backdrop-blur rounded-3xl p-8 border border-slate-700/50 hover:border-[#00cc00]/50 transition-colors shadow-xl"
+                className="bg-[#001a00] backdrop-blur rounded-3xl p-8 border border-[#00cc00]/20 hover:border-[#00cc00]/50 transition-colors shadow-xl"
               >
                 <div className="w-14 h-14 rounded-2xl bg-[#00cc00]/10 text-[#00cc00] flex items-center justify-center mb-8 border border-[#00cc00]/20">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
@@ -273,7 +273,7 @@ export default function App() {
       </section>
       
       {/* Services Section */}
-      <section id="services" className="py-32 border-b border-slate-800">
+      <section id="services" className="py-32 border-b border-[#00cc00]/10">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
           <motion.div 
             initial="hidden"
@@ -302,10 +302,10 @@ export default function App() {
                 key={i}
                 variants={fadeInUp}
                 whileHover={{ scale: 1.03 }}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 p-12 rounded-[2rem] border border-slate-700/50 relative overflow-hidden group shadow-2xl"
+                className="bg-[#001a00] p-12 rounded-[2rem] border border-[#00cc00]/10 relative overflow-hidden group shadow-2xl"
               >
                 <div className="absolute -top-10 -right-10 p-8 opacity-5 group-hover:opacity-10 group-hover:text-[#00cc00] transition-all duration-700 transform group-hover:rotate-12 group-hover:scale-125">
-                   <svg className="w-64 h-64 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d={srv.path} /></svg>
+                   <svg className="w-64 h-64 text-[#00cc00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d={srv.path} /></svg>
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-6 relative z-10 font-heading">{srv.title}</h3>
                 <p className="text-slate-400 text-lg relative z-10 leading-relaxed font-accent">{srv.desc}</p>
@@ -313,7 +313,6 @@ export default function App() {
             ))}
           </motion.div>
 
-          {/* Original Services mapped to retain exact words */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -332,7 +331,7 @@ export default function App() {
               <motion.div 
                 key={i} 
                 variants={fadeInUp}
-                className="p-10 rounded-3xl bg-slate-800/30 border border-slate-700/50 hover:bg-slate-800/80 transition-all duration-300 hover:-translate-y-2"
+                className="p-10 rounded-3xl bg-[#001a00] border border-[#00cc00]/10 hover:bg-[#002200] transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="flex justify-between items-start mb-8">
                   <motion.span whileHover={{ scale: 1.2, rotate: 10 }} className="text-5xl filter drop-shadow-lg inline-block cursor-default origin-bottom-left">{svc.icon}</motion.span>
@@ -347,7 +346,7 @@ export default function App() {
       </section>
 
       {/* Demo Section */}
-      <section id="demo" className="py-32 border-b border-slate-800 bg-[#070b14]">
+      <section id="demo" className="py-32 border-b border-[#00cc00]/10 bg-[#000d00]">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
           <motion.div 
             initial="hidden"
@@ -367,8 +366,8 @@ export default function App() {
             variants={staggerContainer}
             className="grid md:grid-cols-2 gap-8"
           >
-            <motion.div variants={fadeInUp} whileHover={{ scale: 1.02 }} className="md:col-span-2 relative group rounded-[2rem] overflow-hidden border-2 border-slate-700/50 bg-slate-800 aspect-video md:aspect-[21/9] flex items-center justify-center hover:border-[#00cc00]/50 transition-all duration-500 shadow-2xl">
-              <div className="absolute inset-0 bg-slate-800/80 backdrop-blur-sm flex items-center justify-center text-slate-500">
+            <motion.div variants={fadeInUp} whileHover={{ scale: 1.02 }} className="md:col-span-2 relative group rounded-[2rem] overflow-hidden border-2 border-[#00cc00]/20 bg-[#001a00] aspect-video md:aspect-[21/9] flex items-center justify-center hover:border-[#00cc00]/50 transition-all duration-500 shadow-2xl">
+              <div className="absolute inset-0 bg-[#000a00]/80 backdrop-blur-sm flex items-center justify-center text-[#00cc00]/20">
                 <div className="text-center transform transition-transform duration-500 group-hover:scale-110">
                   <svg className="w-20 h-20 mx-auto mb-6 text-[#00cc00]/30 group-hover:text-[#00cc00] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                   <span className="font-bold text-2xl text-slate-300 font-heading tracking-wide">POS Billing Screen Placeholder</span>
@@ -380,8 +379,8 @@ export default function App() {
               { title: 'Inventory Dashboard Placeholder', path: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z' },
               { title: 'Mobile UI Placeholder', path: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z' }
             ].map((img, i) => (
-              <motion.div key={i} variants={fadeInUp} whileHover={{ scale: 1.03 }} className="relative group rounded-[2rem] overflow-hidden border-2 border-slate-700/50 bg-slate-800 aspect-video flex items-center justify-center hover:border-[#00cc00]/50 transition-all duration-500 shadow-2xl">
-                 <div className="absolute inset-0 bg-slate-800/80 backdrop-blur-sm flex items-center justify-center text-slate-500">
+              <motion.div key={i} variants={fadeInUp} whileHover={{ scale: 1.03 }} className="relative group rounded-[2rem] overflow-hidden border-2 border-[#00cc00]/20 bg-[#001a00] aspect-video flex items-center justify-center hover:border-[#00cc00]/50 transition-all duration-500 shadow-2xl">
+                 <div className="absolute inset-0 bg-[#000a00]/80 backdrop-blur-sm flex items-center justify-center text-[#00cc00]/20">
                   <div className="text-center transform transition-transform duration-500 group-hover:scale-110">
                     <svg className="w-16 h-16 mx-auto mb-6 text-[#00cc00]/30 group-hover:text-[#00cc00] transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={img.path} /></svg>
                     <span className="font-bold text-xl text-slate-300 font-heading tracking-wide">{img.title}</span>
@@ -394,7 +393,7 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-32 border-b border-slate-800">
+      <section id="about" className="py-32 border-b border-[#00cc00]/10">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
            <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div 
@@ -418,7 +417,7 @@ export default function App() {
                     whileHover={{ x: 10 }}
                     className="flex gap-6 group cursor-default"
                   >
-                    <div className="mt-1 w-12 h-12 rounded-full bg-slate-800 text-[#00cc00] flex items-center justify-center flex-shrink-0 border border-slate-700 group-hover:border-[#00cc00] group-hover:bg-[#00cc00]/20 transition-all duration-300 shadow-lg">
+                    <div className="mt-1 w-12 h-12 rounded-full bg-[#001a00] text-[#00cc00] flex items-center justify-center flex-shrink-0 border border-[#00cc00]/30 group-hover:border-[#00cc00] group-hover:bg-[#00cc00]/20 transition-all duration-300 shadow-lg">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
                     </div>
                     <div>
@@ -435,7 +434,7 @@ export default function App() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={slideInRight}
-              className="bg-slate-800/60 backdrop-blur-xl rounded-[2.5rem] p-12 border border-slate-700 shadow-2xl relative overflow-hidden"
+              className="bg-[#001a00]/60 backdrop-blur-xl rounded-[2.5rem] p-12 border border-[#00cc00]/20 shadow-2xl relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#00cc00]/10 rounded-full blur-3xl"></div>
               
@@ -459,7 +458,7 @@ export default function App() {
                     <div className="flex justify-between text-xs mb-3">
                       <span className="text-white font-bold uppercase tracking-widest font-accent">{skill.name}</span>
                     </div>
-                    <div className="h-2 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                    <div className="h-2 bg-[#000d00] rounded-full overflow-hidden border border-[#00cc00]/10">
                       <motion.div 
                         initial={{ width: 0 }}
                         whileInView={{ width: skill.w }}
@@ -479,7 +478,7 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-32 border-b border-slate-800 bg-[#070b14]">
+      <section id="projects" className="py-32 border-b border-[#00cc00]/10 bg-[#000d00]">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-20">
           <motion.div 
             initial="hidden"
@@ -508,16 +507,16 @@ export default function App() {
                 key={i} 
                 variants={fadeInUp}
                 whileHover={{ y: -15, scale: 1.02 }}
-                className="bg-slate-800/50 border border-slate-700 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-[#00cc00]/10 hover:border-[#00cc00]/50 flex flex-col h-full"
+                className="bg-[#001a00] border border-[#00cc00]/20 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-[#00cc00]/10 hover:border-[#00cc00]/50 flex flex-col h-full"
               >
-                <div className="aspect-video bg-slate-900 rounded-2xl mb-8 overflow-hidden flex items-center justify-center border border-slate-800">
-                  <svg className="w-12 h-12 text-slate-700" fill="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                <div className="aspect-video bg-[#000a00] rounded-2xl mb-8 overflow-hidden flex items-center justify-center border border-[#00cc00]/10">
+                  <svg className="w-12 h-12 text-[#00cc00]/20" fill="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4 font-heading">{proj.title}</h3>
                 <p className="text-slate-400 mb-8 leading-relaxed font-accent flex-grow">{proj.desc}</p>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {proj.tags.map((tag, j) => (
-                    <span key={j} className="px-3 py-1.5 bg-slate-900 text-[#00cc00] text-xs font-bold rounded-lg border border-slate-700 uppercase tracking-wider">{tag}</span>
+                    <span key={j} className="px-3 py-1.5 bg-[#000d00] text-[#00cc00] text-xs font-bold rounded-lg border border-[#00cc00]/20 uppercase tracking-wider">{tag}</span>
                   ))}
                 </div>
               </motion.div>
@@ -536,7 +535,7 @@ export default function App() {
               <h2 className="text-4xl md:text-6xl font-bold text-white mb-20 font-heading leading-tight">11+ years of building<br />& managing tech</h2>
             </motion.div>
             
-            <div className="space-y-0 pl-4 md:pl-10 border-l border-slate-700 ml-4 md:ml-0">
+            <div className="space-y-0 pl-4 md:pl-10 border-l border-[#00cc00]/20 ml-4 md:ml-0">
               {[
                 { year: 'Jan 2024 — Present', title: 'Lead Systems & Web Developer', org: 'Automotive Tech Sector', desc: 'Spearheading Odoo ERP optimization, supporting IoT application development, managing Microsoft 365 environments, and ensuring operational uptime.' },
                 { year: '2018 — 2023', title: 'Senior Web App & ERP Developer', org: 'Retail & Lifestyle Manufacturing', desc: 'Maintained and customized ERP solutions, delivered data analytics/MIS reports, and streamlined system upgrades for executive decision-making.' },
@@ -556,9 +555,9 @@ export default function App() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ type: "spring", delay: 0.3 + (i * 0.15) }}
-                    className="absolute w-5 h-5 bg-[#00cc00] rounded-full -left-[10.5px] top-1.5 border-4 border-slate-900 shadow-[0_0_15px_rgba(0,204,0,0.8)]"
+                    className="absolute w-5 h-5 bg-[#00cc00] rounded-full -left-[10.5px] top-1.5 border-4 border-[#000d00] shadow-[0_0_15px_rgba(0,204,0,0.8)]"
                   ></motion.div>
-                  <div className="inline-block px-3 py-1 bg-slate-800 rounded-md text-[#00cc00] font-mono text-sm mb-4 border border-slate-700 font-bold">{item.year}</div>
+                  <div className="inline-block px-3 py-1 bg-[#001a00] rounded-md text-[#00cc00] font-mono text-sm mb-4 border border-[#00cc00]/30 font-bold">{item.year}</div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 font-heading tracking-wide">{item.title}</h3>
                   <div className="text-slate-300 font-bold text-lg mb-4 font-accent">{item.org}</div>
                   <p className="text-slate-400 max-w-3xl leading-relaxed text-lg font-accent">{item.desc}</p>
@@ -605,14 +604,14 @@ export default function App() {
                   href="https://linkedin.com/in/rkyuvaa" 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="flex items-center gap-3 px-8 py-4 bg-slate-800 rounded-2xl text-white hover:bg-slate-700 transition-colors border border-slate-700 font-bold font-heading text-lg shadow-xl"
+                  className="flex items-center gap-3 px-8 py-4 bg-[#001a00] rounded-2xl text-white hover:bg-[#002200] transition-colors border border-[#00cc00]/30 font-bold font-heading text-lg shadow-xl"
                 >
                   💼 LinkedIn
                 </motion.a>
                 <motion.a 
                   whileHover={{ scale: 1.05, y: -5 }}
                   href="tel:+919787317484" 
-                  className="flex items-center gap-3 px-8 py-4 bg-slate-800 rounded-2xl text-white hover:bg-slate-700 transition-colors border border-slate-700 font-bold font-heading text-lg shadow-xl"
+                  className="flex items-center gap-3 px-8 py-4 bg-[#001a00] rounded-2xl text-white hover:bg-[#002200] transition-colors border border-[#00cc00]/30 font-bold font-heading text-lg shadow-xl"
                 >
                   📞 9787317484
                 </motion.a>
@@ -625,7 +624,7 @@ export default function App() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={slideInRight}
-            className="bg-slate-800/80 backdrop-blur-xl border border-slate-700 rounded-[2.5rem] p-10 lg:p-14 shadow-2xl relative"
+            className="bg-[#001a00]/80 backdrop-blur-xl border border-[#00cc00]/20 rounded-[2.5rem] p-10 lg:p-14 shadow-2xl relative"
           >
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#00cc00]/20 rounded-full blur-3xl pointer-events-none"></div>
             
