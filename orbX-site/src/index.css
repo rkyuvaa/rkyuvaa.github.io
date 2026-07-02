@@ -1,3 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Quicksand:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --brand-primary: #00c200;
+  --brand-primary-glow: rgba(0, 194, 0, 0.15);
+  --brand-dark: #003300;
+  --bg-deep: #020703;
+  --bg-card: rgba(10, 18, 12, 0.65);
+  --border-card: rgba(0, 194, 0, 0.12);
+  --border-card-hover: rgba(0, 194, 0, 0.4);
+}
+
+.font-heading { font-family: 'Outfit', sans-serif; }
+.font-body { font-family: 'Plus Jakarta Sans', sans-serif; }
+.font-accent { font-family: 'Quicksand', sans-serif; }
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #020703;
+}
+::-webkit-scrollbar-thumb {
+  background: #052109;
+  border: 2px solid #020703;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00c200;
+}
+
+/* Glowing tech grid background */
+.tech-grid {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(0, 194, 0, 0.08) 1px, transparent 0),
+    linear-gradient(to right, rgba(0, 194, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 194, 0, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 40px 40px;
+  background-position: center center;
+}
+
+/* Dynamic Aurora ambient lights */
+.aurora-glow-1 {
+  background: radial-gradient(circle, rgba(0, 194, 0, 0.12) 0%, transparent 70%);
+}
+.aurora-glow-2 {
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.1) 0%, transparent 75%);
+}
+
+/* Custom glow utility */
+.glow-primary {
+  box-shadow: 0 0 25px rgba(0, 194, 0, 0.25);
+}
+
+/* Client slide animations for infinite scrolling */
+@keyframes infinite-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-infinite-scroll {
+  animation: infinite-scroll 35s linear infinite;
+}
+
+/* Card hover glow and reflections */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.glass-card:hover {
+  border-color: var(--border-card-hover);
+  box-shadow: 0 10px 30px -10px rgba(0, 194, 0, 0.15);
+}
+
+/* Perspective styling for 3D visual mockups */
+.perspective-container {
+  perspective: 1200px;
+}
+.mockup-3d {
+  transform: rotateX(8deg) rotateY(-15deg) rotateZ(3deg);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mockup-3d:hover {
+  transform: rotateX(2deg) rotateY(-4deg) rotateZ(1deg) scale(1.02);
+}
