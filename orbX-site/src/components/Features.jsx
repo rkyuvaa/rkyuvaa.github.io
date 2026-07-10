@@ -16,7 +16,7 @@ export default function Features() {
     <section id="features" className="py-28 dark-bg relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 right-0 w-[450px] h-[450px] rounded-full bg-white/5 blur-3xl"/>
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#2E8B57]/10 blur-3xl"/>
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#00a86b]/10 blur-3xl"/>
       </div>
       <div className="max-w-[1320px] mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -26,7 +26,7 @@ export default function Features() {
             </motion.span>
             <motion.h2 variants={fadeLeft} className="text-[42px] md:text-[48px] font-bold text-white leading-tight" style={{fontFamily:'Manrope,sans-serif'}}>
               Built with Enterprise-Grade{' '}
-              <span style={{background:'linear-gradient(135deg,#DDF5E8,#7dd3a8)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
+              <span style={{background:'linear-gradient(135deg,#00c87f,#7dd3a8)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
                 Capabilities
               </span>
             </motion.h2>
@@ -34,7 +34,7 @@ export default function Features() {
               OrbX delivers the tools your manufacturing team needs — without the complexity of traditional ERP systems. Deploy on cloud or on-premise with equal ease.
             </motion.p>
             <motion.div variants={fadeLeft}>
-              <a href="#contact" className="inline-flex items-center gap-2 px-7 py-4 rounded-[14px] bg-white text-[#0B5D4B] font-semibold text-base hover:bg-[#DDF5E8] transition-all shadow-2xl hover:-translate-y-0.5">
+              <a href="#contact" className="inline-flex items-center gap-2 px-7 py-4 rounded-[14px] bg-white text-[#023020] font-semibold text-base hover:bg-[#00c87f] transition-all shadow-2xl hover:-translate-y-0.5">
                 Start Free Demo <ArrowRight size={16}/>
               </a>
             </motion.div>
@@ -44,8 +44,8 @@ export default function Features() {
               <motion.div key={i} variants={scaleIn} initial="hidden" animate={inView?'visible':'hidden'}
                 transition={{delay:i*0.07}}
                 className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-[16px] px-4 py-3.5 border border-white/10 hover:bg-white/15 transition-colors cursor-default">
-                <div className="w-7 h-7 rounded-lg bg-[#2E8B57]/35 flex items-center justify-center flex-shrink-0">
-                  <Check size={13} className="text-[#DDF5E8]"/>
+                <div className="w-7 h-7 rounded-lg bg-[#00a86b]/35 flex items-center justify-center flex-shrink-0">
+                  <Check size={13} className="text-[#00c87f]"/>
                 </div>
                 <span className="text-white/85 text-[13px] font-medium">{f}</span>
               </motion.div>

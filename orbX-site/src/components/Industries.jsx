@@ -20,7 +20,7 @@ export default function Industries() {
     <section id="industries" className="py-28 bg-white" ref={ref}>
       <div className="max-w-[1320px] mx-auto px-6">
         <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="text-center mb-16">
-          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DDF5E8] text-[#0B5D4B] text-sm font-semibold border border-[#0B5D4B]/20 mb-4">
+          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
             Industries We Serve
           </motion.span>
           <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Manrope,sans-serif'}}>
@@ -36,7 +36,7 @@ export default function Industries() {
               <h3 className="font-bold text-slate-800 text-sm mb-2">{ind.name}</h3>
               <p className="text-slate-400 text-[11px] leading-relaxed">{ind.benefit}</p>
               {/* Hover overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-1 bg-[#0B5D4B] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-[20px]"/>
+              <div className="absolute inset-x-0 bottom-0 h-1 bg-[#023020] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-[20px]"/>
             </motion.div>
           ))}
         </div>

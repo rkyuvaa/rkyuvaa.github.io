@@ -14,8 +14,8 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  const logoColor = scrolled ? '#0B5D4B' : 'white';
-  const xColor = '#2E8B57';
+  const logoColor = scrolled ? '#023020' : 'white';
+  const xColor = '#00a86b';
 
   return (
     <motion.header
@@ -36,7 +36,7 @@ export default function Navbar() {
           </div>
           <span className={`text-xl font-bold tracking-tight transition-colors ${scrolled ? 'text-[#1E293B]' : 'text-white'}`}
             style={{ fontFamily: 'Manrope, sans-serif' }}>
-            Orb<span style={{ color: '#2E8B57' }}>X</span>
+            Orb<span style={{ color: '#00a86b' }}>X</span>
           </span>
         </a>
 
@@ -44,7 +44,7 @@ export default function Navbar() {
         <nav className="hidden lg:flex items-center gap-8">
           {links.map(l => (
             <a key={l} href={`#${l.toLowerCase()}`}
-              className={`text-sm font-medium transition-colors hover:text-[#0B5D4B] ${scrolled ? 'text-slate-600' : 'text-white/85'}`}>
+              className={`text-sm font-medium transition-colors hover:text-[#023020] ${scrolled ? 'text-slate-600' : 'text-white/85'}`}>
               {l}
             </a>
           ))}
@@ -54,12 +54,12 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <a href="#contact"
             className={`text-sm font-semibold px-5 py-2.5 rounded-[14px] border-2 transition-all ${
-              scrolled ? 'border-[#0B5D4B] text-[#0B5D4B] hover:bg-[#0B5D4B] hover:text-white' : 'border-white/60 text-white hover:bg-white/10'
+              scrolled ? 'border-[#023020] text-[#023020] hover:bg-[#023020] hover:text-white' : 'border-white/60 text-white hover:bg-white/10'
             }`}>
             Book Demo
           </a>
           <a href="#contact"
-            className="text-sm font-semibold px-5 py-2.5 rounded-[14px] bg-[#0B5D4B] text-white hover:bg-[#084437] transition-all shadow-lg hover:shadow-[#0B5D4B]/30 hover:-translate-y-0.5">
+            className="text-sm font-semibold px-5 py-2.5 rounded-[14px] bg-[#023020] text-white hover:bg-[#011a12] transition-all shadow-lg hover:shadow-[#023020]/30 hover:-translate-y-0.5">
             Get Quotation
           </a>
         </div>
@@ -77,15 +77,15 @@ export default function Navbar() {
             className="lg:hidden bg-white border-t border-slate-100 px-6 py-5 space-y-3 shadow-xl">
             {links.map(l => (
               <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}
-                className="block text-slate-700 font-medium py-2 hover:text-[#0B5D4B] transition-colors">{l}</a>
+                className="block text-slate-700 font-medium py-2 hover:text-[#023020] transition-colors">{l}</a>
             ))}
             <div className="flex gap-3 pt-3 border-t border-slate-100">
               <a href="#contact" onClick={() => setOpen(false)}
-                className="flex-1 text-center py-3 rounded-[14px] border-2 border-[#0B5D4B] text-[#0B5D4B] text-sm font-semibold hover:bg-[#0B5D4B] hover:text-white transition-all">
+                className="flex-1 text-center py-3 rounded-[14px] border-2 border-[#023020] text-[#023020] text-sm font-semibold hover:bg-[#023020] hover:text-white transition-all">
                 Book Demo
               </a>
               <a href="#contact" onClick={() => setOpen(false)}
-                className="flex-1 text-center py-3 rounded-[14px] bg-[#0B5D4B] text-white text-sm font-semibold hover:bg-[#084437] transition-all">
+                className="flex-1 text-center py-3 rounded-[14px] bg-[#023020] text-white text-sm font-semibold hover:bg-[#011a12] transition-all">
                 Get Quotation
               </a>
             </div>

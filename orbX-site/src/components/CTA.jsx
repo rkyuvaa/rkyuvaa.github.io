@@ -6,8 +6,8 @@ export default function CTA() {
   return (
     <section className="py-24 dark-bg relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-[450px] h-[450px] rounded-full bg-[#2E8B57]/12 blur-[90px]"/>
-        <div className="absolute bottom-0 right-1/4 w-[350px] h-[350px] rounded-full bg-[#DDF5E8]/5 blur-[70px]"/>
+        <div className="absolute top-0 left-1/4 w-[450px] h-[450px] rounded-full bg-[#00a86b]/12 blur-[90px]"/>
+        <div className="absolute bottom-0 right-1/4 w-[350px] h-[350px] rounded-full bg-[#00c87f]/5 blur-[70px]"/>
       </div>
       <div className="max-w-[780px] mx-auto px-6 text-center relative z-10">
         <motion.h2
@@ -28,7 +28,7 @@ export default function CTA() {
           viewport={{once:true}} transition={{duration:.6,delay:.2}}
           className="flex flex-wrap justify-center gap-4">
           <a href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-[14px] bg-white text-[#0B5D4B] font-semibold text-base hover:bg-[#DDF5E8] transition-all shadow-2xl hover:-translate-y-0.5">
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-[14px] bg-white text-[#023020] font-semibold text-base hover:bg-[#00c87f] transition-all shadow-2xl hover:-translate-y-0.5">
             Book a Demo <ArrowRight size={16}/>
           </a>
           <a href="#contact"

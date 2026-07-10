@@ -22,7 +22,7 @@ export default function Pricing() {
     <section id="pricing" className="py-28 bg-[#F6F8FA]" ref={ref}>
       <div className="max-w-[1320px] mx-auto px-6">
         <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="text-center mb-16">
-          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DDF5E8] text-[#0B5D4B] text-sm font-semibold border border-[#0B5D4B]/20 mb-4">
+          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
             Pricing
           </motion.span>
           <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Manrope,sans-serif'}}>
@@ -38,7 +38,7 @@ export default function Pricing() {
               transition={{delay:i*0.15}}
               className={`rounded-[24px] p-8 border-2 card-lift relative overflow-hidden
                 ${p.highlight
-                  ? 'bg-[#0B5D4B] border-[#0B5D4B] shadow-[0_30px_80px_rgba(11,93,75,0.3)]'
+                  ? 'bg-[#023020] border-[#023020] shadow-[0_30px_80px_rgba(2,48,32,0.3)]'
                   : 'bg-white border-slate-100 shadow-sm'}`}>
               {p.highlight && (
                 <div className="absolute top-6 right-6">
@@ -50,8 +50,8 @@ export default function Pricing() {
               <ul className="space-y-3 mb-10">
                 {p.features.map((f,j)=>(
                   <li key={j} className="flex items-center gap-3 text-[14px]">
-                    <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${p.highlight?'bg-white/20':'bg-[#DDF5E8]'}`}>
-                      <Check size={11} className={p.highlight?'text-white':'text-[#0B5D4B]'}/>
+                    <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${p.highlight?'bg-white/20':'bg-[#00c87f]'}`}>
+                      <Check size={11} className={p.highlight?'text-white':'text-[#023020]'}/>
                     </div>
                     <span className={p.highlight?'text-white/85':'text-slate-600'}>{f}</span>
                   </li>
@@ -60,8 +60,8 @@ export default function Pricing() {
               <a href="#contact"
                 className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-[14px] font-semibold text-[15px] transition-all
                   ${p.highlight
-                    ? 'bg-white text-[#0B5D4B] hover:bg-[#DDF5E8]'
-                    : 'bg-[#0B5D4B] text-white hover:bg-[#084437]'}`}>
+                    ? 'bg-white text-[#023020] hover:bg-[#00c87f]'
+                    : 'bg-[#023020] text-white hover:bg-[#011a12]'}`}>
                 Request Quote <ArrowRight size={14}/>
               </a>
             </motion.div>

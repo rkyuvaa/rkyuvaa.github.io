@@ -9,9 +9,9 @@ const cols = [
 
 export default function Footer() {
   const logoColor = 'white';
-  const xColor = '#2E8B57';
+  const xColor = '#00a86b';
   return (
-    <footer className="bg-[#084437] text-white pt-20 pb-10">
+    <footer className="bg-[#011a12] text-white pt-20 pb-10">
       <div className="max-w-[1320px] mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
           <div className="col-span-2">
@@ -23,7 +23,7 @@ export default function Footer() {
                 </svg>
               </div>
               <span className="text-xl font-bold" style={{fontFamily:'Manrope,sans-serif'}}>
-                Orb<span style={{color:'#2E8B57'}}>X</span>
+                Orb<span style={{color:'#00a86b'}}>X</span>
               </span>
             </a>
             <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-[210px]">
@@ -31,7 +31,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               {[Share2,ExternalLink,Globe,Code2].map((Icon,i)=>(
-                <a key={i} href="#" className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center hover:bg-[#2E8B57] transition-colors duration-300">
+                <a key={i} href="#" className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center hover:bg-[#00a86b] transition-colors duration-300">
                   <Icon size={14}/>
                 </a>
               ))}

@@ -9,10 +9,10 @@ export default {
       },
       colors: {
         emerald: {
-          deep: '#0B5D4B',
-          forest: '#084437',
-          mid: '#2E8B57',
-          mint: '#DDF5E8',
+          deep: '#023020',
+          forest: '#011a12',
+          mid: '#00a86b',
+          mint: '#00c87f',
         }
       },
       borderRadius: {

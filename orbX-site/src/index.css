@@ -13,7 +13,7 @@
   }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: #f1f5f9; }
-  ::-webkit-scrollbar-thumb { background: #0B5D4B; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb { background: #023020; border-radius: 10px; }
 }
 
 @keyframes float {
@@ -27,20 +27,20 @@
 .marquee-track:hover { animation-play-state: paused; }
 
 .card-lift { transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease; }
-.card-lift:hover { transform: translateY(-8px); box-shadow: 0 28px 60px rgba(11,93,75,.15); }
+.card-lift:hover { transform: translateY(-8px); box-shadow: 0 28px 60px rgba(2,48,32,.15); }
 
 .gradient-text {
-  background: linear-gradient(135deg,#0B5D4B 0%,#2E8B57 100%);
+  background: linear-gradient(135deg,#023020 0%,#00a86b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.dark-bg { background: linear-gradient(135deg,#084437 0%,#0B5D4B 100%); }
+.dark-bg { background: linear-gradient(135deg,#011a12 0%,#023020 100%); }
 
 .mesh {
   background-image:
-    radial-gradient(at 30% 20%, rgba(11,93,75,.07) 0px, transparent 55%),
+    radial-gradient(at 30% 20%, rgba(2,48,32,.07) 0px, transparent 55%),
     radial-gradient(at 80% 80%, rgba(46,139,87,.05) 0px, transparent 55%);
 }
 
