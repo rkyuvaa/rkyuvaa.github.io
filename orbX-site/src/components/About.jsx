@@ -29,15 +29,7 @@ export default function About() {
                 ))}
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-4 flex items-center gap-3 border border-slate-100">
-              <div className="w-10 h-10 bg-[#DDF5E8] rounded-xl flex items-center justify-center">
-                <Award size={18} className="text-[#0B5D4B]"/>
-              </div>
-              <div>
-                <div className="text-[10px] text-slate-400">Enterprise Ready</div>
-                <div className="text-sm font-bold text-slate-800">ISO Compliant</div>
-              </div>
-            </div>
+            
           </motion.div>
 
           <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="space-y-8">

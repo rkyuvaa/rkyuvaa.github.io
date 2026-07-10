@@ -1,14 +1,12 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import TrustedBy from './components/TrustedBy';
 import About from './components/About';
 import Products from './components/Products';
 import Modules from './components/Modules';
 import Features from './components/Features';
 import Industries from './components/Industries';
 import WhyChoose from './components/WhyChoose';
-import Testimonials from './components/Testimonials';
 import Stats from './components/Stats';
 import Pricing from './components/Pricing';
 import CTA from './components/CTA';
@@ -37,14 +35,12 @@ export default function App() {
       <Navbar/>
       <main>
         <Hero/>
-        <TrustedBy/>
         <About/>
         <Products/>
         <Modules/>
         <Features/>
         <Industries/>
         <WhyChoose/>
-        <Testimonials/>
         <Stats/>
         <Pricing/>
         <CTA/>
