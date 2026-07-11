@@ -1,18 +1,18 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Factory, Zap, Settings, TrendingUp, Layers, Lock, Monitor, Cpu, Headphones, ArrowRight } from 'lucide-react';
+import { Factory, Zap, Settings, TrendingUp, Layers, Lock, Monitor, Cpu, Headphones, ArrowRight, Rocket, Palette, RefreshCw, Handshake, Bot } from 'lucide-react';
 import { fadeLeft, fadeRight, fadeUp, scaleIn, stagger } from '../utils/anim';
 
 const points = [
-  {icon:Factory, title:'Manufacturing-Focused ERP', desc:'Every feature built specifically for real manufacturer workflows and needs.'},
-  {icon:Monitor, title:'Modern User Interface', desc:'Clean, intuitive UI that requires minimal training for operational staff.'},
-  {icon:Zap, title:'High Performance', desc:'Sub-second response times even with thousands of concurrent users globally.'},
-  {icon:Lock, title:'Role-Based Security', desc:'Granular access control, audit trails, and enterprise-grade data encryption.'},
-  {icon:Settings, title:'Workflow Automation', desc:'Automate approvals, notifications, and routine operations without coding.'},
-  {icon:TrendingUp, title:'Easy Customization', desc:'Configure modules visually without any code changes or developer dependency.'},
-  {icon:Layers, title:'Scalable Architecture', desc:'Grow from 10 to 10,000 users without any infrastructure or performance issues.'},
-  {icon:Cpu, title:'AI-Ready Future', desc:'Built-in AI insights, demand forecasting, and anomaly detection capabilities.'},
-  {icon:Headphones, title:'Dedicated Support', desc:'24/7 support with dedicated implementation partners and onboarding assistance.'},
+  {icon:Rocket, title:'Unified Business Platform', desc:'Manage Finance, HR, CRM, Inventory, Manufacturing, Sales, and other business operations from one integrated platform.'},
+  {icon:Palette, title:'Modern User Experience', desc:'Clean, intuitive, and easy-to-use interface that minimizes training and improves user adoption.'},
+  {icon:Zap, title:'High Performance', desc:'Fast, reliable, and optimized to support businesses of every size with consistent performance.'},
+  {icon:Lock, title:'Enterprise Security', desc:'Protect your business with role-based access control, audit logs, and enterprise-grade security.'},
+  {icon:RefreshCw, title:'Smart Automation', desc:'Automate repetitive tasks, approvals, notifications, and business workflows to increase efficiency.'},
+  {icon:Settings, title:'Flexible & Customizable', desc:'Adapt forms, workflows, reports, and modules to match your business requirements without complexity.'},
+  {icon:TrendingUp, title:'Scalable Growth', desc:'Start with the modules you need today and expand effortlessly as your business grows.'},
+  {icon:Bot, title:'AI Ready', desc:'Leverage intelligent analytics, forecasting, business insights, and future AI capabilities.'},
+  {icon:Handshake, title:'Dedicated Support', desc:'Benefit from expert implementation, training, customization, and ongoing support from the OrbX team.'},
 ];
 
 export default function WhyChoose() {
@@ -26,8 +26,11 @@ export default function WhyChoose() {
             Why OrbX
           </motion.span>
           <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Manrope,sans-serif'}}>
-            Why Manufacturers <span className="gradient-text">Choose OrbX</span>
+            Why Businesses <span className="gradient-text">Choose OrbX</span>
           </motion.h2>
+          <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[700px] mx-auto">
+            Empowering organizations with a modern, scalable, and intelligent business platform designed to simplify operations, improve productivity, and support long-term growth.
+          </motion.p>
         </motion.div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {points.map((p,i)=>(

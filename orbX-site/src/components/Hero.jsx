@@ -126,21 +126,21 @@ export default function Hero() {
           <motion.div variants={stagger} initial="hidden" animate="visible" className="space-y-8">
             <motion.div variants={fadeUp}>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-semibold backdrop-blur-sm">
-                <Zap size={13} className="text-[#00c87f]"/> Next-Generation Manufacturing ERP
+                ✨ Next-Generation Business Suite
               </span>
             </motion.div>
 
             <motion.h1 variants={fadeUp}
               className="text-[58px] md:text-[68px] font-bold text-white leading-[1.06]"
               style={{fontFamily:'Manrope,sans-serif'}}>
-              Manufacturing <br/>
+              Business. <br/>
               <span style={{background:'linear-gradient(135deg,#00c87f 0%,#7dd3a8 100%)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
-                Intelligence.
+                Unified.
               </span> <br/>Simplified.
             </motion.h1>
 
             <motion.p variants={fadeUp} className="text-[18px] text-white/65 leading-relaxed max-w-[500px]">
-              Digitize your manufacturing operations with one intelligent platform for Inventory, Production, Sales, Purchase, Finance, HR, CRM, and Quality Management.
+              Manage every aspect of your business with one intelligent platform. OrbX brings together Finance, Inventory, Manufacturing, HR, CRM, Sales, Procurement, Payroll, and Analytics into a single, modern business suite designed to improve productivity and accelerate growth.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
