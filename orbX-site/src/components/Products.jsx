@@ -14,14 +14,29 @@ const main = [
     desc:'Comprehensive financial management with cash flow control, bank reconciliation, and complete audit trails.',
     features:['Cash Management','Bank Management','Expense Tracking','Cheque Management','Internal Transfers','Day Book','Ledger Reports'],
   },
+  {
+    name:'OrbX HRMS', icon:Users, badge:'HR Management', color:'#00c87f',
+    desc:'Comprehensive Human Resource Management with attendance tracking, automated payroll processing, and multi-level approvals.',
+    features:['Remote Attendance with GPS', 'Biometric Integration', 'Auto Payroll Processing', 'Auto Comp-Off Calculation', 'Salary Templates', 'Custom Salary Rules', 'Multiple Shift Management', 'Leave Approval Workflow', 'Daily HR Dashboard', 'Holiday Management', 'Company Holiday Rules', 'Custom LOP Rules', 'Employee Self-Service Portal', 'Multi-Level Approvals', 'Real-Time Reports & Analytics', 'Secure Role-Based Access'],
+  },
+  {
+    name:'OrbX CRM', icon:Globe, badge:'Sales Suite', color:'#f59e0b',
+    desc:'End-to-end Customer Relationship Management to track leads, manage pipelines, and close deals faster.',
+    features:['Lead Management', 'Contact Directory', 'Sales Pipeline', 'Opportunity Tracking', 'Email Integration', 'Quotation Management', 'Task Management', 'Sales Forecasting', 'Campaign Management', 'Client Analytics', 'Interaction History', 'Multi-channel Communication', 'Document Management', 'Real-Time Dashboards'],
+  },
+  {
+    name:'OrbX Service', icon:Headphones, badge:'Service Suite', color:'#8b5cf6',
+    desc:'Robust service management to handle ticketing, maintenance schedules, and field technician dispatch.',
+    features:['Ticketing System', 'SLA Management', 'Asset Management', 'Preventive Maintenance', 'Field Service Scheduling', 'Work Order Management', 'Warranty Tracking', 'Service Contracts', 'Parts Inventory', 'Customer Portal', 'Knowledge Base', 'Technician Dispatch'],
+  },
+  {
+    name:'OrbX Mobile', icon:Smartphone, badge:'Mobile App', color:'#ec4899',
+    desc:'Access your entire manufacturing and ERP ecosystem on the go with our dedicated mobile applications.',
+    features:['iOS & Android Apps', 'Real-time Notifications', 'Offline Mode Sync', 'Barcode Scanning', 'Mobile Approvals', 'Field Data Entry', 'Live Dashboards', 'GPS Tracking', 'Mobile CRM', 'Leave Applications'],
+  },
 ];
 
-const soon = [
-  {name:'OrbX HRMS', icon:Users, desc:'Human Resource Management'},
-  {name:'OrbX CRM', icon:Globe, desc:'Customer Relationship'},
-  {name:'OrbX Service', icon:Headphones, desc:'Service & Maintenance'},
-  {name:'OrbX Mobile', icon:Smartphone, desc:'Mobile-first Operations'},
-];
+
 
 export default function Products() {
   const ref = useRef(null);
@@ -72,22 +87,7 @@ export default function Products() {
           ))}
         </div>
 
-        <div className="rounded-[24px] bg-[#F6F8FA] border border-slate-100 p-8">
-          <p className="text-center text-[11px] font-bold text-slate-400 uppercase tracking-[0.18em] mb-7">Coming Soon</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {soon.map((p,i)=>(
-              <motion.div key={i} variants={fadeUp} initial="hidden" animate={inView?'visible':'hidden'}
-                transition={{delay:.3+i*.1}}
-                className="bg-white rounded-[18px] p-6 text-center border border-slate-100 card-lift">
-                <div className="w-12 h-12 bg-[#00c87f] rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <p.icon size={20} className="text-[#023020]"/>
-                </div>
-                <div className="font-bold text-slate-700 text-sm mb-1">{p.name}</div>
-                <div className="text-slate-400 text-xs">{p.desc}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   );
