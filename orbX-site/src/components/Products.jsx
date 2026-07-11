@@ -34,6 +34,16 @@ const main = [
     desc:'Access your entire manufacturing and ERP ecosystem on the go with our dedicated mobile applications.',
     features:['iOS & Android Apps', 'Real-time Notifications', 'Offline Mode Sync', 'Barcode Scanning', 'Mobile Approvals', 'Field Data Entry', 'Live Dashboards', 'GPS Tracking', 'Mobile CRM', 'Leave Applications'],
   },
+  {
+    name:'OrbX Business Suite', icon:Globe, badge:'B2B Suite', color:'#3b82f6',
+    desc:'Comprehensive B2B management platform covering everything from purchases to customer outstanding maintenance.',
+    features:['B2B Purchase & Sales', 'Inventory Management', 'Product Tracking', 'Internal Transfers', 'Multi-Branch Management', 'Payments Followup', 'Outstanding Maintenance', 'Advanced Reports'],
+  },
+  {
+    name:'OrbX Enterprise Suite', icon:Factory, badge:'Enterprise', color:'#14b8a6',
+    desc:'End-to-end Enterprise Workflow covering the entire lifecycle from supplier receiving to final customer invoice.',
+    features:['Supplier Management', 'Purchase / Scrap Receiving', 'Raw Material Inventory', 'Production Orders', 'Standard BOM Management', 'Raw Material Consumption', 'Production Expenses', 'Output & Process Loss', 'Total Production Costing', 'Finished Goods Inventory', 'Sales Order to Delivery', 'Invoicing'],
+  },
 ];
 
 
