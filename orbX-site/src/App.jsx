@@ -7,6 +7,7 @@ import Modules from './components/Modules';
 import Features from './components/Features';
 import Industries from './components/Industries';
 import WhyChoose from './components/WhyChoose';
+import Expertise from './components/Expertise';
 import Stats from './components/Stats';
 import Pricing from './components/Pricing';
 import CTA from './components/CTA';
@@ -41,6 +42,7 @@ export default function App() {
         <Features/>
         <Industries/>
         <WhyChoose/>
+        <Expertise/>
         <Stats/>
         <Pricing/>
         <CTA/>
