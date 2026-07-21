@@ -36,7 +36,7 @@ export default function Navbar() {
             </svg>
           </div>
           <span className={`text-xl font-bold tracking-tight transition-colors ${scrolled ? 'text-[#1E293B]' : 'text-white'}`}
-            style={{ fontFamily: 'Manrope, sans-serif' }}>
+            style={{ fontFamily:'Comfortaa, cursive, sans-serif' }}>
             Orb<span style={{ color: '#00a86b' }}>X</span>
           </span>
         </a>

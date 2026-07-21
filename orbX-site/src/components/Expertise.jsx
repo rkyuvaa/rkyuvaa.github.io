@@ -150,7 +150,7 @@ function CategoryCard({ cat, index, inView }) {
         >
           <cat.icon size={20} style={{ color: cat.color }} className="group-hover:text-white transition-colors duration-300" />
         </div>
-        <h3 className="font-bold text-slate-800 text-[15px] leading-tight" style={{ fontFamily: 'Manrope,sans-serif' }}>
+        <h3 className="font-bold text-slate-800 text-[15px] leading-tight" style={{ fontFamily:'Comfortaa, cursive, sans-serif' }}>
           {cat.title}
         </h3>
       </div>
@@ -194,7 +194,7 @@ export default function Expertise() {
           </motion.span>
           <motion.h2 variants={fadeUp}
             className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight"
-            style={{ fontFamily: 'Manrope,sans-serif' }}>
+            style={{ fontFamily:'Comfortaa, cursive, sans-serif' }}>
             End-to-End <span className="gradient-text">IT & Business Solutions</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[620px] mx-auto">

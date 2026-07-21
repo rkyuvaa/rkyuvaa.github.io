@@ -12,7 +12,7 @@ const main = [
   {
     name:'OrbX My Ledger', icon:CreditCard, badge:'Finance Suite', color:'#00a86b',
     desc:'Comprehensive financial management with cash flow control, bank reconciliation, and complete audit trails.',
-    features:['Cash Management','Bank Management','Expense Tracking','Cheque Management','Internal Transfers','Day Book','Ledger Reports'],
+    features:['Cash Management','Bank Management','Expense Tracking','Cheque Management','Comfortaanal Transfers','Day Book','Ledger Reports'],
   },
   {
     name:'OrbX HRMS', icon:Users, badge:'HR Management', color:'#00c87f',
@@ -22,7 +22,7 @@ const main = [
   {
     name:'OrbX CRM', icon:Globe, badge:'Sales Suite', color:'#f59e0b',
     desc:'End-to-end Customer Relationship Management to track leads, manage pipelines, and close deals faster.',
-    features:['Lead Management', 'Contact Directory', 'Sales Pipeline', 'Opportunity Tracking', 'Email Integration', 'Quotation Management', 'Task Management', 'Sales Forecasting', 'Campaign Management', 'Client Analytics', 'Interaction History', 'Multi-channel Communication', 'Document Management', 'Real-Time Dashboards'],
+    features:['Lead Management', 'Contact Directory', 'Sales Pipeline', 'Opportunity Tracking', 'Email Integration', 'Quotation Management', 'Task Management', 'Sales Forecasting', 'Campaign Management', 'Client Analytics', 'Comfortaaaction History', 'Multi-channel Communication', 'Document Management', 'Real-Time Dashboards'],
   },
   {
     name:'OrbX Service', icon:Headphones, badge:'Service Suite', color:'#8b5cf6',
@@ -37,7 +37,7 @@ const main = [
   {
     name:'OrbX Business Suite', icon:Globe, badge:'B2B Suite', color:'#3b82f6',
     desc:'Comprehensive B2B management platform covering everything from purchases to customer outstanding maintenance.',
-    features:['B2B Purchase & Sales', 'Inventory Management', 'Product Tracking', 'Internal Transfers', 'Multi-Branch Management', 'Payments Followup', 'Outstanding Maintenance', 'Advanced Reports'],
+    features:['B2B Purchase & Sales', 'Inventory Management', 'Product Tracking', 'Comfortaanal Transfers', 'Multi-Branch Management', 'Payments Followup', 'Outstanding Maintenance', 'Advanced Reports'],
   },
   {
     name:'OrbX Enterprise Suite', icon:Factory, badge:'Enterprise', color:'#14b8a6',
@@ -58,7 +58,7 @@ export default function Products() {
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
             Our Products
           </motion.span>
-          <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Manrope,sans-serif'}}>
+          <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
             The Complete <span className="gradient-text">Enterprise Suite</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[560px] mx-auto">
@@ -79,7 +79,7 @@ export default function Products() {
                   {p.badge}
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-3" style={{fontFamily:'Manrope,sans-serif'}}>{p.name}</h3>
+              <h3 className="text-xl font-bold text-slate-800 mb-3" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>{p.name}</h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-6">{p.desc}</p>
               <div className="grid grid-cols-2 gap-y-2 gap-x-3">
                 {p.features.map((f,j)=>(

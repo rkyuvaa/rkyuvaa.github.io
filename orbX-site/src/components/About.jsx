@@ -39,7 +39,7 @@ export default function About() {
             </motion.span>
             <motion.h2 variants={fadeRight}
               className="text-[42px] md:text-[48px] font-bold text-[#1E293B] leading-tight"
-              style={{fontFamily:'Manrope,sans-serif'}}>
+              style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
               A Next-Gen ERP for <span className="gradient-text">Manufacturing Excellence</span>
             </motion.h2>
             <motion.p variants={fadeRight} className="text-slate-500 text-[17px] leading-relaxed">

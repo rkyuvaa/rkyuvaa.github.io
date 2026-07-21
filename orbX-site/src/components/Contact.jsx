@@ -14,7 +14,7 @@ export default function Contact() {
             <motion.span variants={fadeLeft} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20">
               Get In Touch
             </motion.span>
-            <motion.h2 variants={fadeLeft} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] leading-tight" style={{fontFamily:'Manrope,sans-serif'}}>
+            <motion.h2 variants={fadeLeft} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
               Let's Build Your <span className="gradient-text">ERP Solution</span>
             </motion.h2>
             <motion.p variants={fadeLeft} className="text-slate-500 text-[17px] leading-relaxed">
@@ -42,7 +42,7 @@ export default function Contact() {
 
           <motion.div variants={scaleIn} initial="hidden" animate={inView?'visible':'hidden'}
             className="bg-[#F6F8FA] rounded-[28px] p-10 border border-slate-100 shadow-sm">
-            <h3 className="text-xl font-bold text-slate-800 mb-8" style={{fontFamily:'Manrope,sans-serif'}}>Request a Demo</h3>
+            <h3 className="text-xl font-bold text-slate-800 mb-8" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>Request a Demo</h3>
             <form className="space-y-5" onSubmit={e=>e.preventDefault()}>
               <div className="grid grid-cols-2 gap-4">
                 {['Full Name','Company Name'].map((pl,i)=>(

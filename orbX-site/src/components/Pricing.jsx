@@ -25,7 +25,7 @@ export default function Pricing() {
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
             Pricing
           </motion.span>
-          <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Manrope,sans-serif'}}>
+          <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
             Transparent, <span className="gradient-text">Flexible Pricing</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[540px] mx-auto">
@@ -45,7 +45,7 @@ export default function Pricing() {
                   <span className="px-3 py-1 rounded-full bg-white/20 text-white text-[11px] font-bold tracking-wide">Most Popular</span>
                 </div>
               )}
-              <h3 className={`text-xl font-bold mb-2 ${p.highlight?'text-white':'text-slate-800'}`} style={{fontFamily:'Manrope,sans-serif'}}>{p.name}</h3>
+              <h3 className={`text-xl font-bold mb-2 ${p.highlight?'text-white':'text-slate-800'}`} style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>{p.name}</h3>
               <p className={`text-sm mb-8 leading-relaxed ${p.highlight?'text-white/65':'text-slate-500'}`}>{p.desc}</p>
               <ul className="space-y-3 mb-10">
                 {p.features.map((f,j)=>(

@@ -14,7 +14,7 @@ export default function CTA() {
           initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}}
           viewport={{once:true}} transition={{duration:.6}}
           className="text-[40px] md:text-[52px] font-bold text-white mb-6 leading-tight"
-          style={{fontFamily:'Manrope,sans-serif'}}>
+          style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
           Ready to Transform Your Manufacturing Business?
         </motion.h2>
         <motion.p

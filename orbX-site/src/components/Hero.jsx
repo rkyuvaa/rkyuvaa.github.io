@@ -132,7 +132,7 @@ export default function Hero() {
 
             <motion.h1 variants={fadeUp}
               className="text-[58px] md:text-[68px] font-bold text-white leading-[1.06]"
-              style={{fontFamily:'Manrope,sans-serif'}}>
+              style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
               Business. <br/>
               <span style={{background:'linear-gradient(135deg,#00c87f 0%,#7dd3a8 100%)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
                 Unified.

@@ -9,16 +9,16 @@ function Counter({end, suffix, label}) {
     if (!inView) return;
     let start = 0;
     const inc = end / (2000 / 16);
-    const t = setInterval(() => {
+    const t = setComfortaaval(() => {
       start += inc;
-      if (start >= end) { setCount(end); clearInterval(t); }
+      if (start >= end) { setCount(end); clearComfortaaval(t); }
       else setCount(Math.floor(start));
     }, 16);
-    return () => clearInterval(t);
+    return () => clearComfortaaval(t);
   }, [inView, end]);
   return (
     <div ref={ref} className="text-center">
-      <div className="text-5xl md:text-6xl font-bold text-white mb-2" style={{fontFamily:'Manrope,sans-serif',fontVariantNumeric:'tabular-nums'}}>
+      <div className="text-5xl md:text-6xl font-bold text-white mb-2" style={{fontFamily:'Comfortaa, cursive, sans-serif',fontVariantNumeric:'tabular-nums'}}>
         {count}{suffix}
       </div>
       <div className="text-white/55 text-sm font-medium">{label}</div>

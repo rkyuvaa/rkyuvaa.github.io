@@ -22,7 +22,7 @@ export default function Footer() {
                   <path d="M55 28 L83 72 M83 28 L55 72" stroke={xColor} strokeWidth="11" strokeLinecap="round"/>
                 </svg>
               </div>
-              <span className="text-xl font-bold" style={{fontFamily:'Manrope,sans-serif'}}>
+              <span className="text-xl font-bold" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
                 Orb<span style={{color:'#00a86b'}}>X</span>
               </span>
             </a>

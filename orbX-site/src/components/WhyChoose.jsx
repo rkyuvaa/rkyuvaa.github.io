@@ -25,7 +25,7 @@ export default function WhyChoose() {
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
             Why OrbX
           </motion.span>
-          <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Manrope,sans-serif'}}>
+          <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
             Why Businesses <span className="gradient-text">Choose OrbX</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[700px] mx-auto">

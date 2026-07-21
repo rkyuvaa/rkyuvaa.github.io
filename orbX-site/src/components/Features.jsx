@@ -24,7 +24,7 @@ export default function Features() {
             <motion.span variants={fadeLeft} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-semibold">
               Key Capabilities
             </motion.span>
-            <motion.h2 variants={fadeLeft} className="text-[42px] md:text-[48px] font-bold text-white leading-tight" style={{fontFamily:'Manrope,sans-serif'}}>
+            <motion.h2 variants={fadeLeft} className="text-[42px] md:text-[48px] font-bold text-white leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
               Built with Enterprise-Grade{' '}
               <span style={{background:'linear-gradient(135deg,#00c87f,#7dd3a8)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
                 Capabilities
