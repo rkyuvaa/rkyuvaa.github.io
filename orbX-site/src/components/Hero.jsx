@@ -125,8 +125,9 @@ export default function Hero() {
           {/* Left */}
           <motion.div variants={stagger} initial="hidden" animate="visible" className="space-y-8">
             <motion.div variants={fadeUp}>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-semibold backdrop-blur-sm">
-                ✨ Next-Generation Business Suite
+              <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#00a86b]/20 via-white/10 to-[#00a86b]/20 border border-[#00a86b]/50 text-white text-sm font-bold backdrop-blur-md shadow-[0_0_25px_rgba(0,168,107,0.3)]">
+                <Sparkles size={16} className="text-[#00a86b] animate-pulse" />
+                Where Business Meets <span style={{background:'linear-gradient(135deg,#00a86b 0%,#7dd3a8 100%)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>Intelligence</span>
               </span>
             </motion.div>
 

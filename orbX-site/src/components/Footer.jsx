@@ -20,7 +20,7 @@ export default function Footer() {
               <img src={logoImg} alt="OrbX Enterprise Suite" className="h-20 md:h-24 w-auto object-contain" />
             </a>
             <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-[210px]">
-              Manufacturing Intelligence. Simplified. The enterprise ERP platform designed for modern manufacturers.
+              Where Business Meets Intelligence. The complete enterprise suite for modern growth.
             </p>
             <div className="flex gap-3">
               {[Share2,ExternalLink,Globe,Code2].map((Icon,i)=>(
