@@ -2,7 +2,7 @@ import logoDark from '../assets/logo-orbx.png';
 import logoLight from '../assets/logo-orbx-light.png';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const links = ['Products','Modules','Services','Industries','Pricing','About','Contact'];
 const linkIds = {'Services':'expertise'};
@@ -10,15 +10,13 @@ const linkIds = {'Services':'expertise'};
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', fn);
     return () => window.removeEventListener('scroll', fn);
   }, []);
-
-  const logoColor = scrolled ? '#023020' : 'white';
-  const xColor = '#00a86b';
 
   return (
     <motion.header
@@ -31,29 +29,55 @@ export default function Navbar() {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 min-h-[88px] py-2 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2 group">
-          <img src={scrolled ? logoLight : logoDark} alt="OrbX Enterprise Suite" className="h-14 md:h-16 w-auto object-contain transition-all" />
+          <img src={scrolled ? logoLight : logoDark} alt="OrbX Enterprise Suite" className="h-14 md:h-16 w-auto object-contain transition-all duration-300 group-hover:scale-105" />
         </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {links.map(l => (
-            <a key={l} href={`#${l.toLowerCase()}`}
-              className={`text-sm font-medium transition-colors hover:text-[#023020] ${scrolled ? 'text-slate-600' : 'text-white/85'}`}>
-              {l}
-            </a>
-          ))}
+        {/* Desktop nav with smooth hover pill animation */}
+        <nav className="hidden lg:flex items-center gap-1.5" onMouseLeave={() => setHovered(null)}>
+          {links.map((l, i) => {
+            const targetId = linkIds[l] || l.toLowerCase();
+            const isHovered = hovered === i;
+            return (
+              <a
+                key={l}
+                href={`#${targetId}`}
+                onMouseEnter={() => setHovered(i)}
+                className={`relative px-4 py-2 text-sm font-semibold transition-colors rounded-full duration-300 ${
+                  scrolled
+                    ? (isHovered ? 'text-[#023020]' : 'text-slate-700')
+                    : (isHovered ? 'text-white' : 'text-white/90')
+                }`}
+              >
+                {isHovered && (
+                  <motion.div
+                    layoutId="nav-hover-pill"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 28 }}
+                    className={`absolute inset-0 rounded-full -z-10 shadow-sm ${
+                      scrolled
+                        ? 'bg-[#00c87f]/20 border border-[#023020]/15'
+                        : 'bg-white/20 backdrop-blur-md border border-white/30'
+                    }`}
+                  />
+                )}
+                <span className="relative z-10">{l}</span>
+              </a>
+            );
+          })}
         </nav>
 
         {/* CTAs */}
         <div className="hidden lg:flex items-center gap-3">
           <a href="#contact"
-            className={`text-sm font-semibold px-5 py-2.5 rounded-[14px] border-2 transition-all ${
+            className={`text-sm font-semibold px-5 py-2.5 rounded-[14px] border-2 transition-all duration-300 hover:scale-105 ${
               scrolled ? 'border-[#023020] text-[#023020] hover:bg-[#023020] hover:text-white' : 'border-white/60 text-white hover:bg-white/10'
             }`}>
             Book Demo
           </a>
           <a href="#contact"
-            className="text-sm font-semibold px-5 py-2.5 rounded-[14px] bg-[#023020] text-white hover:bg-[#011a12] transition-all shadow-lg hover:shadow-[#023020]/30 hover:-translate-y-0.5">
+            className="text-sm font-semibold px-5 py-2.5 rounded-[14px] bg-[#023020] text-white hover:bg-[#011a12] transition-all duration-300 shadow-lg hover:shadow-[#023020]/30 hover:scale-105">
             Get Quotation
           </a>
         </div>
@@ -69,10 +93,13 @@ export default function Navbar() {
         {open && (
           <motion.div initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:'auto' }} exit={{ opacity:0, height:0 }}
             className="lg:hidden bg-white border-t border-slate-100 px-6 py-5 space-y-3 shadow-xl">
-            {links.map(l => (
-              <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}
-                className="block text-slate-700 font-medium py-2 hover:text-[#023020] transition-colors">{l}</a>
-            ))}
+            {links.map(l => {
+              const targetId = linkIds[l] || l.toLowerCase();
+              return (
+                <a key={l} href={`#${targetId}`} onClick={() => setOpen(false)}
+                  className="block text-slate-700 font-medium py-2 hover:text-[#023020] transition-colors">{l}</a>
+              );
+            })}
             <div className="flex gap-3 pt-3 border-t border-slate-100">
               <a href="#contact" onClick={() => setOpen(false)}
                 className="flex-1 text-center py-3 rounded-[14px] border-2 border-[#023020] text-[#023020] text-sm font-semibold hover:bg-[#023020] hover:text-white transition-all">
