@@ -12,7 +12,7 @@ const main = [
   {
     name:'OrbX My Ledger', icon:CreditCard, badge:'Finance Suite', color:'#00a86b',
     desc:'Comprehensive financial management with cash flow control, bank reconciliation, and complete audit trails.',
-    features:['Cash Management','Bank Management','Expense Tracking','Cheque Management','Comfortaanal Transfers','Day Book','Ledger Reports'],
+    features:['Cash Management','Bank Management','Expense Tracking','Cheque Management','Internal Transfers','Day Book','Ledger Reports'],
   },
   {
     name:'OrbX HRMS', icon:Users, badge:'HR Management', color:'#00c87f',
@@ -22,7 +22,7 @@ const main = [
   {
     name:'OrbX CRM', icon:Globe, badge:'Sales Suite', color:'#f59e0b',
     desc:'End-to-end Customer Relationship Management to track leads, manage pipelines, and close deals faster.',
-    features:['Lead Management', 'Contact Directory', 'Sales Pipeline', 'Opportunity Tracking', 'Email Integration', 'Quotation Management', 'Task Management', 'Sales Forecasting', 'Campaign Management', 'Client Analytics', 'Comfortaaaction History', 'Multi-channel Communication', 'Document Management', 'Real-Time Dashboards'],
+    features:['Lead Management', 'Contact Directory', 'Sales Pipeline', 'Opportunity Tracking', 'Email Integration', 'Quotation Management', 'Task Management', 'Sales Forecasting', 'Campaign Management', 'Client Analytics', 'Interaction History', 'Multi-channel Communication', 'Document Management', 'Real-Time Dashboards'],
   },
   {
     name:'OrbX Service', icon:Headphones, badge:'Service Suite', color:'#8b5cf6',
@@ -37,7 +37,7 @@ const main = [
   {
     name:'OrbX Business Suite', icon:Globe, badge:'B2B Suite', color:'#3b82f6',
     desc:'Comprehensive B2B management platform covering everything from purchases to customer outstanding maintenance.',
-    features:['B2B Purchase & Sales', 'Inventory Management', 'Product Tracking', 'Comfortaanal Transfers', 'Multi-Branch Management', 'Payments Followup', 'Outstanding Maintenance', 'Advanced Reports'],
+    features:['B2B Purchase & Sales', 'Inventory Management', 'Product Tracking', 'Internal Transfers', 'Multi-Branch Management', 'Payments Followup', 'Outstanding Maintenance', 'Advanced Reports'],
   },
   {
     name:'OrbX Enterprise Suite', icon:Factory, badge:'Enterprise', color:'#14b8a6',

@@ -9,12 +9,12 @@ function Counter({end, suffix, label}) {
     if (!inView) return;
     let start = 0;
     const inc = end / (2000 / 16);
-    const t = setComfortaaval(() => {
+    const t = setInterval(() => {
       start += inc;
-      if (start >= end) { setCount(end); clearComfortaaval(t); }
+      if (start >= end) { setCount(end); clearInterval(t); }
       else setCount(Math.floor(start));
     }, 16);
-    return () => clearComfortaaval(t);
+    return () => clearInterval(t);
   }, [inView, end]);
   return (
     <div ref={ref} className="text-center">
