@@ -1,3 +1,4 @@
+import logoImg from '../assets/logo-orbx.png';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -28,17 +29,8 @@ export default function Navbar() {
     >
       <div className="max-w-[1320px] mx-auto px-6 h-[72px] flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 flex-shrink-0">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <circle cx="35" cy="50" r="30" fill="none" stroke={logoColor} strokeWidth="7" />
-              <path d="M55 28 L83 72 M83 28 L55 72" stroke={xColor} strokeWidth="11" strokeLinecap="round" />
-            </svg>
-          </div>
-          <span className={`text-xl font-bold tracking-tight transition-colors ${scrolled ? 'text-[#1E293B]' : 'text-white'}`}
-            style={{ fontFamily:'Comfortaa, cursive, sans-serif' }}>
-            Orb<span style={{ color: '#00a86b' }}>X</span>
-          </span>
+        <a href="#hero" className="flex items-center gap-2 group">
+          <img src={logoImg} alt="OrbX Enterprise Suite" className="h-10 md:h-11 w-auto object-contain transition-all" />
         </a>
 
         {/* Desktop nav */}
