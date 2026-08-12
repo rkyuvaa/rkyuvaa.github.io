@@ -16,7 +16,7 @@ export default function About() {
   const labels = ['Manufacturing','Inventory','Planning','Analytics','Workflow','Finance'];
   return (
     <section id="about" className="py-28 mesh" ref={ref}>
-      <div className="max-w-[1320px] mx-auto px-6">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div variants={fadeLeft} initial="hidden" animate={inView?'visible':'hidden'} className="relative">
             <div className="rounded-[24px] overflow-hidden aspect-[4/3] bg-gradient-to-br from-[#011a12] to-[#023020] shadow-2xl">

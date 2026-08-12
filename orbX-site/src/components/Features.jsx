@@ -18,7 +18,7 @@ export default function Features() {
         <div className="absolute top-0 right-0 w-[450px] h-[450px] rounded-full bg-white/5 blur-3xl"/>
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#00a86b]/10 blur-3xl"/>
       </div>
-      <div className="max-w-[1320px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="space-y-8">
             <motion.span variants={fadeLeft} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-semibold">

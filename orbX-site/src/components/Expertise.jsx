@@ -186,7 +186,7 @@ export default function Expertise() {
 
   return (
     <section id="expertise" className="py-28 bg-white" ref={ref}>
-      <div className="max-w-[1320px] mx-auto px-6">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <motion.div variants={stagger} initial="hidden" animate={inView ? 'visible' : 'hidden'} className="text-center mb-16">
           <motion.span variants={fadeUp}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
@@ -197,7 +197,7 @@ export default function Expertise() {
             style={{ fontFamily:'Comfortaa, cursive, sans-serif' }}>
             End-to-End <span className="gradient-text">IT & Business Solutions</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[620px] mx-auto">
+          <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[750px] mx-auto">
             From ERP implementation to cloud infrastructure, mobile apps, security, and AI — we deliver comprehensive technology services tailored to your business needs.
           </motion.p>
         </motion.div>

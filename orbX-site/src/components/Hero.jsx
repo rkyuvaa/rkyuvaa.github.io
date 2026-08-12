@@ -5,7 +5,7 @@ import { fadeUp, stagger } from '../utils/anim';
 
 function DashboardMockup() {
   return (
-    <div className="relative w-full max-w-[560px] mx-auto select-none">
+    <div className="relative w-full max-w-[700px] mx-auto select-none">
       <div className="absolute inset-0 bg-[#00a86b]/20 blur-3xl rounded-full scale-110 pointer-events-none"/>
       <div className="relative float-anim bg-white rounded-[22px] shadow-[0_40px_100px_rgba(0,0,0,0.2)] border border-white/30 overflow-hidden">
         {/* Topbar */}
@@ -120,7 +120,7 @@ export default function Hero() {
         }}/>
       </div>
 
-      <div className="max-w-[1320px] mx-auto px-6 py-24 w-full relative z-10">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 py-24 w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left */}
           <motion.div variants={stagger} initial="hidden" animate="visible" className="space-y-8">
@@ -139,7 +139,7 @@ export default function Hero() {
               </span> <br/>Simplified.
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-[18px] text-white/65 leading-relaxed max-w-[500px]">
+            <motion.p variants={fadeUp} className="text-[18px] text-white/65 leading-relaxed max-w-[650px]">
               Manage every aspect of your business with one intelligent platform. OrbX brings together Finance, Inventory, Manufacturing, HR, CRM, Sales, Procurement, Payroll, and Analytics into a single, modern business suite designed to improve productivity and accelerate growth.
             </motion.p>
 

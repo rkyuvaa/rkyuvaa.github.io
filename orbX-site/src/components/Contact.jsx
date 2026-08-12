@@ -8,7 +8,7 @@ export default function Contact() {
   const inView = useInView(ref, {once:true, margin:'-80px'});
   return (
     <section id="contact" className="py-28 bg-white" ref={ref}>
-      <div className="max-w-[1320px] mx-auto px-6">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="space-y-8">
             <motion.span variants={fadeLeft} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20">

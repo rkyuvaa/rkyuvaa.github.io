@@ -20,7 +20,7 @@ export default function WhyChoose() {
   const inView = useInView(ref, {once:true, margin:'-80px'});
   return (
     <section id="why" className="py-28 bg-[#F6F8FA]" ref={ref}>
-      <div className="max-w-[1320px] mx-auto px-6">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="text-center mb-16">
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
             Why OrbX

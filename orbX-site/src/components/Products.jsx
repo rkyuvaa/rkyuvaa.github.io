@@ -53,7 +53,7 @@ export default function Products() {
   const inView = useInView(ref, {once:true, margin:'-80px'});
   return (
     <section id="products" className="py-28 bg-white" ref={ref}>
-      <div className="max-w-[1320px] mx-auto px-6">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="text-center mb-16">
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
             Our Products
@@ -61,7 +61,7 @@ export default function Products() {
           <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
             The Complete <span className="gradient-text">Enterprise Suite</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[560px] mx-auto">
+          <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[700px] mx-auto">
             Purpose-built modules that work seamlessly together to power your entire manufacturing operation.
           </motion.p>
         </motion.div>

@@ -13,7 +13,7 @@ export default function Footer() {
   const xColor = '#00a86b';
   return (
     <footer className="bg-[#011a12] text-white pt-20 pb-10">
-      <div className="max-w-[1320px] mx-auto px-6">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
           <div className="col-span-2">
             <a href="#hero" className="flex items-center gap-2 mb-5">

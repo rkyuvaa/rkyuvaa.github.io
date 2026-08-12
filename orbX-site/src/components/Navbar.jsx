@@ -27,7 +27,7 @@ export default function Navbar() {
         scrolled ? 'bg-white/90 backdrop-blur-2xl shadow-[0_2px_40px_rgba(0,0,0,0.07)] border-b border-slate-100/80' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-[1320px] mx-auto px-6 min-h-[88px] py-2 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 min-h-[88px] py-2 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2 group">
           <img src={logoImg} alt="OrbX Enterprise Suite" className="h-20 md:h-22 w-auto object-contain transition-all" />

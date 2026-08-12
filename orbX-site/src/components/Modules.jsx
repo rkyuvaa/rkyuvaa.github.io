@@ -23,7 +23,7 @@ export default function Modules() {
   const inView = useInView(ref, {once:true, margin:'-80px'});
   return (
     <section id="modules" className="py-28 bg-[#F6F8FA]" ref={ref}>
-      <div className="max-w-[1320px] mx-auto px-6">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="text-center mb-16">
           <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
             Modules
@@ -31,7 +31,7 @@ export default function Modules() {
           <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
             Everything You Need, <span className="gradient-text">In One Platform</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[560px] mx-auto">
+          <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[700px] mx-auto">
             20+ tightly integrated modules covering every aspect of your manufacturing business.
           </motion.p>
         </motion.div>
