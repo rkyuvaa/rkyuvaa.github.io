@@ -189,7 +189,7 @@ export default function Expertise() {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <motion.div variants={stagger} initial="hidden" animate={inView ? 'visible' : 'hidden'} className="text-center mb-16">
           <motion.span variants={fadeUp}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00a86b]/10 text-[#00a86b] text-sm font-semibold border border-[#00a86b]/20 mb-4">
             Our Expertise
           </motion.span>
           <motion.h2 variants={fadeUp}

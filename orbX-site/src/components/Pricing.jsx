@@ -22,7 +22,7 @@ export default function Pricing() {
     <section id="pricing" className="py-28 bg-[#F6F8FA]" ref={ref}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="text-center mb-16">
-          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
+          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00a86b]/10 text-[#00a86b] text-sm font-semibold border border-[#00a86b]/20 mb-4">
             Pricing
           </motion.span>
           <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
@@ -50,7 +50,7 @@ export default function Pricing() {
               <ul className="space-y-3 mb-10">
                 {p.features.map((f,j)=>(
                   <li key={j} className="flex items-center gap-3 text-[14px]">
-                    <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${p.highlight?'bg-white/20':'bg-[#00c87f]'}`}>
+                    <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${p.highlight?'bg-white/20':'bg-[#00a86b]'}`}>
                       <Check size={11} className={p.highlight?'text-white':'text-[#023020]'}/>
                     </div>
                     <span className={p.highlight?'text-white/85':'text-slate-600'}>{f}</span>
@@ -60,7 +60,7 @@ export default function Pricing() {
               <a href="#contact"
                 className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-[14px] font-semibold text-[15px] transition-all
                   ${p.highlight
-                    ? 'bg-white text-[#023020] hover:bg-[#00c87f]'
+                    ? 'bg-white text-[#023020] hover:bg-[#00a86b] hover:text-white'
                     : 'bg-[#023020] text-white hover:bg-[#011a12]'}`}>
                 Request Quote <ArrowRight size={14}/>
               </a>

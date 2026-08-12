@@ -34,7 +34,7 @@ export default function Features() {
               OrbX delivers the tools your manufacturing team needs — without the complexity of traditional ERP systems. Deploy on cloud or on-premise with equal ease.
             </motion.p>
             <motion.div variants={fadeLeft}>
-              <a href="#contact" className="inline-flex items-center gap-2 px-7 py-4 rounded-[14px] bg-white text-[#023020] font-semibold text-base hover:bg-[#00c87f] transition-all shadow-2xl hover:-translate-y-0.5">
+              <a href="#contact" className="inline-flex items-center gap-2 px-7 py-4 rounded-[14px] bg-white text-[#023020] font-semibold text-base hover:bg-[#00a86b] hover:text-white transition-all shadow-2xl hover:-translate-y-0.5">
                 Start Free Demo <ArrowRight size={16}/>
               </a>
             </motion.div>

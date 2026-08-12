@@ -34,7 +34,7 @@ export default function About() {
 
           <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="space-y-8">
             <motion.span variants={fadeRight}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20">
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00a86b]/10 text-[#00a86b] text-sm font-semibold border border-[#00a86b]/20">
               About OrbX
             </motion.span>
             <motion.h2 variants={fadeRight}
@@ -49,8 +49,8 @@ export default function About() {
               {stats.map((s,i)=>(
                 <motion.div key={i} variants={scaleIn}
                   className="bg-white rounded-[18px] p-5 shadow-sm border border-slate-100 card-lift">
-                  <div className="w-10 h-10 bg-[#00c87f] rounded-xl flex items-center justify-center mb-3">
-                    <s.icon size={18} className="text-[#023020]"/>
+                  <div className="w-10 h-10 bg-[#00a86b]/12 rounded-xl flex items-center justify-center mb-3">
+                    <s.icon size={18} className="text-[#00a86b]"/>
                   </div>
                   <div className="text-2xl font-bold text-[#023020] mb-0.5">{s.val}</div>
                   <div className="text-slate-500 text-sm">{s.label}</div>

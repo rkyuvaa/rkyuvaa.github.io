@@ -22,7 +22,7 @@ export default function WhyChoose() {
     <section id="why" className="py-28 bg-[#F6F8FA]" ref={ref}>
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="text-center mb-16">
-          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20 mb-4">
+          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00a86b]/10 text-[#00a86b] text-sm font-semibold border border-[#00a86b]/20 mb-4">
             Why OrbX
           </motion.span>
           <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
@@ -37,8 +37,8 @@ export default function WhyChoose() {
             <motion.div key={i} variants={scaleIn} initial="hidden" animate={inView?'visible':'hidden'}
               transition={{delay:i*0.08}}
               className="bg-white rounded-[20px] p-6 border border-slate-100 card-lift shadow-sm flex items-start gap-4 group">
-              <div className="w-12 h-12 bg-[#00c87f] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#023020] transition-colors duration-300">
-                <p.icon size={20} className="text-[#023020] group-hover:text-white transition-colors duration-300"/>
+              <div className="w-12 h-12 bg-[#00a86b]/12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#023020] transition-colors duration-300">
+                <p.icon size={20} className="text-[#00a86b] group-hover:text-white transition-colors duration-300"/>
               </div>
               <div>
                 <h3 className="font-bold text-slate-800 mb-1.5 text-[15px]">{p.title}</h3>

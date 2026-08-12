@@ -85,8 +85,8 @@ function DashboardMockup() {
       {/* Floating badges */}
       <motion.div animate={{y:[-6,6,-6]}} transition={{duration:4,repeat:Infinity}}
         className="absolute -left-10 top-14 bg-white rounded-2xl shadow-2xl border border-slate-100 px-3.5 py-2.5 flex items-center gap-2.5 z-10">
-        <div className="w-8 h-8 bg-[#00c87f] rounded-xl flex items-center justify-center">
-          <TrendingUp size={15} className="text-[#023020]"/>
+        <div className="w-8 h-8 bg-[#00a86b]/15 rounded-xl flex items-center justify-center">
+          <TrendingUp size={15} className="text-[#00a86b]"/>
         </div>
         <div>
           <div className="text-[9px] text-slate-400">MRP Efficiency</div>
@@ -95,7 +95,7 @@ function DashboardMockup() {
       </motion.div>
       <motion.div animate={{y:[6,-6,6]}} transition={{duration:5,repeat:Infinity}}
         className="absolute -right-8 bottom-16 bg-white rounded-2xl shadow-2xl border border-slate-100 px-3.5 py-2.5 flex items-center gap-2.5 z-10">
-        <div className="w-8 h-8 bg-[#00c87f] rounded-xl flex items-center justify-center">
+        <div className="w-8 h-8 bg-[#00a86b] rounded-xl flex items-center justify-center">
           <CheckCircle2 size={15} className="text-[#023020]"/>
         </div>
         <div>
@@ -145,7 +145,7 @@ export default function Hero() {
 
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
               <a href="#contact"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-[14px] bg-white text-[#023020] font-semibold text-base hover:bg-[#00c87f] transition-all shadow-2xl hover:-translate-y-0.5">
+                className="inline-flex items-center gap-2 px-7 py-4 rounded-[14px] bg-white text-[#023020] font-semibold text-base hover:bg-[#00a86b] hover:text-white transition-all shadow-2xl hover:-translate-y-0.5">
                 Request Demo <ArrowRight size={16}/>
               </a>
               <a href="#products"

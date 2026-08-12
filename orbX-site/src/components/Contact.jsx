@@ -11,7 +11,7 @@ export default function Contact() {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="space-y-8">
-            <motion.span variants={fadeLeft} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00c87f] text-[#023020] text-sm font-semibold border border-[#023020]/20">
+            <motion.span variants={fadeLeft} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00a86b]/10 text-[#00a86b] text-sm font-semibold border border-[#00a86b]/20">
               Get In Touch
             </motion.span>
             <motion.h2 variants={fadeLeft} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
@@ -28,8 +28,8 @@ export default function Contact() {
               ].map((item,i)=>(
                 <motion.div key={i} variants={fadeLeft} transition={{delay:i*0.1}}
                   className="flex items-center gap-4">
-                  <div className="w-11 h-11 bg-[#00c87f] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <item.icon size={18} className="text-[#023020]"/>
+                  <div className="w-11 h-11 bg-[#00a86b]/12 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <item.icon size={18} className="text-[#00a86b]"/>
                   </div>
                   <div>
                     <div className="text-xs text-slate-400 font-medium mb-0.5">{item.label}</div>

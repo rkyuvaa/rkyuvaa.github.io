@@ -57,7 +57,7 @@ export default function Navbar() {
                     transition={{ type: 'spring', stiffness: 400, damping: 28 }}
                     className={`absolute inset-0 rounded-full -z-10 shadow-sm ${
                       scrolled
-                        ? 'bg-[#00c87f]/20 border border-[#023020]/15'
+                        ? 'bg-[#00a86b]/20 border border-[#023020]/15'
                         : 'bg-white/20 backdrop-blur-md border border-white/30'
                     }`}
                   />
