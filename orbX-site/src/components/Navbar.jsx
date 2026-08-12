@@ -1,4 +1,5 @@
-import logoImg from '../assets/logo-orbx.png';
+import logoDark from '../assets/logo-orbx.png';
+import logoLight from '../assets/logo-orbx-light.png';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -30,7 +31,7 @@ export default function Navbar() {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 min-h-[88px] py-2 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2 group">
-          <img src={logoImg} alt="OrbX Enterprise Suite" className="h-20 md:h-22 w-auto object-contain transition-all" />
+          <img src={scrolled ? logoLight : logoDark} alt="OrbX Enterprise Suite" className="h-14 md:h-16 w-auto object-contain transition-all" />
         </a>
 
         {/* Desktop nav */}
