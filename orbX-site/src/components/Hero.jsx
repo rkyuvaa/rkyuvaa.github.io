@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Zap, TrendingUp, Package, CheckCircle2, BarChart3, Factory, Settings, ShoppingCart, Users, FileText } from 'lucide-react';
+import { ArrowRight, Play, Zap, TrendingUp, Package, CheckCircle2, BarChart3, Factory, Settings, ShoppingCart, Users, FileText, Sparkles } from 'lucide-react';
 import { fadeUp, stagger } from '../utils/anim';
 
 function DashboardMockup() {
