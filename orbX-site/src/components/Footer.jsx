@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
           <div className="col-span-2">
             <a href="#hero" className="flex items-center gap-2 mb-5">
-              <img src={logoImg} alt="OrbX Enterprise Suite" className="h-10 md:h-12 w-auto object-contain" />
+              <img src={logoImg} alt="OrbX Enterprise Suite" className="h-20 md:h-24 w-auto object-contain" />
             </a>
             <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-[210px]">
               Manufacturing Intelligence. Simplified. The enterprise ERP platform designed for modern manufacturers.
