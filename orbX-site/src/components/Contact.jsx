@@ -23,7 +23,7 @@ export default function Contact() {
             <div className="space-y-5 pt-2">
               {[
                 {icon:Phone, label:'Call Us', text:'+91 97873 17484'},
-                {icon:Mail, label:'Email', text:'rkyuvaa@hotmail.com'},
+                {icon:Mail, label:'Email', text:'rkyuvaa@orbx.com'},
                 {icon:MapPin, label:'Location', text:'Tamil Nadu, India'},
               ].map((item,i)=>(
                 <motion.div key={i} variants={fadeLeft} transition={{delay:i*0.1}}
