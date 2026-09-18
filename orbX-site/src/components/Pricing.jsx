@@ -51,6 +51,9 @@ export default function Pricing({ onOpenDemo }) {
                 </h3>
               </div>
               <div className="sm:text-right">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#00a86b]/20 border border-[#00a86b]/30 mb-2">
+                  <span className="text-[11px] font-bold text-[#00c87f] tracking-wide">Starting from ₹1,000 / month</span>
+                </div>
                 <div className="flex items-baseline gap-1">
                   <span className="text-3xl sm:text-4xl font-extrabold text-white">₹2,000</span>
                   <span className="text-white/70 text-sm font-medium">/ month</span>

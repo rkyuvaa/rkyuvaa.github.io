@@ -65,6 +65,7 @@ export default function Navbar({ onOpenDemo }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileProductOpen, setMobileProductOpen] = useState(false);
   const [mobileIndustryOpen, setMobileIndustryOpen] = useState(false);
+  const [hoveredNav, setHoveredNav] = useState(null);
   const closeTimeout = useRef(null);
 
   useEffect(() => {
@@ -100,7 +101,7 @@ export default function Navbar({ onOpenDemo }) {
           <img
             src={logoLight}
             alt="OrbX"
-            className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-[60px] sm:h-[72px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
@@ -257,33 +258,33 @@ export default function Navbar({ onOpenDemo }) {
             </AnimatePresence>
           </div>
 
-          <a
-            href="#platform-hub"
-            className="px-3.5 py-2 rounded-xl hover:text-[#023020] hover:bg-slate-50/80 transition-colors"
-          >
-            Solutions
-          </a>
-
-          <a
-            href="#pricing"
-            className="px-3.5 py-2 rounded-xl hover:text-[#023020] hover:bg-slate-50/80 transition-colors"
-          >
-            Pricing
-          </a>
-
-          <a
-            href="#about"
-            className="px-3.5 py-2 rounded-xl hover:text-[#023020] hover:bg-slate-50/80 transition-colors"
-          >
-            About
-          </a>
-
-          <a
-            href="#contact"
-            className="px-3.5 py-2 rounded-xl hover:text-[#023020] hover:bg-slate-50/80 transition-colors"
-          >
-            Contact
-          </a>
+          {[
+            { label: 'Solutions', href: '#platform-hub' },
+            { label: 'Pricing', href: '#pricing' },
+            { label: 'About', href: '#about' },
+            { label: 'Contact', href: '#contact' },
+          ].map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="relative px-3.5 py-2 rounded-xl text-slate-700 hover:text-[#023020] transition-colors"
+              onMouseEnter={() => setHoveredNav(item.label)}
+              onMouseLeave={() => setHoveredNav(null)}
+            >
+              {hoveredNav === item.label && (
+                <motion.span
+                  layoutId="nav-pill"
+                  className="absolute inset-0 rounded-xl bg-[#023020]/[0.06] border border-[#023020]/10"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  style={{ zIndex: -1 }}
+                />
+              )}
+              <span className="relative z-10 font-medium text-[14px]">{item.label}</span>
+            </a>
+          ))}
         </nav>
 
         {/* Right CTA */}
