@@ -5,7 +5,7 @@ import {
   Kanban, UtensilsCrossed, HardHat, Car, ShoppingBag, Headphones,
   ArrowRight, Sparkles
 } from 'lucide-react';
-import logoDark from '../assets/logo-orbx.png';
+import logoLight from '../assets/logo-orbx-light.png';
 
 const productItems = [
   {
@@ -98,7 +98,7 @@ export default function Navbar({ onOpenDemo }) {
         {/* Brand Logo */}
         <a href="#" className="flex items-center gap-3 group focus:outline-none">
           <img
-            src={logoDark}
+            src={logoLight}
             alt="OrbX"
             className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
