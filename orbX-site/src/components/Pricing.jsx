@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Check, ArrowRight, ShieldCheck, Sparkles, Building2, Lock, Eye
+  Check, ArrowRight, ShieldCheck, Sparkles, Building2, ChevronDown
 } from 'lucide-react';
 
 const mainFeatures = [
@@ -18,7 +18,7 @@ const mainFeatures = [
 ];
 
 export default function Pricing({ onOpenDemo }) {
-  const [priceRevealed, setPriceRevealed] = useState(false);
+  const [plansOpen, setPlansOpen] = useState(false);
 
   return (
     <section id="pricing" className="py-24 lg:py-32 bg-[#F7FAF8] relative overflow-hidden border-t border-slate-100">
@@ -27,7 +27,7 @@ export default function Pricing({ onOpenDemo }) {
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00a86b]/10 border border-[#00a86b]/20 text-[#023020] text-xs font-semibold uppercase tracking-wider">
             <Sparkles size={13} className="text-[#00a86b]" />
-            <span>Transparent & Uncomplicated</span>
+            <span>Transparent &amp; Uncomplicated</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
@@ -41,12 +41,15 @@ export default function Pricing({ onOpenDemo }) {
 
         {/* Pricing Cards */}
         <div className="max-w-5xl mx-auto grid md:grid-cols-12 gap-8 items-center">
-          {/* Main Featured Card: OrbX Subscription ₹2,000 / month */}
+          {/* Main Featured Card */}
           <div className="md:col-span-8 bg-[#023020] text-white rounded-3xl p-8 sm:p-10 shadow-[0_25px_70px_rgba(2,48,32,0.25)] relative overflow-hidden space-y-6">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#00a86b]/20 rounded-bl-full pointer-events-none blur-2xl" />
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-6 relative z-10">
-              <div>
+            {/* Card header row */}
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 border-b border-white/10 pb-6 relative z-10">
+
+              {/* Left: title */}
+              <div className="flex-1 min-w-0">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#00c87f]">
                   Complete Business Suite
                 </span>
@@ -54,70 +57,71 @@ export default function Pricing({ onOpenDemo }) {
                   OrbX Subscription
                 </h3>
               </div>
-              <div className="sm:text-right">
-                {/* Starting from badge */}
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#00a86b]/20 border border-[#00a86b]/30 mb-3">
-                  <span className="text-[11px] font-bold text-[#00c87f] tracking-wide">Starting from ₹1,000 / month</span>
+
+              {/* Right: Primary ₹1,000 price block */}
+              <div className="sm:text-right flex-shrink-0">
+
+                {/* STARTING FROM label */}
+                <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#00c87f] mb-1">
+                  Starting From
                 </div>
 
-                {/* Masked / Revealed Price */}
-                <div className="relative h-[52px] flex items-center sm:justify-end overflow-hidden">
-                  <AnimatePresence mode="wait">
-                    {!priceRevealed ? (
-                      <motion.div
-                        key="masked"
-                        initial={{ opacity: 1, filter: 'blur(0px)' }}
-                        exit={{ opacity: 0, filter: 'blur(8px)', scale: 0.96 }}
-                        transition={{ duration: 0.35, ease: 'easeInOut' }}
-                        className="flex items-baseline gap-1 select-none"
-                      >
-                        <span className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                          ₹<span className="inline-block w-[3.2ch] text-center text-white/50 letter-spacing-widest">••••</span>
-                        </span>
-                        <span className="text-white/70 text-sm font-medium">/ month</span>
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="revealed"
-                        initial={{ opacity: 0, filter: 'blur(8px)', scale: 1.04 }}
-                        animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
-                        transition={{ duration: 0.45, ease: 'easeOut' }}
-                        className="flex items-baseline gap-1"
-                      >
-                        <span className="text-3xl sm:text-4xl font-extrabold text-white">₹2,000</span>
-                        <span className="text-white/70 text-sm font-medium">/ month</span>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                {/* ₹1,000 — hero price */}
+                <div className="relative inline-block">
+                  {/* subtle glow behind the number */}
+                  <div className="absolute inset-0 rounded-2xl bg-[#00a86b]/10 blur-xl pointer-events-none -z-10 scale-125" />
+                  <div className="flex items-end gap-1.5 leading-none">
+                    <span className="text-[56px] sm:text-[68px] font-extrabold text-white leading-none tracking-tight">
+                      ₹1,000
+                    </span>
+                    <span className="text-white/60 text-base font-medium pb-2">/month</span>
+                  </div>
                 </div>
 
                 {/* Sub-label */}
-                <AnimatePresence mode="wait">
-                  {priceRevealed ? (
+                <div className="text-[11px] text-white/60 font-medium mt-1.5">
+                  Core business access
+                </div>
+
+                {/* View all plans trigger */}
+                <button
+                  onClick={() => setPlansOpen(v => !v)}
+                  className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold text-[#00c87f] hover:text-white transition-colors group/plans"
+                >
+                  <span>{plansOpen ? 'Hide plans' : 'View all plans'}</span>
+                  <motion.span
+                    animate={{ rotate: plansOpen ? 180 : 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="inline-flex"
+                  >
+                    <ChevronDown size={13} />
+                  </motion.span>
+                </button>
+
+                {/* Expandable complete-plan panel */}
+                <AnimatePresence initial={false}>
+                  {plansOpen && (
                     <motion.div
-                      key="access-label"
-                      initial={{ opacity: 0, y: 4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.25 }}
-                      className="text-[11px] text-[#00c87f] font-semibold mt-0.5"
+                      key="complete-plan"
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                      className="overflow-hidden"
                     >
-                      All-inclusive platform access
+                      <div className="bg-white/8 border border-white/15 rounded-2xl p-4 sm:text-right text-left backdrop-blur-sm">
+                        <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#00c87f] mb-1">
+                          OrbX Complete
+                        </div>
+                        <div className="flex items-baseline gap-1 sm:justify-end">
+                          <span className="text-2xl font-extrabold text-white">₹2,000</span>
+                          <span className="text-white/60 text-xs font-medium">/ month</span>
+                        </div>
+                        <div className="text-[11px] text-white/50 font-medium mt-0.5">
+                          All-inclusive platform access
+                        </div>
+                      </div>
                     </motion.div>
-                  ) : (
-                    /* Reveal pricing trigger */
-                    <motion.button
-                      key="reveal-btn"
-                      onClick={() => setPriceRevealed(true)}
-                      initial={{ opacity: 1 }}
-                      exit={{ opacity: 0, y: -4 }}
-                      transition={{ duration: 0.2 }}
-                      className="mt-1.5 inline-flex items-center gap-1.5 text-[11px] font-semibold text-white/60 hover:text-[#00c87f] transition-colors cursor-pointer group/reveal"
-                    >
-                      <Lock size={11} className="group-hover/reveal:hidden transition-all" />
-                      <Eye size={11} className="hidden group-hover/reveal:inline transition-all" />
-                      <span>Reveal pricing</span>
-                      <ArrowRight size={10} className="group-hover/reveal:translate-x-0.5 transition-transform" />
-                    </motion.button>
                   )}
                 </AnimatePresence>
               </div>
