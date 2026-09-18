@@ -59,10 +59,10 @@ const disconnectedParts = [
 ];
 
 export default function ProblemSolution({ onOpenDemo }) {
-  const [unifiedMode, setUnifiedMode] = useState(true);
+  const [unifiedMode, setUnifiedMode] = useState(false);
 
   return (
-    <section className="py-24 lg:py-32 bg-[#F7FAF8] relative overflow-hidden border-y border-slate-100">
+    <section className="py-24 lg:py-32 bg-[#F7FAF8] relative w-full border-y border-slate-100">
       {/* Subtle background decoration */}
       <div className="absolute inset-0 dot-pattern opacity-40 pointer-events-none" />
 
@@ -190,21 +190,29 @@ export default function ProblemSolution({ onOpenDemo }) {
               </div>
 
               {/* Visual Unified Network Diagram */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-3 mb-8">
-                {disconnectedParts.map((item, idx) => {
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3 mb-8">
+                {[
+                  { label: 'Sales', icon: disconnectedParts[0].icon },
+                  { label: 'Purchase', icon: disconnectedParts[1].icon },
+                  { label: 'Inventory', icon: disconnectedParts[2].icon },
+                  { label: 'Attendance', icon: disconnectedParts[3].icon },
+                  { label: 'Project', icon: disconnectedParts[4].icon },
+                  { label: 'Finance', icon: disconnectedParts[5].icon },
+                  { label: 'Management', icon: disconnectedParts[6].icon },
+                ].map((item, idx) => {
                   const Icon = item.icon;
                   return (
                     <div
                       key={idx}
-                      className="bg-emerald-50/60 border border-emerald-200/60 rounded-xl p-3 text-center space-y-2 relative group hover:bg-[#023020] hover:text-white transition-all cursor-default"
+                      className="bg-emerald-50/60 border border-emerald-200/60 rounded-xl p-3 text-center space-y-2 group hover:bg-[#023020] hover:text-white transition-all cursor-default"
                     >
                       <div className="w-9 h-9 rounded-lg bg-[#023020] text-[#00c87f] group-hover:bg-white group-hover:text-[#023020] flex items-center justify-center mx-auto transition-colors">
                         <Icon size={18} />
                       </div>
-                      <div className="font-bold text-xs group-hover:text-white text-slate-800 truncate">
-                        {item.title.split(' ')[0]}
+                      <div className="font-bold text-[11px] group-hover:text-white text-slate-800 leading-tight">
+                        {item.label}
                       </div>
-                      <div className="text-[10px] text-emerald-800 font-semibold group-hover:text-emerald-200">
+                      <div className="text-[10px] text-emerald-700 font-semibold group-hover:text-emerald-200">
                         Unified Data
                       </div>
                     </div>
