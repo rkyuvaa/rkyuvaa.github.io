@@ -1,5 +1,7 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Check, ArrowRight, ShieldCheck, Sparkles, Building2
+  Check, ArrowRight, ShieldCheck, Sparkles, Building2, Lock, Eye
 } from 'lucide-react';
 
 const mainFeatures = [
@@ -16,6 +18,8 @@ const mainFeatures = [
 ];
 
 export default function Pricing({ onOpenDemo }) {
+  const [priceRevealed, setPriceRevealed] = useState(false);
+
   return (
     <section id="pricing" className="py-24 lg:py-32 bg-[#F7FAF8] relative overflow-hidden border-t border-slate-100">
       <div className="container-orbx">
@@ -51,14 +55,71 @@ export default function Pricing({ onOpenDemo }) {
                 </h3>
               </div>
               <div className="sm:text-right">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#00a86b]/20 border border-[#00a86b]/30 mb-2">
+                {/* Starting from badge */}
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#00a86b]/20 border border-[#00a86b]/30 mb-3">
                   <span className="text-[11px] font-bold text-[#00c87f] tracking-wide">Starting from ₹1,000 / month</span>
                 </div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl sm:text-4xl font-extrabold text-white">₹2,000</span>
-                  <span className="text-white/70 text-sm font-medium">/ month</span>
+
+                {/* Masked / Revealed Price */}
+                <div className="relative h-[52px] flex items-center sm:justify-end overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    {!priceRevealed ? (
+                      <motion.div
+                        key="masked"
+                        initial={{ opacity: 1, filter: 'blur(0px)' }}
+                        exit={{ opacity: 0, filter: 'blur(8px)', scale: 0.96 }}
+                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                        className="flex items-baseline gap-1 select-none"
+                      >
+                        <span className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                          ₹<span className="inline-block w-[3.2ch] text-center text-white/50 letter-spacing-widest">••••</span>
+                        </span>
+                        <span className="text-white/70 text-sm font-medium">/ month</span>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="revealed"
+                        initial={{ opacity: 0, filter: 'blur(8px)', scale: 1.04 }}
+                        animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
+                        transition={{ duration: 0.45, ease: 'easeOut' }}
+                        className="flex items-baseline gap-1"
+                      >
+                        <span className="text-3xl sm:text-4xl font-extrabold text-white">₹2,000</span>
+                        <span className="text-white/70 text-sm font-medium">/ month</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-                <div className="text-[11px] text-[#00c87f] font-semibold mt-0.5">All-inclusive platform access</div>
+
+                {/* Sub-label */}
+                <AnimatePresence mode="wait">
+                  {priceRevealed ? (
+                    <motion.div
+                      key="access-label"
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.25 }}
+                      className="text-[11px] text-[#00c87f] font-semibold mt-0.5"
+                    >
+                      All-inclusive platform access
+                    </motion.div>
+                  ) : (
+                    /* Reveal pricing trigger */
+                    <motion.button
+                      key="reveal-btn"
+                      onClick={() => setPriceRevealed(true)}
+                      initial={{ opacity: 1 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.2 }}
+                      className="mt-1.5 inline-flex items-center gap-1.5 text-[11px] font-semibold text-white/60 hover:text-[#00c87f] transition-colors cursor-pointer group/reveal"
+                    >
+                      <Lock size={11} className="group-hover/reveal:hidden transition-all" />
+                      <Eye size={11} className="hidden group-hover/reveal:inline transition-all" />
+                      <span>Reveal pricing</span>
+                      <ArrowRight size={10} className="group-hover/reveal:translate-x-0.5 transition-transform" />
+                    </motion.button>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
 
