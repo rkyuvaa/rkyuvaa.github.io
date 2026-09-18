@@ -114,7 +114,7 @@ export default function PlatformHub({ onOpenDemo }) {
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00a86b]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-[1360px] mx-auto px-5 sm:px-8 relative z-10">
+      <div className="container-orbx relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#023020]/5 border border-[#023020]/10 text-[#023020] text-xs font-semibold uppercase tracking-wider">
@@ -132,9 +132,9 @@ export default function PlatformHub({ onOpenDemo }) {
         </div>
 
         {/* The Interactive Orbital Hub UI */}
-        <div className="grid lg:grid-cols-12 gap-8 items-center">
+        <div className="grid lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px] gap-8 items-center">
           {/* 12 Interactive Module Cards Grid */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {modulesList.map((mod) => {
               const Icon = mod.icon;
               const isSelected = selectedId === mod.id;
@@ -175,7 +175,7 @@ export default function PlatformHub({ onOpenDemo }) {
           </div>
 
           {/* Central Active Module Inspector Panel */}
-          <div className="lg:col-span-4">
+          <div>
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeModule.id}

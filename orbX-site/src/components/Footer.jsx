@@ -4,7 +4,7 @@ import logoDark from '../assets/logo-orbx.png';
 export default function Footer({ onOpenDemo }) {
   return (
     <footer className="bg-slate-950 text-slate-400 pt-20 pb-12 border-t border-slate-900 relative overflow-hidden">
-      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+      <div className="container-orbx">
         <div className="grid grid-cols-2 md:grid-cols-12 gap-10 pb-16 border-b border-slate-800/80">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-4 space-y-4">

@@ -27,7 +27,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 lg:py-32 bg-white relative overflow-hidden">
-      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+      <div className="container-orbx">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Direct Contact Info */}
           <div className="lg:col-span-5 space-y-8">

@@ -16,7 +16,7 @@ export default function Hero({ onOpenDemo }) {
         <div className="absolute inset-0 grid-pattern opacity-60" />
       </div>
 
-      <div className="relative max-w-[1360px] mx-auto px-5 sm:px-8">
+      <div className="relative container-orbx">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Value Proposition */}
           <div className="lg:col-span-6 space-y-7 text-left">

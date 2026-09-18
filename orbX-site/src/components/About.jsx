@@ -18,7 +18,7 @@ export default function About({ onOpenDemo }) {
 
   return (
     <section id="about" className="py-24 lg:py-32 bg-white relative overflow-hidden" ref={ref}>
-      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+      <div className="container-orbx">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Visual Architecture Composition */}
           <motion.div

@@ -18,7 +18,7 @@ const mainFeatures = [
 export default function Pricing({ onOpenDemo }) {
   return (
     <section id="pricing" className="py-24 lg:py-32 bg-[#F7FAF8] relative overflow-hidden border-t border-slate-100">
-      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+      <div className="container-orbx">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00a86b]/10 border border-[#00a86b]/20 text-[#023020] text-xs font-semibold uppercase tracking-wider">
@@ -36,7 +36,7 @@ export default function Pricing({ onOpenDemo }) {
         </div>
 
         {/* Pricing Cards */}
-        <div className="max-w-4xl mx-auto grid md:grid-cols-12 gap-8 items-center">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-12 gap-8 items-center">
           {/* Main Featured Card: OrbX Subscription ₹2,000 / month */}
           <div className="md:col-span-8 bg-[#023020] text-white rounded-3xl p-8 sm:p-10 shadow-[0_25px_70px_rgba(2,48,32,0.25)] relative overflow-hidden space-y-6">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#00a86b]/20 rounded-bl-full pointer-events-none blur-2xl" />

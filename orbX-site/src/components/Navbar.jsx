@@ -95,7 +95,7 @@ export default function Navbar({ onOpenDemo }) {
           : 'bg-white/80 backdrop-blur-md border-b border-slate-100/60 py-4'
       }`}
     >
-      <div className="max-w-[1360px] mx-auto px-5 sm:px-8 flex items-center justify-between">
+      <div className="container-orbx flex items-center justify-between">
         {/* Brand Logo */}
         <a href="#" className="flex items-center gap-3 group focus:outline-none">
           <img

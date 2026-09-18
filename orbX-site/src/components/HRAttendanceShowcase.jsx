@@ -46,7 +46,7 @@ export default function HRAttendanceShowcase({ onOpenDemo }) {
 
   return (
     <section id="hr-showcase" className="py-24 lg:py-32 bg-[#F7FAF8] relative overflow-hidden">
-      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+      <div className="container-orbx">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00a86b]/10 border border-[#00a86b]/20 text-[#023020] text-xs font-semibold uppercase tracking-wider">

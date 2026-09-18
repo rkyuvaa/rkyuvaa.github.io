@@ -29,7 +29,7 @@ export default function RestaurantShowcase({ onOpenDemo }) {
         <div className="absolute -bottom-24 left-10 w-[400px] h-[400px] bg-[#84cc16]/10 rounded-full blur-[100px]" />
       </div>
 
-      <div className="max-w-[1360px] mx-auto px-5 sm:px-8 relative z-10">
+      <div className="container-orbx relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#00c87f] text-xs font-semibold uppercase tracking-wider">

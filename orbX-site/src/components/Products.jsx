@@ -104,7 +104,7 @@ export default function Products({ onOpenDemo }) {
 
   return (
     <section id="products" className="py-24 lg:py-32 bg-[#F7FAF8] relative overflow-hidden">
-      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+      <div className="container-orbx">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00a86b]/10 border border-[#00a86b]/20 text-[#023020] text-xs font-semibold uppercase tracking-wider">
@@ -122,7 +122,7 @@ export default function Products({ onOpenDemo }) {
         </div>
 
         {/* 10 Module Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {productsData.map((prod) => {
             const Icon = prod.icon;
             return (
