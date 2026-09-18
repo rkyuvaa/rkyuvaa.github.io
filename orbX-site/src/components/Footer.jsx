@@ -24,7 +24,7 @@ export default function Footer({ onOpenDemo }) {
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={14} className="text-[#00c87f]" />
-                <a href="mailto:rkyuvaa@orbx.in" className="hover:text-white transition-colors">rkyuvaa@orbx.in</a>
+                <a href="mailto:hello@orbx.in" className="hover:text-white transition-colors">hello@orbx.in</a>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={14} className="text-[#00c87f]" />

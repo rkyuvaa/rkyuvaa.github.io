@@ -63,7 +63,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="mailto:rkyuvaa@orbx.in"
+                href="mailto:hello@orbx.in"
                 className="flex items-center gap-4 p-4 rounded-2xl bg-[#F7FAF8] hover:bg-slate-100/80 border border-slate-200/70 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-xl bg-white text-[#023020] shadow-sm flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
@@ -71,7 +71,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Email Inquiries</div>
-                  <div className="text-base font-extrabold text-slate-800 mt-0.5">rkyuvaa@orbx.in</div>
+                  <div className="text-base font-extrabold text-slate-800 mt-0.5">hello@orbx.in</div>
                 </div>
               </a>
 
