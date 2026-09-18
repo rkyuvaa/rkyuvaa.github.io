@@ -18,6 +18,7 @@ import CTA from './components/CTA';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DemoModal from './components/DemoModal';
+import OrbXAssistant from './components/OrbXAssistant';
 import { motion } from 'framer-motion';
 
 function FloatingWA() {
@@ -101,6 +102,7 @@ export default function App() {
       </main>
 
       <Footer onOpenDemo={openDemo} />
+      <OrbXAssistant onOpenDemo={openDemo} />
       <FloatingWA />
       <DemoModal isOpen={demoOpen} onClose={closeDemo} />
     </>
