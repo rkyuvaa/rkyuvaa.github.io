@@ -1,54 +1,113 @@
-import logoImg from '../assets/logo-orbx.png';
-import React from 'react';
-import { Share2, ExternalLink, Globe, Code2 } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import logoDark from '../assets/logo-orbx.png';
 
-const cols = [
-  {title:'Products', links:['Manufacturing ERP','My Ledger','OrbX HRMS','OrbX CRM','OrbX Mobile']},
-  {title:'Solutions', links:['Production Planning','Quality Control','Inventory Management','Financial Suite','Analytics & Reports']},
-  {title:'Company', links:['About OrbX','Blog & Resources','Careers','Partner Program','Press & Media']},
-];
-
-export default function Footer() {
-  const logoColor = 'white';
-  const xColor = '#00a86b';
+export default function Footer({ onOpenDemo }) {
   return (
-    <footer className="bg-[#011a12] text-white pt-20 pb-10">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
-          <div className="col-span-2">
-            <a href="#hero" className="flex items-center gap-2 mb-5">
-              <img src={logoImg} alt="OrbX Enterprise Suite" className="h-20 md:h-24 w-auto object-contain" />
+    <footer className="bg-slate-950 text-slate-400 pt-20 pb-12 border-t border-slate-900 relative overflow-hidden">
+      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-10 pb-16 border-b border-slate-800/80">
+          {/* Brand Column */}
+          <div className="col-span-2 md:col-span-4 space-y-4">
+            <a href="#" className="inline-block">
+              {/* Logo on dark background */}
+              <div className="bg-white/10 px-3 py-1.5 rounded-xl inline-block backdrop-blur-sm border border-white/10">
+                <img src={logoDark} alt="OrbX" className="h-10 w-auto object-contain brightness-125" />
+              </div>
             </a>
-            <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-[210px]">
-              Where Business Meets Intelligence. The complete enterprise suite for modern growth.
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+              OrbX is the modern unified business management platform connecting sales, purchase, inventory, finance, HR, projects, and operations into one single source of truth.
             </p>
-            <div className="flex gap-3">
-              {[Share2,ExternalLink,Globe,Code2].map((Icon,i)=>(
-                <a key={i} href="#" className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center hover:bg-[#00a86b] transition-colors duration-300">
-                  <Icon size={14}/>
-                </a>
-              ))}
+            <div className="space-y-2 pt-2 text-xs text-slate-400">
+              <div className="flex items-center gap-2">
+                <Phone size={14} className="text-[#00c87f]" />
+                <a href="tel:+919787317484" className="hover:text-white transition-colors">+91 97873 17484</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail size={14} className="text-[#00c87f]" />
+                <a href="mailto:rkyuvaa@orbx.in" className="hover:text-white transition-colors">rkyuvaa@orbx.in</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin size={14} className="text-[#00c87f]" />
+                <span>Tamil Nadu, India</span>
+              </div>
             </div>
           </div>
-          {cols.map((col,i)=>(
-            <div key={i}>
-              <h4 className="font-bold text-white text-[12px] uppercase tracking-[0.12em] mb-5">{col.title}</h4>
-              <ul className="space-y-3">
-                {col.links.map((link,j)=>(
-                  <li key={j}>
-                    <a href="#" className="text-white/45 text-sm hover:text-white transition-colors">{link}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+
+          {/* Column 1: Products */}
+          <div className="col-span-1 md:col-span-2 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Products
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li><a href="#products" className="hover:text-[#00c87f] transition-colors">OrbX ERP</a></li>
+              <li><a href="#products" className="hover:text-[#00c87f] transition-colors">Business Suite</a></li>
+              <li><a href="#hr-showcase" className="hover:text-[#00c87f] transition-colors">OrbX HRMS</a></li>
+              <li><a href="#products" className="hover:text-[#00c87f] transition-colors">OrbX My Ledger</a></li>
+              <li><a href="#project-showcase" className="hover:text-[#00c87f] transition-colors">Project Management</a></li>
+              <li><a href="#restaurant-showcase" className="hover:text-[#00c87f] transition-colors">Restaurant Management</a></li>
+            </ul>
+          </div>
+
+          {/* Column 2: Solutions */}
+          <div className="col-span-1 md:col-span-2 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Solutions
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li><a href="#platform-hub" className="hover:text-[#00c87f] transition-colors">Sales & Orders</a></li>
+              <li><a href="#platform-hub" className="hover:text-[#00c87f] transition-colors">Inventory Stores</a></li>
+              <li><a href="#platform-hub" className="hover:text-[#00c87f] transition-colors">Finance & Ledger</a></li>
+              <li><a href="#hr-showcase" className="hover:text-[#00c87f] transition-colors">HR & Wages</a></li>
+              <li><a href="#products" className="hover:text-[#00c87f] transition-colors">Manufacturing MRP</a></li>
+              <li><a href="#project-showcase" className="hover:text-[#00c87f] transition-colors">Project Milestones</a></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Industries */}
+          <div className="col-span-1 md:col-span-2 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Industries
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li><a href="#industries" className="hover:text-[#00c87f] transition-colors">Manufacturing</a></li>
+              <li><a href="#industries" className="hover:text-[#00c87f] transition-colors">Construction</a></li>
+              <li><a href="#industries" className="hover:text-[#00c87f] transition-colors">Automotive</a></li>
+              <li><a href="#restaurant-showcase" className="hover:text-[#00c87f] transition-colors">Restaurant</a></li>
+              <li><a href="#industries" className="hover:text-[#00c87f] transition-colors">Retail Stores</a></li>
+              <li><a href="#industries" className="hover:text-[#00c87f] transition-colors">Services</a></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Company & CTA */}
+          <div className="col-span-1 md:col-span-2 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Company
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li><a href="#about" className="hover:text-[#00c87f] transition-colors">About OrbX</a></li>
+              <li><a href="#pricing" className="hover:text-[#00c87f] transition-colors">Pricing (₹2,000/mo)</a></li>
+              <li><a href="#contact" className="hover:text-[#00c87f] transition-colors">Contact Engineering</a></li>
+              <li>
+                <button
+                  onClick={onOpenDemo}
+                  className="font-bold text-[#00c87f] hover:underline flex items-center gap-1 mt-1"
+                >
+                  Book a Demo <ArrowRight size={12} />
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/35 text-sm">© 2026 OrbX Enterprise Suite. All rights reserved.</p>
-          <div className="flex gap-6">
-            {['Privacy Policy','Terms of Service','Cookie Policy'].map(l=>(
-              <a key={l} href="#" className="text-white/35 text-sm hover:text-white transition-colors">{l}</a>
-            ))}
+
+        {/* Bottom Strip: Copyright & Legal */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <div>
+            © {new Date().getFullYear()} OrbX Technologies. All rights reserved.
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="#contact" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
+            <a href="#contact" className="hover:text-slate-400 transition-colors">Terms of Service</a>
+            <a href="#contact" className="hover:text-slate-400 transition-colors">Security</a>
           </div>
         </div>
       </div>

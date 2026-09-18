@@ -1,51 +1,118 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Factory, Zap, Settings, TrendingUp, Layers, Lock, Monitor, Cpu, Headphones, ArrowRight, Rocket, Palette, RefreshCw, Handshake, Bot } from 'lucide-react';
-import { fadeLeft, fadeRight, fadeUp, scaleIn, stagger } from '../utils/anim';
+import {
+  FileText, Eye, Sliders, Zap, ArrowRight,
+  Sparkles
+} from 'lucide-react';
 
-const points = [
-  {icon:Rocket, title:'Unified Business Platform', desc:'Manage Finance, HR, CRM, Inventory, Manufacturing, Sales, and other business operations from one integrated platform.'},
-  {icon:Palette, title:'Modern User Experience', desc:'Clean, intuitive, and easy-to-use interface that minimizes training and improves user adoption.'},
-  {icon:Zap, title:'High Performance', desc:'Fast, reliable, and optimized to support businesses of every size with consistent performance.'},
-  {icon:Lock, title:'Enterprise Security', desc:'Protect your business with role-based access control, audit logs, and enterprise-grade security.'},
-  {icon:RefreshCw, title:'Smart Automation', desc:'Automate repetitive tasks, approvals, notifications, and business workflows to increase efficiency.'},
-  {icon:Settings, title:'Flexible & Customizable', desc:'Adapt forms, workflows, reports, and modules to match your business requirements without complexity.'},
-  {icon:TrendingUp, title:'Scalable Growth', desc:'Start with the modules you need today and expand effortlessly as your business grows.'},
-  {icon:Bot, title:'AI Ready', desc:'Leverage intelligent analytics, forecasting, business insights, and future AI capabilities.'},
-  {icon:Handshake, title:'Dedicated Support', desc:'Benefit from expert implementation, training, customization, and ongoing support from the OrbX team.'},
+const benefits = [
+  {
+    title: 'Less Paperwork',
+    headline: 'Automate repetitive business processes.',
+    desc: 'Eliminate duplicate data entries across handwritten registers, disconnected spreadsheets, and chat messages. From quotation to ledger in one click.',
+    icon: FileText,
+    accent: '#00a86b',
+    stat: '85% Reduction',
+    statLabel: 'in manual data entry'
+  },
+  {
+    title: 'More Visibility',
+    headline: 'See what’s happening across your business.',
+    desc: 'Know exactly where every rupee, raw material gram, and work order stands. Real-time updates without having to call supervisors or accountants.',
+    icon: Eye,
+    accent: '#023020',
+    stat: '100% Real-Time',
+    statLabel: 'operational synchronization'
+  },
+  {
+    title: 'Better Control',
+    headline: 'Manage operations from one platform.',
+    desc: 'Enforce multi-level approval hierarchies for purchases, scrap write-offs, and discounts. Never allow unauthorized payments or inventory leaks.',
+    icon: Sliders,
+    accent: '#059669',
+    stat: 'Zero Leakage',
+    statLabel: 'with strict role-based gates'
+  },
+  {
+    title: 'Faster Decisions',
+    headline: 'Get meaningful information when you need it.',
+    desc: 'Instant profit & loss summaries, stock valuation, and customer aging reports at your fingertips. Act swiftly on market opportunities with confidence.',
+    icon: Zap,
+    accent: '#84cc16',
+    stat: '10x Quicker',
+    statLabel: 'management decisions'
+  },
 ];
 
-export default function WhyChoose() {
-  const ref = useRef(null);
-  const inView = useInView(ref, {once:true, margin:'-80px'});
+export default function WhyChoose({ onOpenDemo }) {
   return (
-    <section id="why" className="py-28 bg-[#F6F8FA]" ref={ref}>
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="text-center mb-16">
-          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00a86b]/10 text-[#00a86b] text-sm font-semibold border border-[#00a86b]/20 mb-4">
-            Why OrbX
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
-            Why Businesses <span className="gradient-text">Choose OrbX</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[700px] mx-auto">
-            Empowering organizations with a modern, scalable, and intelligent business platform designed to simplify operations, improve productivity, and support long-term growth.
-          </motion.p>
-        </motion.div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {points.map((p,i)=>(
-            <motion.div key={i} variants={scaleIn} initial="hidden" animate={inView?'visible':'hidden'}
-              transition={{delay:i*0.08}}
-              className="bg-white rounded-[20px] p-6 border border-slate-100 card-lift shadow-sm flex items-start gap-4 group">
-              <div className="w-12 h-12 bg-[#00a86b]/12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#023020] transition-colors duration-300">
-                <p.icon size={20} className="text-[#00a86b] group-hover:text-white transition-colors duration-300"/>
+    <section className="py-24 lg:py-32 bg-[#F7FAF8] relative overflow-hidden border-y border-slate-100">
+      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#023020]/5 border border-[#023020]/10 text-[#023020] text-xs font-semibold uppercase tracking-wider">
+            <Sparkles size={13} className="text-[#00a86b]" />
+            <span>The OrbX Advantage</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Why Businesses Choose <span className="gradient-text">OrbX.</span>
+          </h2>
+
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            Built specifically to solve the real everyday headaches of manufacturers, contractors, and growing commercial enterprises.
+          </p>
+        </div>
+
+        {/* 4 Large Visual Benefit Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {benefits.map((b, idx) => {
+            const Icon = b.icon;
+            return (
+              <div
+                key={idx}
+                className="bg-white rounded-3xl p-7 sm:p-9 border border-slate-200/80 shadow-sm card-lift flex flex-col justify-between relative overflow-hidden group"
+              >
+                {/* Subtle corner graphic */}
+                <div className="absolute top-0 right-0 w-36 h-36 bg-emerald-50 rounded-bl-full -z-0 opacity-50 group-hover:opacity-100 transition-opacity" />
+
+                <div className="relative z-10 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="w-12 h-12 rounded-2xl bg-[#023020] text-[#00c87f] flex items-center justify-center shadow-md">
+                      <Icon size={22} />
+                    </div>
+                    <div className="text-right">
+                      <div className="text-sm font-extrabold text-[#023020]">{b.stat}</div>
+                      <div className="text-[10px] text-slate-400 font-medium">{b.statLabel}</div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-extrabold text-slate-900 group-hover:text-[#023020] transition-colors">
+                      {b.title}
+                    </h3>
+                    <div className="text-sm font-bold text-[#00a86b] mt-1">
+                      {b.headline}
+                    </div>
+                    <p className="text-slate-600 text-sm leading-relaxed mt-3">
+                      {b.desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between relative z-10">
+                  <span className="text-xs font-semibold text-slate-400">
+                    Included across all OrbX modules
+                  </span>
+                  <button
+                    onClick={onOpenDemo}
+                    className="text-xs font-bold text-[#023020] hover:text-[#00a86b] flex items-center gap-1.5 transition-colors"
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight size={13} />
+                  </button>
+                </div>
               </div>
-              <div>
-                <h3 className="font-bold text-slate-800 mb-1.5 text-[15px]">{p.title}</h3>
-                <p className="text-slate-500 text-[13px] leading-relaxed">{p.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

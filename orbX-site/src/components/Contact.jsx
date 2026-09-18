@@ -1,88 +1,233 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
-import { fadeLeft, scaleIn, stagger } from '../utils/anim';
+import { useState } from 'react';
+import {
+  Phone, Mail, MapPin, MessageSquare, CheckCircle2,
+  Clock, ShieldCheck, Send
+} from 'lucide-react';
 
 export default function Contact() {
-  const ref = useRef(null);
-  const inView = useInView(ref, {once:true, margin:'-80px'});
-  return (
-    <section id="contact" className="py-28 bg-white" ref={ref}>
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="space-y-8">
-            <motion.span variants={fadeLeft} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00a86b]/10 text-[#00a86b] text-sm font-semibold border border-[#00a86b]/20">
-              Get In Touch
-            </motion.span>
-            <motion.h2 variants={fadeLeft} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
-              Let's Build Your <span className="gradient-text">ERP Solution</span>
-            </motion.h2>
-            <motion.p variants={fadeLeft} className="text-slate-500 text-[17px] leading-relaxed">
-              Whether you need a full ERP implementation or a specific module — our expert team is ready to help you succeed.
-            </motion.p>
-            <div className="space-y-5 pt-2">
-              {[
-                {icon:Phone, label:'Call Us', text:'+91 97873 17484'},
-                {icon:Mail, label:'Email', text:'rkyuvaa@orbx.in'},
-                {icon:MapPin, label:'Location', text:'Tamil Nadu, India'},
-              ].map((item,i)=>(
-                <motion.div key={i} variants={fadeLeft} transition={{delay:i*0.1}}
-                  className="flex items-center gap-4">
-                  <div className="w-11 h-11 bg-[#00a86b]/12 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <item.icon size={18} className="text-[#00a86b]"/>
-                  </div>
-                  <div>
-                    <div className="text-xs text-slate-400 font-medium mb-0.5">{item.label}</div>
-                    <div className="text-slate-700 font-semibold">{item.text}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    industry: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
 
-          <motion.div variants={scaleIn} initial="hidden" animate={inView?'visible':'hidden'}
-            className="bg-[#F6F8FA] rounded-[28px] p-10 border border-slate-100 shadow-sm">
-            <h3 className="text-xl font-bold text-slate-800 mb-8" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>Request a Demo</h3>
-            <form className="space-y-5" onSubmit={e=>e.preventDefault()}>
-              <div className="grid grid-cols-2 gap-4">
-                {['Full Name','Company Name'].map((pl,i)=>(
-                  <div key={i}>
-                    <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">{pl.split(' ')[0]}</label>
-                    <input type="text" placeholder={pl}
-                      className="w-full bg-white border border-slate-200 rounded-[14px] px-4 py-3.5 text-slate-800 text-sm focus:outline-none focus:border-[#023020] focus:ring-2 focus:ring-[#023020]/10 transition-all placeholder:text-slate-400"/>
-                  </div>
-                ))}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const text = `Hi OrbX Team,%0A%0A*Name:* ${formData.name}%0A*Company:* ${formData.company}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Industry:* ${formData.industry}%0A*Message:* ${formData.message}`;
+    const waUrl = `https://wa.me/919787317484?text=${text}`;
+    setSubmitted(true);
+    setTimeout(() => {
+      window.open(waUrl, '_blank');
+    }, 500);
+  };
+
+  return (
+    <section id="contact" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Direct Contact Info */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#023020]/5 border border-[#023020]/10 text-[#023020] text-xs font-semibold uppercase tracking-wider">
+                <MessageSquare size={13} className="text-[#00a86b]" />
+                <span>Let's Connect</span>
               </div>
-              {[
-                {l:'Email', p:'you@company.com', t:'email'},
-                {l:'Phone', p:'+91 00000 00000', t:'tel'},
-              ].map((f,i)=>(
-                <div key={i}>
-                  <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">{f.l}</label>
-                  <input type={f.t} placeholder={f.p}
-                    className="w-full bg-white border border-slate-200 rounded-[14px] px-4 py-3.5 text-slate-800 text-sm focus:outline-none focus:border-[#023020] focus:ring-2 focus:ring-[#023020]/10 transition-all placeholder:text-slate-400"/>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Let's Build Your <br />
+                <span className="gradient-text">ERP Solution.</span>
+              </h2>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Whether you need a full enterprise implementation or want to start with a single module — our engineering team is ready to assist you.
+              </p>
+            </div>
+
+            {/* Direct Contact Points */}
+            <div className="space-y-4 pt-2">
+              <a
+                href="tel:+919787317484"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-[#F7FAF8] hover:bg-slate-100/80 border border-slate-200/70 transition-colors group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-white text-[#023020] shadow-sm flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                  <Phone size={20} className="text-[#00a86b]" />
                 </div>
-              ))}
-              <div>
-                <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Industry</label>
-                <select className="w-full bg-white border border-slate-200 rounded-[14px] px-4 py-3.5 text-slate-600 text-sm focus:outline-none focus:border-[#023020] focus:ring-2 focus:ring-[#023020]/10 transition-all">
-                  <option value="">Select Industry</option>
-                  {['Automobile','Engineering','Manufacturing','Fabrication','Textile','Chemical','Food Processing','Electronics','Other'].map(o=>(
-                    <option key={o}>{o}</option>
-                  ))}
-                </select>
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Call Us Direct</div>
+                  <div className="text-base font-extrabold text-slate-800 mt-0.5">+91 97873 17484</div>
+                </div>
+              </a>
+
+              <a
+                href="mailto:rkyuvaa@orbx.in"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-[#F7FAF8] hover:bg-slate-100/80 border border-slate-200/70 transition-colors group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-white text-[#023020] shadow-sm flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                  <Mail size={20} className="text-[#00a86b]" />
+                </div>
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Email Inquiries</div>
+                  <div className="text-base font-extrabold text-slate-800 mt-0.5">rkyuvaa@orbx.in</div>
+                </div>
+              </a>
+
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#F7FAF8] border border-slate-200/70">
+                <div className="w-12 h-12 rounded-xl bg-white text-[#023020] shadow-sm flex items-center justify-center flex-shrink-0">
+                  <MapPin size={20} className="text-[#00a86b]" />
+                </div>
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Location</div>
+                  <div className="text-base font-extrabold text-slate-800 mt-0.5">Tamil Nadu, India</div>
+                </div>
               </div>
-              <div>
-                <label className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Message</label>
-                <textarea rows="4" placeholder="Tell us about your requirements and number of users..."
-                  className="w-full bg-white border border-slate-200 rounded-[14px] px-4 py-3.5 text-slate-800 text-sm focus:outline-none focus:border-[#023020] focus:ring-2 focus:ring-[#023020]/10 transition-all resize-none placeholder:text-slate-400"/>
+            </div>
+
+            <div className="p-4 bg-emerald-50/70 rounded-2xl border border-emerald-200/60 flex items-center gap-3">
+              <Clock size={18} className="text-[#00a86b] flex-shrink-0" />
+              <div className="text-xs text-slate-700">
+                <span className="font-bold text-[#023020]">Fast Response Guarantee:</span> Inquiries receive a tailored response within 15 minutes during standard Indian business hours.
               </div>
-              <button type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-[#023020] text-white font-semibold py-4 rounded-[14px] hover:bg-[#011a12] transition-all shadow-lg hover:shadow-[#023020]/30 hover:-translate-y-0.5 text-base">
-                Request a Demo <ArrowRight size={16}/>
-              </button>
-            </form>
-          </motion.div>
+            </div>
+          </div>
+
+          {/* Right Column: Interactive Inquiry Form */}
+          <div className="lg:col-span-7 bg-[#F7FAF8] rounded-3xl p-7 sm:p-10 border border-slate-200/80 shadow-sm">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">
+              Request a Consultation
+            </h3>
+            <p className="text-slate-600 text-xs sm:text-sm mb-6">
+              Fill out the details below to discuss your exact plant setup, user count, or custom workflow requirements.
+            </p>
+
+            {submitted ? (
+              <div className="py-12 text-center space-y-3">
+                <div className="w-16 h-16 rounded-full bg-emerald-50 text-[#00a86b] flex items-center justify-center mx-auto">
+                  <CheckCircle2 size={36} />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900">Message Dispatched!</h4>
+                <p className="text-slate-600 text-sm max-w-sm mx-auto">
+                  Opening WhatsApp to send your inquiry directly to our lead engineering desk.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="mt-4 px-6 py-2.5 rounded-xl bg-[#023020] text-white text-xs font-bold"
+                >
+                  Send Another Inquiry
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                      Your Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="e.g. Arun Kumar"
+                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-[#023020] focus:ring-2 focus:ring-[#023020]/10 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                      Company / Plant Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      placeholder="e.g. Apex Precision Tools"
+                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-[#023020] focus:ring-2 focus:ring-[#023020]/10 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                      Phone / WhatsApp Number *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+91 98765 43210"
+                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-[#023020] focus:ring-2 focus:ring-[#023020]/10 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                      Work Email
+                    </label>
+                    <input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="arun@apexprecision.com"
+                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-[#023020] focus:ring-2 focus:ring-[#023020]/10 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                    Select Your Industry
+                  </label>
+                  <select
+                    value={formData.industry}
+                    onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-[#023020] focus:ring-2 focus:ring-[#023020]/10 transition-all"
+                  >
+                    <option value="">Select your industry sector</option>
+                    <option value="Manufacturing & Machine Engineering">Manufacturing & Machine Engineering</option>
+                    <option value="Construction & Contracting">Construction & Contracting</option>
+                    <option value="Automotive & Spare Parts">Automotive & Spare Parts</option>
+                    <option value="Restaurant & Food Chains">Restaurant & Food Chains</option>
+                    <option value="Retail & Multi-Store">Retail & Multi-Store</option>
+                    <option value="Professional & Field Services">Professional & Field Services</option>
+                    <option value="Other Commercial Business">Other Commercial Business</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                    How Can We Help? (Modules or User Requirements)
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tell us about your current challenges, number of branches, or team size..."
+                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-[#023020] focus:ring-2 focus:ring-[#023020]/10 transition-all resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-4 rounded-xl bg-[#023020] hover:bg-[#011a12] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#023020]/25 transition-all hover:scale-[1.01] active:scale-[0.99] mt-2"
+                >
+                  <span>Submit Inquiry</span>
+                  <Send size={15} />
+                </button>
+
+                <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400 pt-1">
+                  <ShieldCheck size={13} className="text-[#00a86b]" />
+                  <span>Strictly confidential. No spam or third-party sharing.</span>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </section>

@@ -1,104 +1,268 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Factory, CreditCard, Users, Globe, Headphones, Smartphone, ArrowRight, Check } from 'lucide-react';
-import { fadeUp, stagger, scaleIn } from '../utils/anim';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  ShoppingCart, PackageCheck, Boxes, Factory, HeartHandshake,
+  Users, Kanban, CreditCard, ShieldCheck, BarChart3, ArrowRight,
+  CheckCircle2, Sparkles, X, ChevronRight, Check
+} from 'lucide-react';
 
-const main = [
+const productsData = [
   {
-    name:'OrbX Manufacturing ERP', icon:Factory, badge:'Core Product', color:'#023020',
-    desc:'A complete ERP platform built for manufacturers — from production planning to quality assurance and financial reporting.',
-    features:['Production Planning','Bill of Materials (BOM)','Manufacturing Execution','Inventory Management','Purchase Management','Sales Management','Quality Control','Serial Number Tracking'],
+    id: 'sales',
+    name: 'Sales',
+    icon: ShoppingCart,
+    tag: 'Quotations & Billing',
+    desc: 'Manage quotations, orders, invoices and customers.',
+    features: ['Instant Quotation Generation', 'Order to Delivery Tracking', 'GST Compliant Invoicing', 'Customer Ledger & Outstanding', 'Sales Rep Commissions', 'Price Lists & Discount Rules'],
+    visual: 'sales-chart'
   },
   {
-    name:'OrbX My Ledger', icon:CreditCard, badge:'Finance Suite', color:'#00a86b',
-    desc:'Comprehensive financial management with cash flow control, bank reconciliation, and complete audit trails.',
-    features:['Cash Management','Bank Management','Expense Tracking','Cheque Management','Internal Transfers','Day Book','Ledger Reports'],
+    id: 'purchase',
+    name: 'Purchase',
+    icon: PackageCheck,
+    tag: 'Vendor & Procurement',
+    desc: 'Control vendors, purchase orders, receipts and expenses.',
+    features: ['Vendor RFQ & Comparison', 'Automated Purchase Orders', 'Goods Receipt Notes (GRN)', 'Landed Cost Computation', 'Vendor Outstanding Aging', 'Scrap & Return Management'],
+    visual: 'purchase-flow'
   },
   {
-    name:'OrbX HRMS', icon:Users, badge:'HR Management', color:'#00c87f',
-    desc:'Comprehensive Human Resource Management with attendance tracking, automated payroll processing, and multi-level approvals.',
-    features:['Remote Attendance with GPS', 'Biometric Integration', 'Auto Payroll Processing', 'Auto Comp-Off Calculation', 'Salary Templates', 'Custom Salary Rules', 'Multiple Shift Management', 'Leave Approval Workflow', 'Daily HR Dashboard', 'Holiday Management', 'Company Holiday Rules', 'Custom LOP Rules', 'Employee Self-Service Portal', 'Multi-Level Approvals', 'Real-Time Reports & Analytics', 'Secure Role-Based Access'],
+    id: 'inventory',
+    name: 'Inventory',
+    icon: Boxes,
+    tag: 'Stock & Tracking',
+    desc: 'Track stock, movements, serial numbers and warehouse operations.',
+    features: ['Multi-Warehouse Allocation', 'Batch & Expiry Management', 'Serial Number Tracking', 'Barcode & QR Scanning', 'Stock Transfer Vouchers', 'Automated Reorder Alerts'],
+    visual: 'stock-card'
   },
   {
-    name:'OrbX CRM', icon:Globe, badge:'Sales Suite', color:'#f59e0b',
-    desc:'End-to-end Customer Relationship Management to track leads, manage pipelines, and close deals faster.',
-    features:['Lead Management', 'Contact Directory', 'Sales Pipeline', 'Opportunity Tracking', 'Email Integration', 'Quotation Management', 'Task Management', 'Sales Forecasting', 'Campaign Management', 'Client Analytics', 'Interaction History', 'Multi-channel Communication', 'Document Management', 'Real-Time Dashboards'],
+    id: 'manufacturing',
+    name: 'Manufacturing',
+    icon: Factory,
+    tag: 'Production & MRP',
+    desc: 'Manage BOMs, production, material requirements and manufacturing operations.',
+    features: ['Multi-Level Bill of Materials (BOM)', 'Production Planning & Routing', 'Work Order Execution', 'Raw Material Consumption', 'Process Loss & Scrap Analysis', 'Accurate Unit Costing'],
+    visual: 'mfg-flow'
   },
   {
-    name:'OrbX Service', icon:Headphones, badge:'Service Suite', color:'#8b5cf6',
-    desc:'Robust service management to handle ticketing, maintenance schedules, and field technician dispatch.',
-    features:['Ticketing System', 'SLA Management', 'Asset Management', 'Preventive Maintenance', 'Field Service Scheduling', 'Work Order Management', 'Warranty Tracking', 'Service Contracts', 'Parts Inventory', 'Customer Portal', 'Knowledge Base', 'Technician Dispatch'],
+    id: 'crm',
+    name: 'CRM',
+    icon: HeartHandshake,
+    tag: 'Leads & Pipeline',
+    desc: 'Manage leads, opportunities, customers and follow-ups.',
+    features: ['Visual Deal Pipeline', 'Lead Source Tracking', 'Follow-up Reminders', 'Client Communication Logs', 'Quotation Sync with Sales', 'Sales Forecast Analytics'],
+    visual: 'crm-pipeline'
   },
   {
-    name:'OrbX Mobile', icon:Smartphone, badge:'Mobile App', color:'#ec4899',
-    desc:'Access your entire manufacturing and ERP ecosystem on the go with our dedicated mobile applications.',
-    features:['iOS & Android Apps', 'Real-time Notifications', 'Offline Mode Sync', 'Barcode Scanning', 'Mobile Approvals', 'Field Data Entry', 'Live Dashboards', 'GPS Tracking', 'Mobile CRM', 'Leave Applications'],
+    id: 'hr',
+    name: 'HR & Payroll',
+    icon: Users,
+    tag: 'Workforce & Wages',
+    desc: 'Attendance, leave, wages, payroll and employee management.',
+    features: ['Biometric & GPS Attendance', 'Automated Wage Formulas', 'Leave & Holiday Calendars', 'Overtime & Comp-off Rules', 'One-Click Salary Slips', 'PF, ESI & Statutory Reports'],
+    visual: 'hr-wage'
   },
   {
-    name:'OrbX Business Suite', icon:Globe, badge:'B2B Suite', color:'#3b82f6',
-    desc:'Comprehensive B2B management platform covering everything from purchases to customer outstanding maintenance.',
-    features:['B2B Purchase & Sales', 'Inventory Management', 'Product Tracking', 'Internal Transfers', 'Multi-Branch Management', 'Payments Followup', 'Outstanding Maintenance', 'Advanced Reports'],
+    id: 'projects',
+    name: 'Projects',
+    icon: Kanban,
+    tag: 'Milestones & Tasks',
+    desc: 'Projects, tasks, subtasks, dependencies, progress and deadlines.',
+    features: ['Work Breakdown Structure (WBS)', 'Dependency Types (FS, SS, FF, SF)', 'Interactive Kanban Boards', 'Time Tracking & Logs', 'Budget vs Actual Costing', 'Client Milestone Invoicing'],
+    visual: 'project-gantt'
   },
   {
-    name:'OrbX Enterprise Suite', icon:Factory, badge:'Enterprise', color:'#14b8a6',
-    desc:'End-to-end Enterprise Workflow covering the entire lifecycle from supplier receiving to final customer invoice.',
-    features:['Supplier Management', 'Purchase / Scrap Receiving', 'Raw Material Inventory', 'Production Orders', 'Standard BOM Management', 'Raw Material Consumption', 'Production Expenses', 'Output & Process Loss', 'Total Production Costing', 'Finished Goods Inventory', 'Sales Order to Delivery', 'Invoicing'],
+    id: 'finance',
+    name: 'Finance',
+    icon: CreditCard,
+    tag: 'Cash & Accounting',
+    desc: 'Payables, receivables, expenses, cash and bank management.',
+    features: ['General Ledger & Day Book', 'Bank Reconciliation', 'Cash Flow Forecasts', 'Multi-level Expense Approvals', 'Vendor Cheque Printing', 'Tax Audit Ready Reports'],
+    visual: 'finance-card'
+  },
+  {
+    id: 'quality',
+    name: 'Quality',
+    icon: ShieldCheck,
+    tag: 'Inspection & QC',
+    desc: 'Quality checks, inspections and process control.',
+    features: ['Inward Material Inspection', 'In-Process Stage Gates', 'Final QC Clearance', 'Non-Conformance Reports (NCR)', 'Defect Rate Pareto Charts', 'Certificate of Analysis (COA)'],
+    visual: 'qc-badge'
+  },
+  {
+    id: 'reports',
+    name: 'Reports',
+    icon: BarChart3,
+    tag: 'Intelligence & BI',
+    desc: 'Get meaningful business insights from one place.',
+    features: ['Cross-Department Executive Dashboard', 'Stock Valuation Reports', 'Customer Profitability Analysis', 'Production Variance Reports', 'Exportable to Excel & PDF', 'Automated Daily Email Briefs'],
+    visual: 'report-preview'
   },
 ];
 
+export default function Products({ onOpenDemo }) {
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-
-export default function Products() {
-  const ref = useRef(null);
-  const inView = useInView(ref, {once:true, margin:'-80px'});
   return (
-    <section id="products" className="py-28 bg-white" ref={ref}>
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="text-center mb-16">
-          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00a86b]/10 text-[#00a86b] text-sm font-semibold border border-[#00a86b]/20 mb-4">
-            Our Products
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
-            The Complete <span className="gradient-text">Enterprise Suite</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[700px] mx-auto">
-            Purpose-built modules that work seamlessly together to power your entire manufacturing operation.
-          </motion.p>
-        </motion.div>
+    <section id="products" className="py-24 lg:py-32 bg-[#F7FAF8] relative overflow-hidden">
+      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00a86b]/10 border border-[#00a86b]/20 text-[#023020] text-xs font-semibold uppercase tracking-wider">
+            <Sparkles size={13} className="text-[#00a86b]" />
+            <span>Complete Product Modules</span>
+          </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-10">
-          {main.map((p,i)=>(
-            <motion.div key={i} variants={scaleIn} initial="hidden" animate={inView?'visible':'hidden'}
-              transition={{delay:i*0.15}}
-              className="group bg-white rounded-[24px] border-2 border-slate-100 p-8 card-lift hover:border-[#023020]/20 shadow-sm">
-              <div className="flex items-start justify-between mb-6">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{background:`${p.color}18`}}>
-                  <p.icon size={26} style={{color:p.color}}/>
-                </div>
-                <span className="text-xs font-bold px-3 py-1.5 rounded-full" style={{background:`${p.color}14`,color:p.color}}>
-                  {p.badge}
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-3" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>{p.name}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-6">{p.desc}</p>
-              <div className="grid grid-cols-2 gap-y-2 gap-x-3">
-                {p.features.map((f,j)=>(
-                  <div key={j} className="flex items-center gap-2 text-sm text-slate-600">
-                    <Check size={13} className="text-[#023020] flex-shrink-0"/>{f}
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 pt-6 border-t border-slate-100">
-                <a href="#contact" className="inline-flex items-center gap-1.5 text-[#023020] font-semibold text-sm hover:gap-3 transition-all">
-                  Learn More <ArrowRight size={14}/>
-                </a>
-              </div>
-            </motion.div>
-          ))}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Everything You Need to <span className="gradient-text">Run Your Business.</span>
+          </h2>
+
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            Ten specialized enterprise modules engineered to work as standalone powerhouses or a fully synchronized ecosystem.
+          </p>
         </div>
 
+        {/* 10 Module Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {productsData.map((prod) => {
+            const Icon = prod.icon;
+            return (
+              <div
+                key={prod.id}
+                className="group bg-white rounded-3xl p-7 border border-slate-200/80 shadow-sm card-lift flex flex-col justify-between relative overflow-hidden"
+              >
+                {/* Decorative corner glow on hover */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-0 opacity-40 group-hover:opacity-100 transition-opacity" />
 
+                <div className="relative z-10 space-y-5">
+                  <div className="flex items-start justify-between">
+                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-[#023020] group-hover:bg-[#023020] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm">
+                      <Icon size={22} />
+                    </div>
+                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 group-hover:bg-[#00a86b]/10 group-hover:text-[#00a86b] transition-colors">
+                      {prod.tag}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#023020] transition-colors">
+                      {prod.name}
+                    </h3>
+                    <p className="text-slate-600 text-sm mt-1.5 leading-relaxed">
+                      {prod.desc}
+                    </p>
+                  </div>
+
+                  {/* Feature preview list */}
+                  <div className="space-y-2 pt-2 border-t border-slate-100">
+                    {prod.features.slice(0, 3).map((f, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs text-slate-600">
+                        <Check size={13} className="text-[#00a86b] flex-shrink-0" />
+                        <span className="truncate">{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Explore button & interaction */}
+                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between relative z-10">
+                  <button
+                    onClick={() => setSelectedProduct(prod)}
+                    className="text-xs font-bold text-[#023020] hover:text-[#00a86b] flex items-center gap-1.5 transition-colors group/btn"
+                  >
+                    <span>Explore Module</span>
+                    <ChevronRight size={14} className="transition-transform group-hover/btn:translate-x-1" />
+                  </button>
+
+                  <button
+                    onClick={onOpenDemo}
+                    className="text-[11px] font-semibold text-slate-400 hover:text-slate-700 transition-colors"
+                  >
+                    Book Demo
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
+
+      {/* Module Details Modal */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <div className="fixed inset-0 z-[220] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedProduct(null)}
+              className="fixed inset-0 bg-[#011a12]/70 backdrop-blur-sm"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-slate-100 p-6 sm:p-8 z-10 space-y-6"
+            >
+              <div className="flex items-start justify-between border-b border-slate-100 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-[#023020] text-[#00c87f] flex items-center justify-center">
+                    <selectedProduct.icon size={24} />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-[#00a86b] uppercase tracking-wider">
+                      OrbX Module Specification
+                    </span>
+                    <h3 className="text-2xl font-bold text-slate-900">
+                      OrbX {selectedProduct.name}
+                    </h3>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedProduct(null)}
+                  className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center"
+                >
+                  <X size={16} />
+                </button>
+              </div>
+
+              <p className="text-slate-600 text-sm leading-relaxed">
+                {selectedProduct.desc} Built to integrate effortlessly with the other 9 modules in OrbX, giving your team synchronized control without dual data entry.
+              </p>
+
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                  Key Capabilities Included:
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {selectedProduct.features.map((feat, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs text-slate-700 bg-slate-50 p-2.5 rounded-xl">
+                      <CheckCircle2 size={14} className="text-[#00a86b] flex-shrink-0 mt-0.5" />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="text-xs text-slate-500 text-center sm:text-left">
+                  Included in the standard ₹2,000/mo subscription.
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedProduct(null);
+                    onOpenDemo();
+                  }}
+                  className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#023020] hover:bg-[#011a12] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-md transition-all"
+                >
+                  <span>Book Walkthrough</span>
+                  <ArrowRight size={13} />
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

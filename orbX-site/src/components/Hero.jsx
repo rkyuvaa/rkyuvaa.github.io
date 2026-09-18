@@ -1,185 +1,295 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Zap, TrendingUp, Package, CheckCircle2, BarChart3, Factory, Settings, ShoppingCart, Users, FileText, Sparkles } from 'lucide-react';
-import { fadeUp, stagger } from '../utils/anim';
+import {
+  ArrowRight, TrendingUp, ShieldCheck,
+  Package, ShoppingCart, Users, ChevronRight, BarChart3,
+  CheckCircle, DollarSign, Clock
+} from 'lucide-react';
 
-function DashboardMockup() {
-  return (
-    <div className="relative w-full max-w-[700px] mx-auto select-none">
-      <div className="absolute inset-0 bg-[#00a86b]/20 blur-3xl rounded-full scale-110 pointer-events-none"/>
-      <div className="relative float-anim bg-white rounded-[22px] shadow-[0_40px_100px_rgba(0,0,0,0.2)] border border-white/30 overflow-hidden">
-        {/* Topbar */}
-        <div className="bg-[#023020] px-5 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex gap-1.5">
-              {['bg-red-400/60','bg-yellow-400/60','bg-green-400/60'].map((c,i)=>(
-                <div key={i} className={`w-2.5 h-2.5 rounded-full ${c}`}/>
-              ))}
-            </div>
-            <span className="text-white/70 text-[11px] font-medium">OrbX — Production Dashboard</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <div className="w-2 h-2 rounded-full bg-green-400 live-dot"/>
-            <span className="text-white/50 text-[10px]">Live</span>
-          </div>
-        </div>
-        <div className="flex h-[320px]">
-          {/* Sidebar */}
-          <div className="w-12 bg-[#011a12] flex flex-col items-center py-4 gap-3.5">
-            {[BarChart3,Factory,Package,ShoppingCart,Users,FileText,Settings].map((Icon,i)=>(
-              <div key={i} className={`w-7 h-7 rounded-lg flex items-center justify-center ${i===0?'bg-white/20':'hover:bg-white/10'}`}>
-                <Icon size={14} className={i===0?'text-white':'text-white/35'}/>
-              </div>
-            ))}
-          </div>
-          {/* Main */}
-          <div className="flex-1 bg-[#F6F8FA] p-3.5 overflow-hidden">
-            {/* KPIs */}
-            <div className="grid grid-cols-3 gap-2 mb-3">
-              {[{l:'Revenue',v:'₹84.2L',c:'#023020',d:'+12%'},{l:'Orders',v:'1,248',c:'#00a86b',d:'+8%'},{l:'Quality',v:'98.4%',c:'#011a12',d:'+3%'}].map((k,i)=>(
-                <div key={i} className="bg-white rounded-xl p-2.5 shadow-sm border border-slate-100/80">
-                  <div className="text-[9px] text-slate-400 mb-1">{k.l}</div>
-                  <div className="text-[13px] font-bold text-slate-800">{k.v}</div>
-                  <div className="text-[9px] font-semibold mt-0.5" style={{color:k.c}}>{k.d}</div>
-                </div>
-              ))}
-            </div>
-            {/* Chart */}
-            <div className="bg-white rounded-xl p-3 mb-2.5 shadow-sm border border-slate-100/80">
-              <div className="flex justify-between mb-2">
-                <span className="text-[10px] font-semibold text-slate-700">Production Output</span>
-                <span className="text-[9px] text-slate-400">Last 7 days</span>
-              </div>
-              <div className="flex items-end gap-1.5 h-14">
-                {[40,65,50,80,60,92,74].map((h,i)=>(
-                  <div key={i} className="flex-1 rounded-t-md" style={{
-                    height:`${h}%`,
-                    background:i===5?'#023020':`rgba(2,48,32,${0.18+i*0.07})`
-                  }}/>
-                ))}
-              </div>
-            </div>
-            {/* Bottom row */}
-            <div className="grid grid-cols-2 gap-2">
-              <div className="bg-white rounded-xl p-2.5 shadow-sm border border-slate-100/80">
-                <div className="text-[9px] text-slate-400 mb-1.5">Inventory Health</div>
-                <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                  <div className="h-full w-[88%] bg-[#023020] rounded-full"/>
-                </div>
-                <div className="text-[10px] font-bold text-[#023020] mt-1">88% Optimal</div>
-              </div>
-              <div className="bg-white rounded-xl p-2.5 shadow-sm border border-slate-100/80">
-                <div className="text-[9px] text-slate-400 mb-2">Top Products</div>
-                {['Prod A','Prod B','Prod C'].map((p,i)=>(
-                  <div key={i} className="flex items-center gap-1 mb-1 last:mb-0">
-                    <div className="w-1 h-1 rounded-full bg-[#023020] flex-shrink-0"/>
-                    <span className="text-[8px] text-slate-600 flex-1">{p}</span>
-                    <div className="h-1 bg-[#00a86b] rounded-full" style={{width:`${55-i*12}px`}}/>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Floating badges */}
-      <motion.div animate={{y:[-6,6,-6]}} transition={{duration:4,repeat:Infinity}}
-        className="absolute -left-10 top-14 bg-white rounded-2xl shadow-2xl border border-slate-100 px-3.5 py-2.5 flex items-center gap-2.5 z-10">
-        <div className="w-8 h-8 bg-[#00a86b]/15 rounded-xl flex items-center justify-center">
-          <TrendingUp size={15} className="text-[#00a86b]"/>
-        </div>
-        <div>
-          <div className="text-[9px] text-slate-400">MRP Efficiency</div>
-          <div className="text-xs font-bold text-slate-800">+24% ↑</div>
-        </div>
-      </motion.div>
-      <motion.div animate={{y:[6,-6,6]}} transition={{duration:5,repeat:Infinity}}
-        className="absolute -right-8 bottom-16 bg-white rounded-2xl shadow-2xl border border-slate-100 px-3.5 py-2.5 flex items-center gap-2.5 z-10">
-        <div className="w-8 h-8 bg-[#00a86b] rounded-xl flex items-center justify-center">
-          <CheckCircle2 size={15} className="text-[#023020]"/>
-        </div>
-        <div>
-          <div className="text-[9px] text-slate-400">Zero Downtime</div>
-          <div className="text-xs font-bold text-slate-800">99.9% Up</div>
-        </div>
-      </motion.div>
-    </div>
-  );
-}
+export default function Hero({ onOpenDemo }) {
 
-export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center dark-bg pt-[72px] overflow-hidden">
-      {/* Ambient blobs */}
+    <section className="relative pt-32 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-white mesh-hero">
+      {/* Background Animated Blobs and Grid */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-15%] right-[-8%] w-[700px] h-[700px] rounded-full bg-[#00a86b]/12 blur-[130px]"/>
-        <div className="absolute bottom-[-10%] left-[-10%] w-[550px] h-[550px] rounded-full bg-[#023020]/20 blur-[100px]"/>
-        <div className="absolute inset-0 opacity-[0.035]" style={{
-          backgroundImage:'linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)',
-          backgroundSize:'60px 60px'
-        }}/>
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-[#00a86b]/10 via-[#023020]/5 to-transparent blur-[100px] rounded-full" />
+        <div className="absolute -top-20 right-0 w-[450px] h-[450px] bg-[#84cc16]/5 blur-[90px] rounded-full" />
+        <div className="absolute inset-0 grid-pattern opacity-60" />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 py-24 w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* Left */}
-          <motion.div variants={stagger} initial="hidden" animate="visible" className="space-y-8">
-            <motion.div variants={fadeUp}>
-              <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#00a86b]/20 via-white/10 to-[#00a86b]/20 border border-[#00a86b]/50 text-white text-sm font-bold backdrop-blur-md shadow-[0_0_25px_rgba(0,168,107,0.3)]">
-                <Sparkles size={16} className="text-[#00a86b] animate-pulse" />
-                Where Business Meets <span style={{background:'linear-gradient(135deg,#00a86b 0%,#7dd3a8 100%)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>Intelligence</span>
-              </span>
+      <div className="relative max-w-[1360px] mx-auto px-5 sm:px-8">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Value Proposition */}
+          <div className="lg:col-span-6 space-y-7 text-left">
+            {/* Top Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#023020]/5 border border-[#023020]/10 text-[#023020] text-xs font-semibold tracking-wider uppercase"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#00a86b] live-dot" />
+              <span>BUSINESS MANAGEMENT, SIMPLIFIED</span>
             </motion.div>
 
-            <motion.h1 variants={fadeUp}
-              className="text-[58px] md:text-[68px] font-bold text-white leading-[1.06]"
-              style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
-              Business. <br/>
-              <span style={{background:'linear-gradient(135deg,#00c87f 0%,#7dd3a8 100%)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
-                Unified.
-              </span> <br/>Simplified.
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]"
+            >
+              Run Your Business. <br />
+              <span className="gradient-text">Not Your Paperwork.</span>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-[18px] text-white/65 leading-relaxed max-w-[650px]">
-              Manage every aspect of your business with one intelligent platform. OrbX brings together Finance, Inventory, Manufacturing, HR, CRM, Sales, Procurement, Payroll, and Analytics into a single, modern business suite designed to improve productivity and accelerate growth.
+            {/* Supporting Text */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl"
+            >
+              OrbX brings sales, purchase, inventory, finance, HR, projects and operations together in one powerful business platform.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-              <a href="#contact"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-[14px] bg-white text-[#023020] font-semibold text-base hover:bg-[#00a86b] hover:text-white transition-all shadow-2xl hover:-translate-y-0.5">
-                Request Demo <ArrowRight size={16}/>
-              </a>
-              <a href="#products"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-[14px] border-2 border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all">
-                <Play size={14} className="fill-white"/> Explore Products
+            {/* Dual CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2"
+            >
+              <button
+                onClick={onOpenDemo}
+                className="group px-7 py-3.5 rounded-xl bg-[#023020] hover:bg-[#011a12] text-white font-semibold text-sm shadow-xl shadow-[#023020]/25 flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Book a Demo</span>
+                <ArrowRight size={16} className="text-[#00a86b] transition-transform group-hover:translate-x-1" />
+              </button>
+
+              <a
+                href="#products"
+                className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-200 shadow-sm flex items-center justify-center gap-2 transition-all hover:border-slate-300"
+              >
+                <span>Explore OrbX</span>
+                <ChevronRight size={16} className="text-slate-400" />
               </a>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="flex gap-10 pt-4 border-t border-white/10">
-              {[['500+','Businesses'],['20+','Modules'],['99.9%','Uptime']].map(([v,l])=>(
-                <div key={l}>
-                  <div className="text-2xl font-bold text-white">{v}</div>
-                  <div className="text-sm text-white/45 mt-0.5">{l}</div>
+            {/* Trust Statement */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="pt-3 flex items-center gap-4 text-xs font-medium text-slate-500"
+            >
+              <div className="flex items-center gap-1.5 text-[#023020]">
+                <ShieldCheck size={16} className="text-[#00a86b]" />
+                <span className="font-semibold text-slate-700">Built for growing businesses.</span>
+              </div>
+              <span className="text-slate-300">•</span>
+              <span>Fast 4-Step Onboarding</span>
+              <span className="text-slate-300">•</span>
+              <span>Indian GST Ready</span>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Animated Dashboard & Floating Cards */}
+          <div className="lg:col-span-6 relative mt-4 lg:mt-0 select-none">
+            {/* Soft Ambient Glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-[#00a86b]/15 to-[#023020]/10 rounded-3xl blur-2xl -z-10" />
+
+            {/* Main Interactive Dashboard Mockup */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative bg-white rounded-2xl shadow-[0_25px_70px_rgba(2,48,32,0.12)] border border-slate-200/80 overflow-hidden"
+            >
+              {/* Dashboard Window Header */}
+              <div className="bg-[#023020] px-4 py-3 flex items-center justify-between text-white border-b border-white/10">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-rose-400/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
+                  </div>
+                  <span className="text-xs font-semibold text-white/90 tracking-wide flex items-center gap-1.5">
+                    OrbX Enterprise Command Center
+                  </span>
                 </div>
-              ))}
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1 text-[10px] font-semibold bg-[#00a86b]/20 text-[#00c87f] px-2 py-0.5 rounded-md border border-[#00a86b]/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00c87f] live-dot" />
+                    Live Sync
+                  </span>
+                </div>
+              </div>
+
+              {/* Dashboard Body */}
+              <div className="p-4 sm:p-5 bg-slate-50/50 space-y-4">
+                {/* Top Metrics Row */}
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                    <div className="text-[10px] uppercase font-semibold text-slate-400">Total Revenue</div>
+                    <div className="text-base sm:text-lg font-bold text-slate-800 mt-0.5">₹84,20,000</div>
+                    <div className="text-[10px] font-semibold text-emerald-600 flex items-center gap-0.5 mt-0.5">
+                      <TrendingUp size={10} /> +18.4% this mo
+                    </div>
+                  </div>
+                  <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                    <div className="text-[10px] uppercase font-semibold text-slate-400">Active Work Orders</div>
+                    <div className="text-base sm:text-lg font-bold text-slate-800 mt-0.5">46 Orders</div>
+                    <div className="text-[10px] font-semibold text-[#00a86b] flex items-center gap-0.5 mt-0.5">
+                      <Clock size={10} /> 94% on schedule
+                    </div>
+                  </div>
+                  <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                    <div className="text-[10px] uppercase font-semibold text-slate-400">Inventory Health</div>
+                    <div className="text-base sm:text-lg font-bold text-slate-800 mt-0.5">92% In Stock</div>
+                    <div className="text-[10px] font-semibold text-slate-500 mt-0.5">0 Critical Shortages</div>
+                  </div>
+                </div>
+
+                {/* Animated Chart & Operations Status */}
+                <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm space-y-3">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                    <div>
+                      <div className="text-xs font-bold text-slate-800">Weekly Throughput & Cash Inflow</div>
+                      <div className="text-[10px] text-slate-400">Real-time synchronized ledger across 4 departments</div>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#023020] bg-emerald-50 px-2 py-0.5 rounded-lg">
+                      <BarChart3 size={12} className="text-[#00a86b]" />
+                      <span>Operational</span>
+                    </div>
+                  </div>
+
+                  {/* SVG Bar Chart Visualization */}
+                  <div className="h-28 sm:h-32 flex items-end justify-between gap-2 sm:gap-3 pt-2 px-1">
+                    {[
+                      { day: 'Mon', height: '55%', val: '₹3.4L' },
+                      { day: 'Tue', height: '70%', val: '₹4.8L' },
+                      { day: 'Wed', height: '62%', val: '₹4.1L' },
+                      { day: 'Thu', height: '88%', val: '₹6.2L' },
+                      { day: 'Fri', height: '94%', val: '₹7.5L' },
+                      { day: 'Sat', height: '78%', val: '₹5.6L' },
+                      { day: 'Sun', height: '45%', val: '₹2.9L' },
+                    ].map((col, idx) => (
+                      <div key={idx} className="flex-1 flex flex-col items-center gap-1 h-full justify-end group">
+                        <span className="text-[9px] font-semibold text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                          {col.val}
+                        </span>
+                        <div
+                          className="w-full rounded-t-md transition-all duration-500 group-hover:brightness-110"
+                          style={{
+                            height: col.height,
+                            backgroundColor: idx === 4 ? '#023020' : idx === 3 ? '#00a86b' : '#cbd5e1'
+                          }}
+                        />
+                        <span className="text-[10px] font-medium text-slate-500">{col.day}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Live Activity Pipeline Preview */}
+                <div className="grid grid-cols-2 gap-3 pt-1">
+                  <div className="bg-white p-2.5 rounded-xl border border-slate-100 flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#00a86b] flex items-center justify-center flex-shrink-0">
+                      <ShoppingCart size={15} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-[11px] font-bold text-slate-800 truncate">PO #482 Approved</div>
+                      <div className="text-[9px] text-slate-400">₹1,42,000 • Inbound today</div>
+                    </div>
+                  </div>
+                  <div className="bg-white p-2.5 rounded-xl border border-slate-100 flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+                      <Users size={15} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-[11px] font-bold text-slate-800 truncate">Biometric Synced</div>
+                      <div className="text-[9px] text-slate-400">32 Present • 0 Missed punches</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
-          </motion.div>
 
-          {/* Right */}
-          <motion.div initial={{opacity:0,x:60}} animate={{opacity:1,x:0}}
-            transition={{duration:.9,delay:.3,ease:[0.22,1,0.36,1]}}
-            className="hidden lg:block relative">
-            <DashboardMockup/>
-          </motion.div>
+            {/* Premium Floating Micro-Cards Requested in Prompt */}
+            {/* Card 1: Sales */}
+            <motion.div
+              animate={{ y: [-6, 6, -6] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute -left-6 sm:-left-10 top-8 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_15px_35px_rgba(2,48,32,0.14)] border border-slate-100 p-3 sm:p-3.5 flex items-center gap-3 z-20"
+            >
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 text-[#00a86b] flex items-center justify-center flex-shrink-0">
+                <DollarSign size={18} />
+              </div>
+              <div>
+                <div className="text-[10px] uppercase font-semibold text-slate-400">Sales</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900">₹2,48,500</div>
+              </div>
+            </motion.div>
+
+            {/* Card 2: Inventory */}
+            <motion.div
+              animate={{ y: [6, -6, 6] }}
+              transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute -right-4 sm:-right-8 top-16 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_15px_35px_rgba(2,48,32,0.14)] border border-slate-100 p-3 sm:p-3.5 flex items-center gap-3 z-20"
+            >
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#023020] text-white flex items-center justify-center flex-shrink-0">
+                <Package size={18} />
+              </div>
+              <div>
+                <div className="text-[10px] uppercase font-semibold text-slate-400">Inventory</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900">92% Optimal</div>
+              </div>
+            </motion.div>
+
+            {/* Card 3: Tasks Completed */}
+            <motion.div
+              animate={{ y: [-5, 5, -5] }}
+              transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+              className="absolute -left-4 sm:-left-8 bottom-12 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_15px_35px_rgba(2,48,32,0.14)] border border-slate-100 p-3 sm:p-3.5 flex items-center gap-3 z-20"
+            >
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#84cc16]/20 text-[#4d7c0f] flex items-center justify-center flex-shrink-0">
+                <CheckCircle size={18} />
+              </div>
+              <div>
+                <div className="text-[10px] uppercase font-semibold text-slate-400">Tasks</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900">18 Completed</div>
+              </div>
+            </motion.div>
+
+            {/* Card 4: Employees Present */}
+            <motion.div
+              animate={{ y: [5, -5, 5] }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
+              className="absolute -right-4 sm:-right-6 bottom-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_15px_35px_rgba(2,48,32,0.14)] border border-slate-100 p-3 sm:p-3.5 flex items-center gap-3 z-20"
+            >
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+                <Users size={18} />
+              </div>
+              <div>
+                <div className="text-[10px] uppercase font-semibold text-slate-400">Employees</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900">32 Present</div>
+              </div>
+            </motion.div>
+
+            {/* Card 5: Purchase Orders */}
+            <motion.div
+              animate={{ y: [-4, 6, -4] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+              className="hidden sm:flex absolute left-1/3 -bottom-5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_15px_35px_rgba(2,48,32,0.14)] border border-slate-100 px-3.5 py-2.5 items-center gap-2.5 z-20"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#00a86b]" />
+              <div className="text-xs font-semibold text-slate-800">
+                Purchase Orders: <span className="font-bold text-[#023020]">12 Active</span>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <motion.div animate={{y:[0,8,0]}} transition={{duration:1.5,repeat:Infinity}}
-          className="w-6 h-10 rounded-full border-2 border-white/25 flex justify-center pt-2">
-          <div className="w-1 h-2 bg-white/40 rounded-full"/>
-        </motion.div>
       </div>
     </section>
   );

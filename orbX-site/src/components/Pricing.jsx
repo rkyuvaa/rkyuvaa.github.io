@@ -1,71 +1,132 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Check, ArrowRight } from 'lucide-react';
-import { fadeUp, scaleIn, stagger } from '../utils/anim';
+import {
+  Check, ArrowRight, ShieldCheck, Sparkles, Building2
+} from 'lucide-react';
 
-const plans = [
-  {name:'Starter', highlight:false,
-    desc:'For small manufacturers getting started with digital operations.',
-    features:['Up to 10 Users','Manufacturing ERP Core','My Ledger Finance','Email Support','Cloud Hosting','Basic Reports','Standard Modules']},
-  {name:'Professional', highlight:true,
-    desc:'Ideal for growing mid-size manufacturing operations.',
-    features:['Up to 50 Users','All Starter Features','HRMS & Payroll','CRM Module','Priority 24/5 Support','Advanced Analytics','Multi-branch Support','API Access','Custom Dashboards']},
-  {name:'Enterprise', highlight:false,
-    desc:'For large-scale manufacturers with enterprise requirements.',
-    features:['Unlimited Users','All Professional Features','Custom Module Development','Dedicated Servers','24/7 Premium Support','On-Premise Option','SLA Guarantee','Source Code License','Dedicated Account Manager']},
+const mainFeatures = [
+  'Full Business Management Platform',
+  'Sales & Quotations Engine',
+  'Purchase & Vendor Procurement',
+  'Multi-Warehouse Inventory',
+  'Customer Directory & CRM',
+  'Supplier Management & Aging',
+  'Automated Management Reports',
+  'Dedicated Onboarding & Support',
+  'Secure Cloud Access & Daily Backups',
+  'GST Invoicing & E-Way Ready'
 ];
 
-export default function Pricing() {
-  const ref = useRef(null);
-  const inView = useInView(ref, {once:true, margin:'-80px'});
+export default function Pricing({ onOpenDemo }) {
   return (
-    <section id="pricing" className="py-28 bg-[#F6F8FA]" ref={ref}>
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-        <motion.div variants={stagger} initial="hidden" animate={inView?'visible':'hidden'} className="text-center mb-16">
-          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00a86b]/10 text-[#00a86b] text-sm font-semibold border border-[#00a86b]/20 mb-4">
-            Pricing
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="text-[42px] md:text-[48px] font-bold text-[#1E293B] mb-5 leading-tight" style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>
-            Transparent, <span className="gradient-text">Flexible Pricing</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-slate-500 text-[17px] max-w-[680px] mx-auto">
-            All plans include implementation support and training. Contact us for a custom quotation tailored to your needs.
-          </motion.p>
-        </motion.div>
-        <div className="grid lg:grid-cols-3 gap-8">
-          {plans.map((p,i)=>(
-            <motion.div key={i} variants={scaleIn} initial="hidden" animate={inView?'visible':'hidden'}
-              transition={{delay:i*0.15}}
-              className={`rounded-[24px] p-8 border-2 card-lift relative overflow-hidden
-                ${p.highlight
-                  ? 'bg-[#023020] border-[#023020] shadow-[0_30px_80px_rgba(2,48,32,0.3)]'
-                  : 'bg-white border-slate-100 shadow-sm'}`}>
-              {p.highlight && (
-                <div className="absolute top-6 right-6">
-                  <span className="px-3 py-1 rounded-full bg-white/20 text-white text-[11px] font-bold tracking-wide">Most Popular</span>
+    <section id="pricing" className="py-24 lg:py-32 bg-[#F7FAF8] relative overflow-hidden border-t border-slate-100">
+      <div className="max-w-[1360px] mx-auto px-5 sm:px-8">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00a86b]/10 border border-[#00a86b]/20 text-[#023020] text-xs font-semibold uppercase tracking-wider">
+            <Sparkles size={13} className="text-[#00a86b]" />
+            <span>Transparent & Uncomplicated</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Simple Pricing for <span className="gradient-text">Growing Businesses.</span>
+          </h2>
+
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            No hidden setup fees, no complex per-transaction surcharges. One comprehensive subscription to power your entire company.
+          </p>
+        </div>
+
+        {/* Pricing Cards */}
+        <div className="max-w-4xl mx-auto grid md:grid-cols-12 gap-8 items-center">
+          {/* Main Featured Card: OrbX Subscription ₹2,000 / month */}
+          <div className="md:col-span-8 bg-[#023020] text-white rounded-3xl p-8 sm:p-10 shadow-[0_25px_70px_rgba(2,48,32,0.25)] relative overflow-hidden space-y-6">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#00a86b]/20 rounded-bl-full pointer-events-none blur-2xl" />
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-6 relative z-10">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#00c87f]">
+                  Complete Business Suite
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-0.5">
+                  OrbX Subscription
+                </h3>
+              </div>
+              <div className="sm:text-right">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-white">₹2,000</span>
+                  <span className="text-white/70 text-sm font-medium">/ month</span>
                 </div>
-              )}
-              <h3 className={`text-xl font-bold mb-2 ${p.highlight?'text-white':'text-slate-800'}`} style={{fontFamily:'Comfortaa, cursive, sans-serif'}}>{p.name}</h3>
-              <p className={`text-sm mb-8 leading-relaxed ${p.highlight?'text-white/65':'text-slate-500'}`}>{p.desc}</p>
-              <ul className="space-y-3 mb-10">
-                {p.features.map((f,j)=>(
-                  <li key={j} className="flex items-center gap-3 text-[14px]">
-                    <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${p.highlight?'bg-white/20':'bg-[#00a86b]'}`}>
-                      <Check size={11} className={p.highlight?'text-white':'text-[#023020]'}/>
+                <div className="text-[11px] text-[#00c87f] font-semibold mt-0.5">All-inclusive platform access</div>
+              </div>
+            </div>
+
+            <div className="relative z-10 space-y-3">
+              <div className="text-xs font-bold uppercase tracking-wider text-white/60">
+                Everything Included In Your Plan:
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                {mainFeatures.map((feat, idx) => (
+                  <div key={idx} className="flex items-center gap-2.5 text-xs text-white/90">
+                    <div className="w-5 h-5 rounded-full bg-[#00a86b] text-white flex items-center justify-center flex-shrink-0">
+                      <Check size={12} strokeWidth={3} />
                     </div>
-                    <span className={p.highlight?'text-white/85':'text-slate-600'}>{f}</span>
-                  </li>
+                    <span>{feat}</span>
+                  </div>
                 ))}
-              </ul>
-              <a href="#contact"
-                className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-[14px] font-semibold text-[15px] transition-all
-                  ${p.highlight
-                    ? 'bg-white text-[#023020] hover:bg-[#00a86b] hover:text-white'
-                    : 'bg-[#023020] text-white hover:bg-[#011a12]'}`}>
-                Request Quote <ArrowRight size={14}/>
-              </a>
-            </motion.div>
-          ))}
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+              <div className="flex items-center gap-2 text-xs text-white/70">
+                <ShieldCheck size={16} className="text-[#00c87f]" />
+                <span>Cancel anytime. Free onboarding assistance included.</span>
+              </div>
+              <button
+                onClick={onOpenDemo}
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white text-[#023020] hover:bg-emerald-50 font-bold text-xs shadow-lg transition-all flex items-center justify-center gap-2"
+              >
+                <span>Start Your Demo</span>
+                <ArrowRight size={14} />
+              </button>
+            </div>
+          </div>
+
+          {/* Secondary Enterprise Custom Tier */}
+          <div className="md:col-span-4 bg-white rounded-3xl p-7 border border-slate-200/80 shadow-sm space-y-5">
+            <div className="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center">
+              <Building2 size={20} />
+            </div>
+
+            <div>
+              <h4 className="text-lg font-bold text-slate-900">Custom Enterprise</h4>
+              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                For multi-plant manufacturing units, high-volume warehouses, or dedicated private server hosting.
+              </p>
+            </div>
+
+            <div className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-600">
+              <div className="flex items-center gap-2">
+                <Check size={13} className="text-[#00a86b]" />
+                <span>Multi-Plant Factory Sync</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check size={13} className="text-[#00a86b]" />
+                <span>Custom ERP Module Dev</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check size={13} className="text-[#00a86b]" />
+                <span>Dedicated SLA & Manager</span>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <button
+                onClick={onOpenDemo}
+                className="w-full py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors"
+              >
+                Talk to Enterprise Team
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
