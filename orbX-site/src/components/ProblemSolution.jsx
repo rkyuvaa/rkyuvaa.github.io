@@ -97,7 +97,7 @@ const scatteredTools = [
     bg: '#fefce8',
     border: '#fde68a',
     x: 870,
-    y: 275,
+    y: 305,
   },
   {
     id: 'biometric',
@@ -109,7 +109,7 @@ const scatteredTools = [
     bg: '#faf5ff',
     border: '#e9d5ff',
     x: 720,
-    y: 440,
+    y: 500,
   },
   {
     id: 'tally',
@@ -121,7 +121,7 @@ const scatteredTools = [
     bg: '#fdf2f8',
     border: '#fbcfe8',
     x: 280,
-    y: 440,
+    y: 500,
   },
   {
     id: 'notes',
@@ -133,7 +133,7 @@ const scatteredTools = [
     bg: '#fef2f2',
     border: '#fecaca',
     x: 130,
-    y: 275,
+    y: 305,
   },
 ];
 
@@ -173,7 +173,7 @@ const unifiedModules = [
     desc: 'Biometric & wage automation',
     icon: Users,
     x: 870,
-    y: 275,
+    y: 305,
   },
   {
     id: 'reports',
@@ -182,7 +182,7 @@ const unifiedModules = [
     desc: 'Live executive dashboards',
     icon: BarChart3,
     x: 720,
-    y: 440,
+    y: 500,
   },
   {
     id: 'finance',
@@ -191,7 +191,7 @@ const unifiedModules = [
     desc: 'Automated books & GST audit',
     icon: TrendingUp,
     x: 280,
-    y: 440,
+    y: 500,
   },
   {
     id: 'projects',
@@ -200,18 +200,18 @@ const unifiedModules = [
     desc: 'Critical dependencies tracked',
     icon: Briefcase,
     x: 130,
-    y: 275,
+    y: 305,
   },
 ];
 
 // Chaos Problem Badges in Scene 2
 const chaosPills = [
-  { text: 'Duplicate Entry', x: 330, y: 80, delay: 0.1 },
-  { text: 'Stock Mismatch', x: 800, y: 200, delay: 0.3 },
-  { text: 'Delayed Report', x: 580, y: 445, delay: 0.2 },
-  { text: 'Missed Follow-up', x: 190, y: 210, delay: 0.4 },
+  { text: 'Duplicate Entry', x: 330, y: 85, delay: 0.1 },
+  { text: 'Stock Mismatch', x: 800, y: 210, delay: 0.3 },
+  { text: 'Delayed Report', x: 580, y: 505, delay: 0.2 },
+  { text: 'Missed Follow-up', x: 190, y: 220, delay: 0.4 },
   { text: 'Manual Calculation', x: 670, y: 90, delay: 0.25 },
-  { text: 'Data Scattered', x: 420, y: 420, delay: 0.35 },
+  { text: 'Data Scattered', x: 420, y: 480, delay: 0.35 },
 ];
 
 export default function ProblemSolution({ onOpenDemo }) {
@@ -396,7 +396,7 @@ export default function ProblemSolution({ onOpenDemo }) {
         </div>
 
         {/* ─── MAIN DESKTOP CINEMATIC CANVAS (>= 1024px) ─────────────── */}
-        <div className="hidden lg:block relative w-full h-[530px] rounded-3xl bg-white border border-slate-200/80 shadow-[0_20px_50px_rgba(2,48,32,0.06)] overflow-hidden">
+        <div className="hidden lg:block relative w-full h-[620px] rounded-3xl bg-white border border-slate-200/80 shadow-[0_20px_50px_rgba(2,48,32,0.06)] overflow-hidden">
           {/* Canvas Sub-grid Background */}
           <div className="absolute inset-0 grid-pattern opacity-50 pointer-events-none" />
 
@@ -407,7 +407,7 @@ export default function ProblemSolution({ onOpenDemo }) {
 
           {/* ── SVG Connection Laser / Broken Network Layer ── */}
           <svg
-            viewBox="0 0 1000 520"
+            viewBox="0 0 1000 620"
             className="absolute inset-0 w-full h-full pointer-events-none z-10"
           >
             <defs>
@@ -459,36 +459,36 @@ export default function ProblemSolution({ onOpenDemo }) {
                   fill="none"
                   markerEnd="url(#chaosArrow)"
                 />
-                {/* Bills (840, 90) -> Register (870, 275) */}
+                {/* Bills (840, 90) -> Register (870, 305) */}
                 <path
-                  d="M 840 135 L 870 240"
+                  d="M 840 135 L 870 260"
                   stroke="url(#chaosErrorGrad)"
                   strokeWidth="2"
                   strokeDasharray="4,4"
                   fill="none"
                   markerEnd="url(#chaosArrow)"
                 />
-                {/* Biometric (720, 440) -> HR/Tally (280, 440) */}
+                {/* Biometric (720, 500) -> Tally (280, 500) */}
                 <path
-                  d="M 720 440 Q 500 490 350 445"
+                  d="M 720 500 Q 500 550 350 505"
                   stroke="url(#chaosErrorGrad)"
                   strokeWidth="2.5"
                   strokeDasharray="6,4"
                   fill="none"
                   markerEnd="url(#chaosArrow)"
                 />
-                {/* Sticky Notes (130, 275) -> Excel (500, 70) */}
+                {/* Sticky Notes (130, 305) -> Excel (500, 70) */}
                 <path
-                  d="M 170 250 Q 300 180 430 85"
+                  d="M 170 280 Q 300 180 430 85"
                   stroke="url(#chaosErrorGrad)"
                   strokeWidth="2"
                   strokeDasharray="5,5"
                   fill="none"
                   markerEnd="url(#chaosArrow)"
                 />
-                {/* Register (870, 275) -> Tally (280, 440) */}
+                {/* Register (870, 305) -> Tally (280, 500) */}
                 <path
-                  d="M 800 290 Q 550 350 350 430"
+                  d="M 800 320 Q 550 420 350 490"
                   stroke="url(#chaosErrorGrad)"
                   strokeWidth="2"
                   strokeDasharray="7,5"
@@ -503,7 +503,7 @@ export default function ProblemSolution({ onOpenDemo }) {
               <g className="transition-all duration-700">
                 {unifiedModules.map((mod, i) => {
                   const centerX = 500;
-                  const centerY = 260;
+                  const centerY = 305;
                   return (
                     <g key={mod.id}>
                       {/* Base Connection Trunk */}
