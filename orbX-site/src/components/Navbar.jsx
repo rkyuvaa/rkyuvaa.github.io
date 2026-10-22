@@ -91,8 +91,8 @@ export default function Navbar({ onOpenDemo }) {
     <header
       className={`fixed top-0 inset-x-0 z-[100] transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(2,48,32,0.06)] border-b border-slate-100 py-3'
-          : 'bg-white/80 backdrop-blur-md border-b border-slate-100/60 py-4'
+          ? 'bg-white/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(2,48,32,0.06)] border-b border-slate-100 py-1.5'
+          : 'bg-white/80 backdrop-blur-md border-b border-slate-100/60 py-2'
       }`}
     >
       <div className="container-orbx flex items-center justify-between">
@@ -101,7 +101,7 @@ export default function Navbar({ onOpenDemo }) {
           <img
             src={logoLight}
             alt="OrbX"
-            className="h-[60px] sm:h-[72px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-[38px] sm:h-[46px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
@@ -297,7 +297,7 @@ export default function Navbar({ onOpenDemo }) {
           </a>
           <button
             onClick={onOpenDemo}
-            className="group px-5 py-2.5 rounded-xl bg-[#023020] hover:bg-[#011a12] text-white font-semibold text-xs tracking-wide shadow-md shadow-[#023020]/20 flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="group px-4 py-2 rounded-xl bg-[#023020] hover:bg-[#011a12] text-white font-semibold text-xs tracking-wide shadow-md shadow-[#023020]/20 flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>Book a Demo</span>
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5 text-[#00a86b]" />

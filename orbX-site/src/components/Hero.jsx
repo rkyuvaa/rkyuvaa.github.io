@@ -3,21 +3,77 @@ import { ArrowRight, ShieldCheck, ChevronRight } from 'lucide-react';
 import HeroBannerSlider from './HeroBannerSlider';
 
 export default function Hero({ onOpenDemo }) {
-
   return (
-    <section className="relative pt-32 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-white mesh-hero">
-      {/* Background Animated Blobs and Grid */}
+    <section
+      className="relative pt-24 pb-14 lg:pt-28 lg:pb-18 overflow-hidden mesh-hero"
+      style={{
+        // Very light green-tinted white base
+        background: 'linear-gradient(155deg, #f4fdf8 0%, #ffffff 45%, #f0faf5 100%)',
+      }}
+    >
+      {/* ── Premium Green Vignette Layers ─────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-[#00a86b]/10 via-[#023020]/5 to-transparent blur-[100px] rounded-full" />
-        <div className="absolute -top-20 right-0 w-[450px] h-[450px] bg-[#84cc16]/5 blur-[90px] rounded-full" />
-        <div className="absolute inset-0 grid-pattern opacity-60" />
+
+        {/* 1. Outer edge vignette — deep green fading to transparent from all sides */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse at 50% 50%, transparent 38%, rgba(0,59,45,0.07) 70%, rgba(0,59,45,0.14) 100%)',
+          }}
+        />
+
+        {/* 2. Left-side atmospheric glow behind headline */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse at 18% 55%, rgba(0,200,83,0.09) 0%, transparent 58%)',
+          }}
+        />
+
+        {/* 3. Right-side glow that makes the banner image pop */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse at 80% 48%, rgba(0,200,83,0.11) 0%, transparent 52%)',
+          }}
+        />
+
+        {/* 4. Top edge — very subtle deep-green shadow */}
+        <div
+          className="absolute inset-x-0 top-0 h-32"
+          style={{
+            background: 'linear-gradient(180deg, rgba(0,59,45,0.055) 0%, transparent 100%)',
+          }}
+        />
+
+        {/* 5. Bottom edge vignette */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-24"
+          style={{
+            background: 'linear-gradient(0deg, rgba(0,59,45,0.05) 0%, transparent 100%)',
+          }}
+        />
+
+        {/* 6. Subtle grid texture (existing style) */}
+        <div className="absolute inset-0 grid-pattern opacity-40" />
       </div>
 
+      {/* ── Content ───────────────────────────────────────────────────────── */}
       <div className="relative container-orbx">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Value Proposition */}
-          <div className="lg:col-span-6 space-y-7 text-left">
-            {/* Top Badge */}
+        {/*
+          Two-column grid:
+          Left  (5 cols) → headline + CTAs
+          Right (7 cols) → banner slider (~58% width for larger images)
+        */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+
+          {/* ── Left Column ─────────────────────────────────────────────── */}
+          <div className="lg:col-span-5 space-y-6 text-left">
+
+            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -28,33 +84,34 @@ export default function Hero({ onOpenDemo }) {
               <span>BUSINESS MANAGEMENT, SIMPLIFIED</span>
             </motion.div>
 
-            {/* Main Heading */}
+            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]"
+              className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-slate-900 tracking-tight leading-[1.12]"
             >
               Run Your Business. <br />
               <span className="gradient-text">Not Your Paperwork.</span>
             </motion.h1>
 
-            {/* Supporting Text */}
+            {/* Supporting text */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl"
+              className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed"
             >
-              OrbX brings sales, purchase, inventory, finance, HR, projects and operations together in one powerful business platform.
+              OrbX brings sales, purchase, inventory, finance, HR, projects and
+              operations together in one powerful business platform.
             </motion.p>
 
-            {/* Dual CTAs */}
+            {/* CTA buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1"
             >
               <button
                 onClick={onOpenDemo}
@@ -73,15 +130,15 @@ export default function Hero({ onOpenDemo }) {
               </a>
             </motion.div>
 
-            {/* Trust Statement */}
+            {/* Trust bar */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="pt-3 flex items-center gap-4 text-xs font-medium text-slate-500"
+              className="pt-2 flex items-center gap-4 text-xs font-medium text-slate-500 flex-wrap"
             >
-              <div className="flex items-center gap-1.5 text-[#023020]">
-                <ShieldCheck size={16} className="text-[#00a86b]" />
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck size={15} className="text-[#00a86b]" />
                 <span className="font-semibold text-slate-700">Built for growing businesses.</span>
               </div>
               <span className="text-slate-300">•</span>
@@ -91,12 +148,12 @@ export default function Hero({ onOpenDemo }) {
             </motion.div>
           </div>
 
-          {/* Right Column: Dynamic Banner Slider */}
+          {/* ── Right Column — Banner Slider (larger: 7/12 cols) ─────────── */}
           <motion.div
-            className="lg:col-span-6 mt-4 lg:mt-0"
-            initial={{ opacity: 0, x: 30 }}
+            className="lg:col-span-7 mt-4 lg:mt-0"
+            initial={{ opacity: 0, x: 32 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.18 }}
           >
             <HeroBannerSlider />
           </motion.div>
