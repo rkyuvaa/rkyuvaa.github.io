@@ -1,5 +1,4 @@
 // scripts/convert-to-webp.js
-// Run with: node scripts/convert-to-webp.js
 import sharp from 'sharp';
 import { readdirSync, mkdirSync, existsSync } from 'fs';
 import { resolve, basename, extname } from 'path';
@@ -14,14 +13,14 @@ if (!existsSync(webpDir)) mkdirSync(webpDir, { recursive: true });
 
 const files = readdirSync(bannerDir).filter(f => extname(f).toLowerCase() === '.png');
 
-console.log(`Converting ${files.length} PNG banners → WebP (quality 82)…\n`);
+console.log(`Converting ${files.length} PNG banners → High-Quality WebP (quality 88, effort 6)...\n`);
 
 let done = 0;
 for (const file of files) {
   const src  = resolve(bannerDir, file);
   const dest = resolve(webpDir, basename(file, '.png') + '.webp');
   await sharp(src)
-    .webp({ quality: 82, effort: 4 })
+    .webp({ quality: 88, effort: 6 })
     .toFile(dest);
   const srcStat  = (await import('fs')).statSync(src).size;
   const destStat = (await import('fs')).statSync(dest).size;
