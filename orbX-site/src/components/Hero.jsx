@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion';
-import {
-  ArrowRight, TrendingUp, ShieldCheck,
-  Package, ShoppingCart, Users, ChevronRight, BarChart3,
-  CheckCircle, DollarSign, Clock
-} from 'lucide-react';
+import { ArrowRight, ShieldCheck, ChevronRight } from 'lucide-react';
+import HeroBannerSlider from './HeroBannerSlider';
 
 export default function Hero({ onOpenDemo }) {
 
@@ -94,201 +91,15 @@ export default function Hero({ onOpenDemo }) {
             </motion.div>
           </div>
 
-          {/* Right Column: Animated Dashboard & Floating Cards */}
-          <div className="lg:col-span-6 relative mt-4 lg:mt-0 select-none">
-            {/* Soft Ambient Glow */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-[#00a86b]/15 to-[#023020]/10 rounded-3xl blur-2xl -z-10" />
-
-            {/* Main Interactive Dashboard Mockup */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative bg-white rounded-2xl shadow-[0_25px_70px_rgba(2,48,32,0.12)] border border-slate-200/80 overflow-hidden"
-            >
-              {/* Dashboard Window Header */}
-              <div className="bg-[#023020] px-4 py-3 flex items-center justify-between text-white border-b border-white/10">
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-rose-400/80" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
-                  </div>
-                  <span className="text-xs font-semibold text-white/90 tracking-wide flex items-center gap-1.5">
-                    OrbX Enterprise Command Center
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1 text-[10px] font-semibold bg-[#00a86b]/20 text-[#00c87f] px-2 py-0.5 rounded-md border border-[#00a86b]/30">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00c87f] live-dot" />
-                    Live Sync
-                  </span>
-                </div>
-              </div>
-
-              {/* Dashboard Body */}
-              <div className="p-4 sm:p-5 bg-slate-50/50 space-y-4">
-                {/* Top Metrics Row */}
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
-                    <div className="text-[10px] uppercase font-semibold text-slate-400">Total Revenue</div>
-                    <div className="text-base sm:text-lg font-bold text-slate-800 mt-0.5">₹84,20,000</div>
-                    <div className="text-[10px] font-semibold text-emerald-600 flex items-center gap-0.5 mt-0.5">
-                      <TrendingUp size={10} /> +18.4% this mo
-                    </div>
-                  </div>
-                  <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
-                    <div className="text-[10px] uppercase font-semibold text-slate-400">Active Work Orders</div>
-                    <div className="text-base sm:text-lg font-bold text-slate-800 mt-0.5">46 Orders</div>
-                    <div className="text-[10px] font-semibold text-[#00a86b] flex items-center gap-0.5 mt-0.5">
-                      <Clock size={10} /> 94% on schedule
-                    </div>
-                  </div>
-                  <div className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
-                    <div className="text-[10px] uppercase font-semibold text-slate-400">Inventory Health</div>
-                    <div className="text-base sm:text-lg font-bold text-slate-800 mt-0.5">92% In Stock</div>
-                    <div className="text-[10px] font-semibold text-slate-500 mt-0.5">0 Critical Shortages</div>
-                  </div>
-                </div>
-
-                {/* Animated Chart & Operations Status */}
-                <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm space-y-3">
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
-                    <div>
-                      <div className="text-xs font-bold text-slate-800">Weekly Throughput & Cash Inflow</div>
-                      <div className="text-[10px] text-slate-400">Real-time synchronized ledger across 4 departments</div>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#023020] bg-emerald-50 px-2 py-0.5 rounded-lg">
-                      <BarChart3 size={12} className="text-[#00a86b]" />
-                      <span>Operational</span>
-                    </div>
-                  </div>
-
-                  {/* SVG Bar Chart Visualization */}
-                  <div className="h-28 sm:h-32 flex items-end justify-between gap-2 sm:gap-3 pt-2 px-1">
-                    {[
-                      { day: 'Mon', height: '55%', val: '₹3.4L' },
-                      { day: 'Tue', height: '70%', val: '₹4.8L' },
-                      { day: 'Wed', height: '62%', val: '₹4.1L' },
-                      { day: 'Thu', height: '88%', val: '₹6.2L' },
-                      { day: 'Fri', height: '94%', val: '₹7.5L' },
-                      { day: 'Sat', height: '78%', val: '₹5.6L' },
-                      { day: 'Sun', height: '45%', val: '₹2.9L' },
-                    ].map((col, idx) => (
-                      <div key={idx} className="flex-1 flex flex-col items-center gap-1 h-full justify-end group">
-                        <span className="text-[9px] font-semibold text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                          {col.val}
-                        </span>
-                        <div
-                          className="w-full rounded-t-md transition-all duration-500 group-hover:brightness-110"
-                          style={{
-                            height: col.height,
-                            backgroundColor: idx === 4 ? '#023020' : idx === 3 ? '#00a86b' : '#cbd5e1'
-                          }}
-                        />
-                        <span className="text-[10px] font-medium text-slate-500">{col.day}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Live Activity Pipeline Preview */}
-                <div className="grid grid-cols-2 gap-3 pt-1">
-                  <div className="bg-white p-2.5 rounded-xl border border-slate-100 flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#00a86b] flex items-center justify-center flex-shrink-0">
-                      <ShoppingCart size={15} />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-[11px] font-bold text-slate-800 truncate">PO #482 Approved</div>
-                      <div className="text-[9px] text-slate-400">₹1,42,000 • Inbound today</div>
-                    </div>
-                  </div>
-                  <div className="bg-white p-2.5 rounded-xl border border-slate-100 flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
-                      <Users size={15} />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-[11px] font-bold text-slate-800 truncate">Biometric Synced</div>
-                      <div className="text-[9px] text-slate-400">32 Present • 0 Missed punches</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Premium Floating Micro-Cards Requested in Prompt */}
-            {/* Card 1: Sales */}
-            <motion.div
-              animate={{ y: [-6, 6, -6] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -left-6 sm:-left-10 top-8 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_15px_35px_rgba(2,48,32,0.14)] border border-slate-100 p-3 sm:p-3.5 flex items-center gap-3 z-20"
-            >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 text-[#00a86b] flex items-center justify-center flex-shrink-0">
-                <DollarSign size={18} />
-              </div>
-              <div>
-                <div className="text-[10px] uppercase font-semibold text-slate-400">Sales</div>
-                <div className="text-xs sm:text-sm font-bold text-slate-900">₹2,48,500</div>
-              </div>
-            </motion.div>
-
-            {/* Card 2: Inventory */}
-            <motion.div
-              animate={{ y: [6, -6, 6] }}
-              transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -right-4 sm:-right-8 top-16 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_15px_35px_rgba(2,48,32,0.14)] border border-slate-100 p-3 sm:p-3.5 flex items-center gap-3 z-20"
-            >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#023020] text-white flex items-center justify-center flex-shrink-0">
-                <Package size={18} />
-              </div>
-              <div>
-                <div className="text-[10px] uppercase font-semibold text-slate-400">Inventory</div>
-                <div className="text-xs sm:text-sm font-bold text-slate-900">92% Optimal</div>
-              </div>
-            </motion.div>
-
-            {/* Card 3: Tasks Completed */}
-            <motion.div
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-              className="absolute -left-4 sm:-left-8 bottom-12 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_15px_35px_rgba(2,48,32,0.14)] border border-slate-100 p-3 sm:p-3.5 flex items-center gap-3 z-20"
-            >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#84cc16]/20 text-[#4d7c0f] flex items-center justify-center flex-shrink-0">
-                <CheckCircle size={18} />
-              </div>
-              <div>
-                <div className="text-[10px] uppercase font-semibold text-slate-400">Tasks</div>
-                <div className="text-xs sm:text-sm font-bold text-slate-900">18 Completed</div>
-              </div>
-            </motion.div>
-
-            {/* Card 4: Employees Present */}
-            <motion.div
-              animate={{ y: [5, -5, 5] }}
-              transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-              className="absolute -right-4 sm:-right-6 bottom-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_15px_35px_rgba(2,48,32,0.14)] border border-slate-100 p-3 sm:p-3.5 flex items-center gap-3 z-20"
-            >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
-                <Users size={18} />
-              </div>
-              <div>
-                <div className="text-[10px] uppercase font-semibold text-slate-400">Employees</div>
-                <div className="text-xs sm:text-sm font-bold text-slate-900">32 Present</div>
-              </div>
-            </motion.div>
-
-            {/* Card 5: Purchase Orders */}
-            <motion.div
-              animate={{ y: [-4, 6, -4] }}
-              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="hidden sm:flex absolute left-1/3 -bottom-5 bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_15px_35px_rgba(2,48,32,0.14)] border border-slate-100 px-3.5 py-2.5 items-center gap-2.5 z-20"
-            >
-              <span className="w-2 h-2 rounded-full bg-[#00a86b]" />
-              <div className="text-xs font-semibold text-slate-800">
-                Purchase Orders: <span className="font-bold text-[#023020]">12 Active</span>
-              </div>
-            </motion.div>
-          </div>
+          {/* Right Column: Dynamic Banner Slider */}
+          <motion.div
+            className="lg:col-span-6 mt-4 lg:mt-0"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <HeroBannerSlider />
+          </motion.div>
         </div>
       </div>
     </section>
